@@ -8,7 +8,8 @@
 Отч*_Проектирование_РБД_CampusRent.pdf
 presentation/
 
-# Скрипты сборки презентации (зависят от локального окружения)
+# Скрипты сборки итоговых документов (отчёт и презентация)
+tools/build_report.py
 tools/build_deck.mjs
 tools/render_deck.mjs
 
