@@ -23,3 +23,7 @@ socket      = /var/run/mysqld/mysqld.sock
 datadir     = /var/lib/mysql
 secure-file-priv = NULL
 default-authentication-plugin = mysql_native_password
+
+# См. пояснение в master.cnf: клиент внутри контейнера работает в utf8mb4.
+[client]
+default-character-set = utf8mb4
