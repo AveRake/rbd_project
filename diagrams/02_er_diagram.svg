@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1620" height="1120" viewBox="0 0 1620 1120"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2937"/></marker><marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1d4ed8"/></marker><marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b91c1c"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><text x="30" y="36" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#111827">ER-диаграмма предметной области «Сервис аренды техники для вузов»</text>
+<text x="30" y="60" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#4b5563">Ромб — связь; 1 / N — кардинальность; пунктир — необязательная связь</text>
+<line x1="130.0" y1="125.0" x2="260.0" y2="125.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="260.0" y1="125.0" x2="390.0" y2="125.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="260.0,99.0 306.0,125.0 260.0,151.0 214.0,125.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="260.0" y="129.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">относиться</text>
+<text x="161.2" y="125.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="358.8" y="125.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="390.0" y1="125.0" x2="520.0" y2="125.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="520.0" y1="125.0" x2="650.0" y2="125.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="520.0,99.0 593.6,125.0 520.0,151.0 446.4,125.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="520.0" y="129.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">тарифицироваться</text>
+<text x="421.2" y="125.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="618.8" y="125.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="390.0" y1="125.0" x2="260.0" y2="172.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="260.0" y1="172.0" x2="130.0" y2="335.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="260.0,146.0 306.0,172.0 260.0,198.0 214.0,172.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="260.0" y="176.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">включать</text>
+<text x="358.8" y="136.28" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="161.2" y="295.88" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="390.0" y1="125.0" x2="200.0" y2="425.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="200.0" y1="425.0" x2="130.0" y2="535.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="200.0,399.0 269.0,425.0 200.0,451.0 131.0,425.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="200.0" y="429.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">предназначаться</text>
+<text x="344.4" y="197.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="146.8" y="508.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1170.0" y1="125.0" x2="1300.0" y2="125.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="1300.0" y1="125.0" x2="1430.0" y2="125.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="1300.0,99.0 1346.0,125.0 1300.0,151.0 1254.0,125.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="1300.0" y="129.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">работать в</text>
+<text x="1201.2" y="125.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1398.8" y="125.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1170.0" y1="125.0" x2="1170.0" y2="230.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="1170.0" y1="230.0" x2="1170.0" y2="335.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="1170.0,204.0 1220.6,230.0 1170.0,256.0 1119.4,230.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="1170.0" y="234.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">храниться в</text>
+<text x="1170.0" y="150.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1170.0" y="309.8" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1170.0" y1="125.0" x2="780.0" y2="230.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="780.0" y1="230.0" x2="390.0" y2="335.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="780.0,204.0 830.6,230.0 780.0,256.0 729.4,230.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="780.0" y="234.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">обслуживать</text>
+<text x="1076.4" y="150.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="483.6" y="309.8" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="390.0" y1="335.0" x2="390.0" y2="435.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="390.0" y1="435.0" x2="390.0" y2="535.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="390.0,409.0 440.6,435.0 390.0,461.0 339.4,435.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="390.0" y="439.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">состоять из</text>
+<text x="390.0" y="359.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="390.0" y="511.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="390.0" y1="335.0" x2="220.0" y2="575.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="220.0" y1="575.0" x2="130.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="220.0,549.0 275.2,575.0 220.0,601.0 164.8,575.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="220.0" y="579.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">представлять</text>
+<text x="349.2" y="392.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="151.6" y="696.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="390.0" y1="535.0" x2="390.0" y2="635.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="390.0" y1="635.0" x2="390.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="390.0,609.0 436.0,635.0 390.0,661.0 344.0,635.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="390.0" y="639.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">относиться</text>
+<text x="390.0" y="559.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="390.0" y="711.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="130.0" y1="735.0" x2="260.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="260.0" y1="735.0" x2="390.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="260.0,709.0 306.0,735.0 260.0,761.0 214.0,735.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="260.0" y="739.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">оформлять</text>
+<text x="161.2" y="735.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="358.8" y="735.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="390.0" y1="735.0" x2="520.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="520.0" y1="735.0" x2="650.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="520.0,709.0 566.0,735.0 520.0,761.0 474.0,735.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="520.0" y="739.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">содержать</text>
+<text x="421.2" y="735.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="618.8" y="735.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="390.0" y1="125.0" x2="520.0" y2="430.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="520.0" y1="430.0" x2="650.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="520.0,404.0 570.6,430.0 520.0,456.0 469.4,430.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="520.0" y="434.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">указываться</text>
+<text x="421.2" y="198.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="618.8" y="661.8" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="390.0" y1="735.0" x2="520.0" y2="845.0" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="7 5"/>
+<line x1="520.0" y1="845.0" x2="650.0" y2="955.0" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="7 5"/>
+<polygon points="520.0,819.0 570.6,845.0 520.0,871.0 469.4,845.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="520.0" y="849.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">заключаться</text>
+<text x="421.2" y="761.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="618.8" y="928.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<line x1="650.0" y1="955.0" x2="910.0" y2="845.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="910.0" y1="845.0" x2="1170.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="910.0,819.0 956.0,845.0 910.0,871.0 864.0,845.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="910.0" y="849.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">выдавать</text>
+<text x="712.4" y="928.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1107.6" y="761.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1170.0" y1="335.0" x2="1170.0" y2="535.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="1170.0" y1="535.0" x2="1170.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="1170.0,509.0 1234.4,535.0 1170.0,561.0 1105.6,535.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="1170.0" y="539.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">использоваться</text>
+<text x="1170.0" y="383.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1170.0" y="687.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1170.0" y1="335.0" x2="1370.0" y2="375.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="1370.0" y1="375.0" x2="1430.0" y2="535.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="1370.0,349.0 1416.0,375.0 1370.0,401.0 1324.0,375.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="1370.0" y="379.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">перемещать</text>
+<text x="1218.0" y="344.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1415.6" y="496.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1170.0" y1="335.0" x2="1300.0" y2="625.0" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="7 5"/>
+<line x1="1300.0" y1="625.0" x2="1430.0" y2="735.0" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="7 5"/>
+<polygon points="1300.0,599.0 1350.6,625.0 1300.0,651.0 1249.4,625.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="1300.0" y="629.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">обслуживать</text>
+<text x="1201.2" y="404.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1398.8" y="708.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="650.0" y1="955.0" x2="780.0" y2="955.0" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="7 5"/>
+<line x1="780.0" y1="955.0" x2="910.0" y2="955.0" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="7 5"/>
+<polygon points="780.0,929.0 826.0,955.0 780.0,981.0 734.0,955.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="780.0" y="959.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">оплачивать</text>
+<text x="681.2" y="955.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="878.8" y="955.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1430.0" y1="125.0" x2="1260.0" y2="390.0" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="1260.0" y1="390.0" x2="1170.0" y2="735.0" stroke="#1f2937" stroke-width="1.5"/>
+<polygon points="1260.0,364.0 1324.4,390.0 1260.0,416.0 1195.6,390.0" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+<text x="1260.0" y="394.0" font-family="Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="middle" fill="#111827">регистрировать</text>
+<text x="1389.2" y="188.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1191.6" y="652.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<rect x="40" y="90" width="180" height="70" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="130.0" y="123.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Категории</text>
+<text x="130.0" y="141.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Categories</text>
+<rect x="300" y="90" width="180" height="70" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="390.0" y="123.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Модели техники</text>
+<text x="390.0" y="141.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Models</text>
+<rect x="560" y="90" width="180" height="70" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="650.0" y="123.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Тарифы</text>
+<text x="650.0" y="141.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Tariffs</text>
+<rect x="40" y="300" width="180" height="70" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="130.0" y="333.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Комплектация</text>
+<text x="130.0" y="351.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Model_components</text>
+<rect x="300" y="300" width="180" height="70" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="390.0" y="333.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">ВУЗы (клиенты)</text>
+<text x="390.0" y="351.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Universities</text>
+<rect x="1080" y="90" width="180" height="70" rx="4" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
+<text x="1170.0" y="123.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Филиалы</text>
+<text x="1170.0" y="141.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Branches</text>
+<rect x="1340" y="90" width="180" height="70" rx="4" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
+<text x="1430.0" y="123.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Сотрудники</text>
+<text x="1430.0" y="141.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Employees</text>
+<rect x="40" y="500" width="180" height="70" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="130.0" y="533.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Назначение</text>
+<text x="130.0" y="551.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Model_purposes</text>
+<rect x="300" y="500" width="180" height="70" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="390.0" y="533.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Подразделения</text>
+<text x="390.0" y="551.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Departments</text>
+<rect x="1080" y="300" width="180" height="70" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="1170.0" y="333.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Экземпляры техники</text>
+<text x="1170.0" y="351.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Equipment_units</text>
+<rect x="1340" y="500" width="180" height="70" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="1430.0" y="533.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Перемещения</text>
+<text x="1430.0" y="551.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Transfers</text>
+<rect x="40" y="700" width="180" height="70" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="130.0" y="733.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Представители</text>
+<text x="130.0" y="751.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Representatives</text>
+<rect x="300" y="700" width="180" height="70" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="390.0" y="733.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Заявки</text>
+<text x="390.0" y="751.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Requests</text>
+<rect x="560" y="700" width="180" height="70" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="650.0" y="733.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Позиции заявки</text>
+<text x="650.0" y="751.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Request_items</text>
+<rect x="1080" y="700" width="180" height="70" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="1170.0" y="733.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Выдачи</text>
+<text x="1170.0" y="751.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Rentals</text>
+<rect x="1340" y="700" width="180" height="70" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="1430.0" y="733.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Обслуживание</text>
+<text x="1430.0" y="751.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Maintenance</text>
+<rect x="560" y="920" width="180" height="70" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="650.0" y="953.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Договоры</text>
+<text x="650.0" y="971.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Contracts</text>
+<rect x="820" y="920" width="180" height="70" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="910.0" y="953.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Платежи</text>
+<text x="910.0" y="971.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Payments</text>
+<text x="40" y="1050" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#4b5563">Справочные таблицы (статусы заявок, способы оплаты, виды работ, степени состояния) на ER-диаграмме не показаны — они введены на логическом уровне (см. схему БД).</text>
+</svg>

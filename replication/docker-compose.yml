@@ -1,0 +1,82 @@
+# =====================================================================
+#  CampusRent — стенд распределённой БД на MySQL 8.0 в Docker.
+#  Узлы: ЦО (master), филиал СПб (slave), филиал Казань (slave2),
+#         узел консолидации (consol).
+# =====================================================================
+version: "3.9"
+
+services:
+
+  # ---------------- Центральный офис (источник НСИ) ----------------
+  mysql-master:
+    image: 'mysql:8.0'
+    container_name: mysql-master
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./master.cnf:/etc/mysql/conf.d/master.cnf
+      - ./master.sql:/docker-entrypoint-initdb.d/00_replication_user.sql
+      - ./backup:/backup
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - '3306:3306'
+    networks:
+      - campusnet
+
+  # ---------------- Филиал Санкт-Петербург ----------------
+  mysql-slave:
+    image: 'mysql:8.0'
+    container_name: mysql-slave
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./slave.cnf:/etc/mysql/conf.d/slave.cnf
+      - ./slave.sql:/docker-entrypoint-initdb.d/00_replication_user.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+    depends_on:
+      - mysql-master
+    ports:
+      - '3307:3306'
+    networks:
+      - campusnet
+
+  # ---------------- Филиал Казань ----------------
+  mysql-slave2:
+    image: 'mysql:8.0'
+    container_name: mysql-slave2
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./slave2.cnf:/etc/mysql/conf.d/slave2.cnf
+      - ./slave2.sql:/docker-entrypoint-initdb.d/00_replication_user.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+    depends_on:
+      - mysql-master
+    ports:
+      - '3309:3306'
+    networks:
+      - campusnet
+
+  # ---------------- Узел консолидации ----------------
+  mysql-consol:
+    image: 'mysql:8.0'
+    container_name: mysql-consol
+    command: --default-authentication-plugin=mysql_native_password
+    cap_add:
+      - SYS_NICE
+    volumes:
+      - ./consol.cnf:/etc/mysql/conf.d/consol.cnf
+      - ./consol.sql:/docker-entrypoint-initdb.d/00_replication_user.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+    depends_on:
+      - mysql-master
+      - mysql-slave
+    ports:
+      - '3308:3306'
+    networks:
+      - campusnet
+
+networks:
+  campusnet:
+    driver: bridge

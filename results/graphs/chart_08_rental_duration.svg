@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="640" viewBox="0 0 1100 640"><rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="42" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#111111">Средний срок аренды по категориям техники</text>
+<rect x="330" y="101.2" width="649.4000000000001" height="43.4" fill="#1f4e79" stroke="none" stroke-width="0"/>
+<text x="318" y="128.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Проекционное оборудование</text>
+<text x="991.4000000000001" y="128.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">19.1</text>
+<rect x="330" y="171.2" width="595.0" height="43.4" fill="#2e75b6" stroke="none" stroke-width="0"/>
+<text x="318" y="198.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Лабораторное оборудование</text>
+<text x="937.0" y="198.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">17.5</text>
+<rect x="330" y="241.2" width="564.4000000000001" height="43.4" fill="#9dc3e6" stroke="none" stroke-width="0"/>
+<text x="318" y="268.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Сетевое оборудование</text>
+<text x="906.4000000000001" y="268.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">16.6</text>
+<rect x="330" y="311.2" width="550.8" height="43.4" fill="#c9c9c9" stroke="none" stroke-width="0"/>
+<text x="318" y="338.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Оргтехника и печать</text>
+<text x="892.8" y="338.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">16.2</text>
+<rect x="330" y="381.2" width="540.6" height="43.4" fill="#8faadc" stroke="none" stroke-width="0"/>
+<text x="318" y="408.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Аудио- и видеооборудование</text>
+<text x="882.6" y="408.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">15.9</text>
+<rect x="330" y="451.2" width="520.2" height="43.4" fill="#44546a" stroke="none" stroke-width="0"/>
+<text x="318" y="478.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Компьютерная техника</text>
+<text x="862.2" y="478.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">15.3</text>
+<rect x="330" y="521.2" width="455.6" height="43.4" fill="#bdd7ee" stroke="none" stroke-width="0"/>
+<text x="318" y="548.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">VR/AR-оборудование</text>
+<text x="797.6" y="548.5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">13.4</text>
+<line x1="330.0" y1="90" x2="330.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="330.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">0.0</text>
+<line x1="466.0" y1="90" x2="466.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="466.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">4.0</text>
+<line x1="602.0" y1="90" x2="602.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="602.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">8.0</text>
+<line x1="738.0" y1="90" x2="738.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="738.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">12.0</text>
+<line x1="874.0" y1="90" x2="874.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="874.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">16.0</text>
+<line x1="1010.0" y1="90" x2="1010.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="1010.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">20.0</text>
+<text x="330" y="620" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#555555">Источник: запрос 12, дней</text>
+</svg>

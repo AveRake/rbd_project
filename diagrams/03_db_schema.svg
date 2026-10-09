@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="1120" viewBox="0 0 1640 1120"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2937"/></marker><marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1d4ed8"/></marker><marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b91c1c"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><text x="30" y="36" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#111827">Схема базы данных «CampusRent» (без атрибутов)</text>
+<text x="30" y="60" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#4b5563">Стрелка — внешний ключ; 1 и N — кардинальность связи; пунктир — необязательная связь</text>
+<line x1="140.0" y1="137.0" x2="400.0" y2="137.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="207.60000000000002" y="137.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="337.6" y="137.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="400.0" y1="137.0" x2="140.0" y2="357.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="332.4" y="194.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="202.4" y="304.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="400.0" y1="137.0" x2="400.0" y2="357.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="400.0" y="194.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="400.0" y="304.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="400.0" y1="137.0" x2="660.0" y2="137.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="467.6" y="137.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="597.6" y="137.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="960.0" y1="137.0" x2="1240.0" y2="137.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1032.8" y="137.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1172.8" y="137.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="960.0" y1="137.0" x2="960.0" y2="357.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="960.0" y="194.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="960.0" y="304.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="960.0" y1="137.0" x2="1240.0" y2="357.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1032.8" y="194.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1172.8" y="304.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="960.0" y1="357.0" x2="960.0" y2="557.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="960.0" y="409.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="960.0" y="509.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="960.0" y1="357.0" x2="1240.0" y2="557.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1032.8" y="409.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1172.8" y="509.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="960.0" y1="357.0" x2="400.0" y2="557.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="814.4" y="409.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="534.4" y="509.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="960.0" y1="557.0" x2="400.0" y2="557.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="814.4" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="534.4" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1240.0" y1="557.0" x2="400.0" y2="557.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1021.6" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="601.6" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="140.0" y1="557.0" x2="400.0" y2="557.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="207.60000000000002" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="337.6" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="400.0" y1="557.0" x2="660.0" y2="557.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="467.6" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="597.6" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="400.0" y1="137.0" x2="660.0" y2="557.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="467.6" y="246.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="597.6" y="456.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="400.0" y1="557.0" x2="660.0" y2="797.0" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<text x="467.6" y="619.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="597.6" y="739.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<line x1="660.0" y1="797.0" x2="960.0" y2="797.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="738.0" y="797.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="888.0" y="797.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1240.0" y1="357.0" x2="960.0" y2="797.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1167.2" y="471.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1027.2" y="691.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1240.0" y1="357.0" x2="1500.0" y2="357.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1307.6" y="357.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1437.6" y="357.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1240.0" y1="357.0" x2="1500.0" y2="797.0" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<text x="1307.6" y="471.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1437.6" y="691.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1500.0" y1="137.0" x2="1240.0" y2="357.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1432.4" y="194.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1302.4" y="304.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="660.0" y1="797.0" x2="1240.0" y2="797.0" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<text x="810.8" y="797.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1100.8" y="797.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1500.0" y1="577.0" x2="1240.0" y2="797.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1432.4" y="634.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1302.4" y="744.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1500.0" y1="957.0" x2="1500.0" y2="797.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1500.0" y="915.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1500.0" y="835.4" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<line x1="1240.0" y1="137.0" x2="960.0" y2="797.0" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1167.2" y="308.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">1</text>
+<text x="1027.2" y="638.6" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111827">N</text>
+<rect x="40" y="100" width="200" height="74" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="140.0" y="135.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Категории</text>
+<text x="140.0" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Categories</text>
+<rect x="300" y="100" width="200" height="74" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="400.0" y="135.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Модели</text>
+<text x="400.0" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Models</text>
+<rect x="560" y="100" width="200" height="74" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="660.0" y="135.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Тарифы</text>
+<text x="660.0" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Tariffs</text>
+<rect x="40" y="320" width="200" height="74" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="140.0" y="355.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Комплектация</text>
+<text x="140.0" y="373.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Model_components</text>
+<rect x="300" y="320" width="200" height="74" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="400.0" y="355.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Назначение</text>
+<text x="400.0" y="373.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Model_purposes</text>
+<rect x="860" y="100" width="200" height="74" rx="4" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
+<text x="960.0" y="135.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Филиалы</text>
+<text x="960.0" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Branches</text>
+<rect x="1140" y="100" width="200" height="74" rx="4" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
+<text x="1240.0" y="135.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Сотрудники</text>
+<text x="1240.0" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Employees</text>
+<rect x="1400" y="100" width="200" height="74" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="1500.0" y="135.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Степени состояния</text>
+<text x="1500.0" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Condition_grades</text>
+<rect x="860" y="320" width="200" height="74" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="960.0" y="355.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">ВУЗы</text>
+<text x="960.0" y="373.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Universities</text>
+<rect x="860" y="520" width="200" height="74" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="960.0" y="555.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Подразделения</text>
+<text x="960.0" y="573.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Departments</text>
+<rect x="1140" y="520" width="200" height="74" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="1240.0" y="555.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Представители</text>
+<text x="1240.0" y="573.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Representatives</text>
+<rect x="1140" y="320" width="200" height="74" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="1240.0" y="355.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Экземпляры техники</text>
+<text x="1240.0" y="373.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Equipment_units</text>
+<rect x="1400" y="320" width="200" height="74" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="1500.0" y="355.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Перемещения</text>
+<text x="1500.0" y="373.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Transfers</text>
+<rect x="300" y="520" width="200" height="74" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="400.0" y="555.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Заявки</text>
+<text x="400.0" y="573.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Requests</text>
+<rect x="560" y="520" width="200" height="74" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="660.0" y="555.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Позиции заявки</text>
+<text x="660.0" y="573.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Request_items</text>
+<rect x="40" y="520" width="200" height="74" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="140.0" y="555.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Статусы заявок</text>
+<text x="140.0" y="573.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Request_statuses</text>
+<rect x="560" y="760" width="200" height="74" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="660.0" y="795.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Договоры</text>
+<text x="660.0" y="813.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Contracts</text>
+<rect x="860" y="760" width="200" height="74" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="960.0" y="795.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Выдачи</text>
+<text x="960.0" y="813.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Rentals</text>
+<rect x="1140" y="760" width="200" height="74" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="1240.0" y="795.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Платежи</text>
+<text x="1240.0" y="813.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Payments</text>
+<rect x="1400" y="760" width="200" height="74" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="1500.0" y="795.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Обслуживание</text>
+<text x="1500.0" y="813.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Maintenance</text>
+<rect x="1400" y="540" width="200" height="74" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="1500.0" y="575.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Способы оплаты</text>
+<text x="1500.0" y="593.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Payment_methods</text>
+<rect x="1400" y="920" width="200" height="74" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="1500.0" y="955.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111827">Виды работ</text>
+<text x="1500.0" y="973.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#6b7280" font-style="italic">Maintenance_types</text>
+<text x="40" y="1060" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#4b5563">Схема совпадает со схемой фрагментации (см. 05_fragmentation). Цвет: синий — НСИ, зелёный — клиенты, жёлтый — техника, красный — заявки, оранжевый — договоры/финансы.</text>
+</svg>

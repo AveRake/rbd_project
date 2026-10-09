@@ -1,0 +1,20 @@
+# Узел консолидации: собирает фрагменты филиалов и данные ЦО
+[mysqld]
+server-id = 3
+log-bin
+binlog-do-db = campusrent
+binlog-format = ROW
+replicate-do-table = campusrent.equipment_units
+replicate-do-table = campusrent.transfers
+replicate-do-table = campusrent.requests
+replicate-do-table = campusrent.request_items
+replicate-do-table = campusrent.contracts
+replicate-do-table = campusrent.rentals
+replicate-do-table = campusrent.payments
+replicate-do-table = campusrent.maintenance
+replicate-wild-ignore-table = campusrent.%bck%
+pid-file    = /var/run/mysqld/mysqld.pid
+socket      = /var/run/mysqld/mysqld.sock
+datadir     = /var/lib/mysql
+secure-file-priv = NULL
+default-authentication-plugin = mysql_native_password

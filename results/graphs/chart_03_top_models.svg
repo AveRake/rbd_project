@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="640" viewBox="0 0 1100 640"><rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="42" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#111111">Топ-10 моделей техники по числу выдач</text>
+<rect x="330" y="97.84" width="612.0" height="30.38" fill="#1f4e79" stroke="none" stroke-width="0"/>
+<text x="318" y="116.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Lenovo ThinkPad E14 Gen5</text>
+<text x="954.0" y="116.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">27</text>
+<rect x="330" y="146.84" width="612.0" height="30.38" fill="#2e75b6" stroke="none" stroke-width="0"/>
+<text x="318" y="165.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Ubiquiti UniFi 6 Pro</text>
+<text x="954.0" y="165.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">27</text>
+<rect x="330" y="195.84" width="612.0" height="30.38" fill="#9dc3e6" stroke="none" stroke-width="0"/>
+<text x="318" y="214.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">MikroTik RB4011</text>
+<text x="954.0" y="214.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">27</text>
+<rect x="330" y="244.84" width="566.6666666666666" height="30.38" fill="#c9c9c9" stroke="none" stroke-width="0"/>
+<text x="318" y="263.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Cisco Catalyst 2960-X</text>
+<text x="908.6666666666666" y="263.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">25</text>
+<rect x="330" y="293.84" width="521.3333333333334" height="30.38" fill="#8faadc" stroke="none" stroke-width="0"/>
+<text x="318" y="312.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Dell Latitude 5540</text>
+<text x="863.3333333333334" y="312.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">23</text>
+<rect x="330" y="342.84" width="476.0" height="30.38" fill="#44546a" stroke="none" stroke-width="0"/>
+<text x="318" y="361.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Rigol DP832</text>
+<text x="818.0" y="361.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">21</text>
+<rect x="330" y="391.84" width="476.0" height="30.38" fill="#bdd7ee" stroke="none" stroke-width="0"/>
+<text x="318" y="410.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">SMART SB680</text>
+<text x="818.0" y="410.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">21</text>
+<rect x="330" y="440.84" width="453.3333333333333" height="30.38" fill="#1f4e79" stroke="none" stroke-width="0"/>
+<text x="318" y="459.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Keysight DSOX1204G</text>
+<text x="795.3333333333333" y="459.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">20</text>
+<rect x="330" y="489.84" width="453.3333333333333" height="30.38" fill="#2e75b6" stroke="none" stroke-width="0"/>
+<text x="318" y="508.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Thermo Evolution 201</text>
+<text x="795.3333333333333" y="508.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">20</text>
+<rect x="330" y="538.84" width="430.6666666666667" height="30.38" fill="#9dc3e6" stroke="none" stroke-width="0"/>
+<text x="318" y="557.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#111111">Leica DM500</text>
+<text x="772.6666666666667" y="557.95" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#111111">19</text>
+<line x1="330.0" y1="90" x2="330.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="330.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">0</text>
+<line x1="466.0" y1="90" x2="466.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="466.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">6</text>
+<line x1="602.0" y1="90" x2="602.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="602.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">12</text>
+<line x1="738.0" y1="90" x2="738.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="738.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">18</text>
+<line x1="874.0" y1="90" x2="874.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="874.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">24</text>
+<line x1="1010.0" y1="90" x2="1010.0" y2="580" stroke="#d9d9d9" stroke-width="1"/>
+<text x="1010.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">30</text>
+<text x="330" y="620" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#555555">Источник: запрос 5</text>
+</svg>

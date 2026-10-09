@@ -1,0 +1,25 @@
+# Филиал Казань (реплика НСИ + приёмник данных клиентов)
+[mysqld]
+server-id = 4
+log-bin
+binlog-do-db = campusrent
+binlog-format = ROW
+replicate-do-table = campusrent.branches
+replicate-do-table = campusrent.categories
+replicate-do-table = campusrent.models
+replicate-do-table = campusrent.model_components
+replicate-do-table = campusrent.model_purposes
+replicate-do-table = campusrent.tariffs
+replicate-do-table = campusrent.request_statuses
+replicate-do-table = campusrent.payment_methods
+replicate-do-table = campusrent.maintenance_types
+replicate-do-table = campusrent.condition_grades
+replicate-do-table = campusrent.employees
+replicate-do-table = campusrent.universities
+replicate-do-table = campusrent.departments
+replicate-do-table = campusrent.representatives
+pid-file    = /var/run/mysqld/mysqld.pid
+socket      = /var/run/mysqld/mysqld.sock
+datadir     = /var/lib/mysql
+secure-file-priv = NULL
+default-authentication-plugin = mysql_native_password
