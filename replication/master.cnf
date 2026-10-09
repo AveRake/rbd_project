@@ -4,6 +4,10 @@ server-id = 1
 log-bin
 binlog-do-db = campusrent
 binlog-format = ROW
+# РБОК: ЦО принимает изменения таблиц клиентов из филиала
+replicate-do-table = campusrent.universities
+replicate-do-table = campusrent.departments
+replicate-do-table = campusrent.representatives
 pid-file    = /var/run/mysqld/mysqld.pid
 socket      = /var/run/mysqld/mysqld.sock
 datadir     = /var/lib/mysql
