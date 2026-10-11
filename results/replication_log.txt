@@ -1,0 +1,67 @@
+########## 1. СОСТОЯНИЕ КАНАЛОВ (все узлы)
+--- mysql-master
+Master_Host: mysql-slave
+Slave_IO_Running: Yes
+Slave_SQL_Running: Yes
+Last_Error: 
+Slave_SQL_Running_State: Replica has read all relay log; waiting for more updates
+Channel_Name: 
+--- mysql-slave
+Master_Host: mysql-master
+Slave_IO_Running: Yes
+Slave_SQL_Running: Yes
+Last_Error: 
+Slave_SQL_Running_State: Replica has read all relay log; waiting for more updates
+Channel_Name: 
+--- mysql-slave2
+Master_Host: mysql-master
+Slave_IO_Running: Yes
+Slave_SQL_Running: Yes
+Last_Error: 
+Slave_SQL_Running_State: Replica has read all relay log; waiting for more updates
+Channel_Name: 
+--- mysql-consol
+Master_Host: mysql-master
+Slave_IO_Running: Yes
+Slave_SQL_Running: Yes
+Last_Error: 
+Slave_SQL_Running_State: Replica has read all relay log; waiting for more updates
+Channel_Name: hq
+Master_Host: mysql-slave2
+Slave_IO_Running: Yes
+Slave_SQL_Running: Yes
+Last_Error: 
+Slave_SQL_Running_State: Replica has read all relay log; waiting for more updates
+Channel_Name: kzn
+Master_Host: mysql-slave
+Slave_IO_Running: Yes
+Slave_SQL_Running: Yes
+Last_Error: 
+Slave_SQL_Running_State: Replica has read all relay log; waiting for more updates
+Channel_Name: spb
+
+########## 2. РОК: тариф 2011 на ЦО -> филиалы
+  mysql-master: TAR_ID=2011, TAR_PRICE=844.00
+  mysql-slave: TAR_ID=2011, TAR_PRICE=844.00
+  mysql-slave2: TAR_ID=2011, TAR_PRICE=844.00
+
+########## 3. РБОК: вуз 9099 добавлен на филиале SPB
+  mysql-master: найден UN_ID=9099 (ТЕСТВУЗ)
+  mysql-slave2: найден UN_ID=9099 (ТЕСТВУЗ)
+
+########## 4. РКД: экземпляр 909900 добавлен на филиале SPB
+  mysql-consol: найден EQ_ID=909900 (SPB-909900, SPB)
+
+########## 5. УБОРКА тестовых записей
+  контроль (должны быть 0/0): master=0/0
+
+########## 6. РЕЗУЛЬТАТ РАСПРЕДЕЛЁННОЙ ТРАНЗАКЦИИ РТ-1
+  участник KZN (mysql-slave2), EQ 100495: бронь
+  координатор SPB (mysql-slave), заявка 500526: XA-500526 SPB 31080.00
+  консолидация (mysql-consol), EQ 100495: бронь
+
+########## 7. КАНАЛЫ ПОСЛЕ ВСЕХ ПРОВЕРОК
+  mysql-master: каналов Yes = 1, с ошибкой = 0
+  mysql-slave: каналов Yes = 1, с ошибкой = 0
+  mysql-slave2: каналов Yes = 1, с ошибкой = 0
+  mysql-consol: каналов Yes = 3, с ошибкой = 0

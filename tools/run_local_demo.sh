@@ -37,6 +37,10 @@ mysql $MYSQL_ARGS --default-character-set=utf8mb4 --table \
   < "$ROOT/sql/08_queries.sql" > "$RES/query_results.txt"
 echo "   результат: $RES/query_results.txt"
 
+echo "==> сводка результатов (query_results.md)"
+python3 "$ROOT/tools/gen_query_results.py" --client "mysql $MYSQL_ARGS" \
+  || echo "   предупреждение: сводку сгенерировать не удалось"
+
 echo "==> тесты ограничений целостности"
 mysql $MYSQL_ARGS --default-character-set=utf8mb4 --table --force \
   < "$ROOT/tools/integrity_tests.sql" > "$RES/integrity_tests.txt" 2>&1

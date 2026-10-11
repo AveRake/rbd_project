@@ -55,7 +55,7 @@ JOIN equipment_units eq ON eq.EQ_ID = r.RNT_EQ
 JOIN models m           ON m.MOD_ID = eq.EQ_MOD
 JOIN categories c       ON c.CAT_ID = m.MOD_CAT
 GROUP BY `Модель`, `Категория`
-ORDER BY `Выдач` DESC
+ORDER BY `Выдач` DESC, `Модель`
 LIMIT 10;
 
 -- ---------------------------------------------------------------------

@@ -9,12 +9,21 @@
 #    4) включает репликацию:
 #         РОК  — ЦО -> филиалы (справочники)
 #         РБОК — филиал СПб -> ЦО (таблицы клиентов)
-#         РКД  — ЦО и филиал -> узел консолидации
+#         РКД  — ЦО и оба филиала -> узел консолидации (каналы hq, spb, kzn)
 #    5) печатает состояние каналов.
 #
 #  Почему позиции фиксируются заранее: репликация должна начаться
 #  с текущего момента. Если запустить её «с начала журнала», филиал
 #  повторно применит уже загруженные данные и упадёт на дубликатах.
+#
+#  ВАЖНО (MySQL 8.0): параметр log_replica_updates включён по умолчанию,
+#  поэтому приёмник записывает применённые события в собственный
+#  бинарный журнал. Практическое следствие: DDL-скрипты (например,
+#  sql/06_indexes.sql) нельзя повторно запускать на отдельном узле
+#  работающего стенда — созданный объект «размножится» по каналам, и
+#  тот узел, где он уже есть, остановит канал с ошибкой 1304
+#  «... already exists». Все DDL выполняются один раз на всех узлах
+#  до включения репликации (шаг 3).
 #
 #  Запуск:              bash setup.sh
 #  Повторный запуск:    docker compose down -v && bash setup.sh
@@ -55,14 +64,17 @@ done
 echo "==> 4/5 Фиксация позиций бинарных журналов"
 M_POS_RAW="$(q mysql-master -N -e 'SHOW MASTER STATUS' | awk '{print $1" "$2}')"
 S_POS_RAW="$(q mysql-slave  -N -e 'SHOW MASTER STATUS' | awk '{print $1" "$2}')"
+K_POS_RAW="$(q mysql-slave2 -N -e 'SHOW MASTER STATUS' | awk '{print $1" "$2}')"
 M_FILE="${M_POS_RAW% *}"; M_OFF="${M_POS_RAW#* }"
 S_FILE="${S_POS_RAW% *}"; S_OFF="${S_POS_RAW#* }"
-if [ -z "$M_FILE" ] || [ -z "$S_FILE" ]; then
+K_FILE="${K_POS_RAW% *}"; K_OFF="${K_POS_RAW#* }"
+if [ -z "$M_FILE" ] || [ -z "$S_FILE" ] || [ -z "$K_FILE" ]; then
   echo "    Не удалось прочитать позицию журнала. Проверьте log-bin в конфигурации узла."
   exit 1
 fi
-echo "    ЦО:     $M_FILE:$M_OFF"
-echo "    Филиал: $S_FILE:$S_OFF"
+echo "    ЦО:          $M_FILE:$M_OFF"
+echo "    Филиал СПб:  $S_FILE:$S_OFF"
+echo "    Филиал Кзн:  $K_FILE:$K_OFF"
 
 echo "==> 5/5 Настройка репликации"
 
@@ -73,7 +85,7 @@ for svc in mysql-slave mysql-slave2; do
   docker exec "$svc" mysql -uroot -ppassword -e "STOP SLAVE"      >/dev/null 2>&1 || true
   docker exec "$svc" mysql -uroot -ppassword -e "RESET SLAVE ALL" >/dev/null 2>&1 || true
 done
-for ch in hq spb; do
+for ch in hq spb kzn; do
   docker exec mysql-consol mysql -uroot -ppassword -e "STOP SLAVE FOR CHANNEL '$ch'"      >/dev/null 2>&1 || true
   docker exec mysql-consol mysql -uroot -ppassword -e "RESET SLAVE ALL FOR CHANNEL '$ch'" >/dev/null 2>&1 || true
 done
@@ -98,15 +110,18 @@ CHANGE MASTER TO
 START SLAVE;
 SQL
 
-# РКД: ЦО и филиал -> узел консолидации
-echo "    РКД: mysql-master и mysql-slave -> mysql-consol"
+# РКД: ЦО и оба филиала -> узел консолидации
+echo "    РКД: mysql-master, mysql-slave и mysql-slave2 -> mysql-consol"
 qin mysql-consol <<SQL
 CHANGE MASTER TO MASTER_HOST='mysql-master', MASTER_USER='repl', MASTER_PASSWORD='password',
   MASTER_LOG_FILE='$M_FILE', MASTER_LOG_POS=$M_OFF, GET_MASTER_PUBLIC_KEY=1 FOR CHANNEL 'hq';
 CHANGE MASTER TO MASTER_HOST='mysql-slave', MASTER_USER='replslave', MASTER_PASSWORD='password',
   MASTER_LOG_FILE='$S_FILE', MASTER_LOG_POS=$S_OFF, GET_MASTER_PUBLIC_KEY=1 FOR CHANNEL 'spb';
+CHANGE MASTER TO MASTER_HOST='mysql-slave2', MASTER_USER='replslave', MASTER_PASSWORD='password',
+  MASTER_LOG_FILE='$K_FILE', MASTER_LOG_POS=$K_OFF, GET_MASTER_PUBLIC_KEY=1 FOR CHANNEL 'kzn';
 START SLAVE FOR CHANNEL 'hq';
 START SLAVE FOR CHANNEL 'spb';
+START SLAVE FOR CHANNEL 'kzn';
 SQL
 
 echo

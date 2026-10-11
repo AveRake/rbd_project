@@ -40,3 +40,7 @@ replication/backup/
 .idea/
 .vscode/
 *.swp
+
+# Локальный symlink на рантайм сборки презентации
+node_modules/
+node_modules
