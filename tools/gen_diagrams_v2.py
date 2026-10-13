@@ -145,7 +145,7 @@ class Svg:
         for c in sorted(self.colors):
             out.append(
                 f'<marker id="{self._mid(c)}" viewBox="0 0 10 10" refX="9" refY="5" '
-                f'markerWidth="9" markerHeight="9" orient="auto-start-reverse">'
+                f'markerWidth="18" markerHeight="18" orient="auto-start-reverse">'
                 f'<path d="M 0 0 L 10 5 L 0 10 z" fill="{c}"/></marker>')
         out.append('</defs>')
         return "".join(out)
