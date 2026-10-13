@@ -158,8 +158,16 @@ def d01_network():
         cx1, cy1 = center(hq)
         cx2, cy2 = center(b)
         s.line(cx1, cy1, cx2, cy2, stroke=C_HQ_S, sw=2.5, dash=True)
+
+    # Подпись канала репликации. Вертикальный пунктир ЦО → «Филиал Казань»
+    # проходит по x = 600, поэтому под текстом кладём белую подложку —
+    # иначе линия перечёркивает буквы. Ширина строки посчитана по метрикам
+    # Helvetica/Arial: 345 px при size = 13.
+    rep_w, rep_size = 345, 13
+    s.rect(600 - rep_w / 2 - 8, 285 - rep_size - 5, rep_w + 16, rep_size + 12,
+           fill="#ffffff", stroke="none", sw=0)
     s.text(600, 285, "обмен данными (репликация, распределённые запросы)",
-           size=12, fill="#374151")
+           size=rep_size, fill="#374151")
 
     s.rect(*hq, fill=C_HQ_F, stroke=C_HQ_S, sw=2.5)
     s.text(center(hq)[0], 150, "ЦЕНТРАЛЬНЫЙ ОФИС", size=16, weight="bold")
@@ -170,18 +178,27 @@ def d01_network():
         s.text(center(b)[0], b[1] + 40, t1, size=14, weight="bold")
         s.text(center(b)[0], b[1] + 62, t2, size=12, fill="#374151")
 
-    # вузы
+    # вузы: шаг 72 px при rx = 33 (2*rx = 66) — эллипсы не пересекаются,
+    # между соседними остаётся зазор 6 px
+    vuz_dx, vuz_rx, vuz_ry = 72, 33, 25
     for b in branches:
         bx = center(b)[0]
-        for i, dx in enumerate([-70, 0, 70]):
-            s.ellipse(bx + dx, 530, 52, 26, fill=C_CLI_F, stroke=C_CLI_S)
+        for dx in (-vuz_dx, 0, vuz_dx):
+            s.ellipse(bx + dx, 530, vuz_rx, vuz_ry, fill=C_CLI_F, stroke=C_CLI_S)
             s.text(bx + dx, 534, "ВУЗ", size=12)
-        s.line(bx, b[1] + 90, bx, 505, stroke=C_CLI_S)
+        s.line(bx, b[1] + 90, bx, 530 - vuz_ry - 1, stroke=C_CLI_S)
 
-    s.text(40, 660, "Обозначения: сплошная линия — постоянное подключение; "
-                    "пунктир — обмен данными между узлами РБД.", size=12, fill="#4b5563")
-    s.text(40, 682, "Каждый филиал хранит локальные данные своего региона "
-                    "и реплики центральных справочников.", size=12, fill="#4b5563")
+    # Легенда: кегль задан в системе координат SVG. PNG рендерится как
+    # `rsvg-convert -w 1700`, то есть с коэффициентом 1700/1200 ≈ 1.42:
+    # 20 × 1.42 ≈ 28 px в PNG и ≈ 20 px на слайде шириной 1200 px.
+    # Выравнивание по левому краю (anchor="start") + отступ 30 px, чтобы
+    # строки не уезжали за границу полотна.
+    s.text(30, 636, "Обозначения: сплошная линия — постоянное подключение; "
+                    "пунктир — обмен данными между узлами РБД.",
+           size=20, anchor="start", fill="#4b5563")
+    s.text(30, 672, "Каждый филиал хранит локальные данные своего региона "
+                    "и реплики центральных справочников.",
+           size=20, anchor="start", fill="#4b5563")
     s.save("01_network_scheme.svg")
 
 

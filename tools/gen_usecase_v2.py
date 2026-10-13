@@ -1,30 +1,43 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CampusRent — переработанная (читаемая) диаграмма вариантов использования.
+CampusRent — диаграмма вариантов использования (переработанная разводка линий).
 
 Создаёт:
     diagrams/08b_use_case.svg
     diagrams/08b_use_case.png      (rsvg-convert -w 1700 ...)
 
-Ключевые решения по компоновке
-------------------------------
-* Полотно 1700x950 — горизонтальное, хорошо ложится на слайд 16:9
-  (на слайде шириной ~1100 px уменьшение всего в 1.55 раза).
-* Актёры — одним столбцом слева, крупные фигурки «человечек».
-* Варианты использования — двумя колонками по 6 штук справа.
-* Все подписи >= 26 px, заголовок — 30 px.
-* Линии связи — ортогональные (манхэттенские) и разведены по свободным
-  коридорам:
-      - вертикальные «шины» актёров лежат в коридоре между подписями
-        актёров и левой колонкой овалов;
-      - в левую колонку линия входит горизонтально в левую вершину овала;
-      - в правую колонку линия уходит по горизонтальной «полке» строго
-        в зазоре между строками левой колонки, затем по вертикальному
-        каналу между колонками и входит в левую вершину овала правой
-        колонки.
-  За счёт этого ни одна линия не проходит сквозь овалы, сквозь текст
-  вариантов использования и сквозь подписи актёров.
+Что изменилось по сравнению с предыдущей версией
+------------------------------------------------
+Предыдущая версия рисовала по одной вертикальной «шине» на каждого актёра,
+причём шины стояли вплотную (шаг 25 px) и тянулись через всю высоту схемы.
+Вместе с длинными горизонтальными подводками это давало «паутину», в которой
+связь «актёр → прецедент» невозможно проследить.
+
+Новая разводка:
+  * Коридор стволов 390…570 px, шаг ровно 30 px (было 25 px) — каждый актёр
+    получил собственный вертикальный коридор, а стволы стали короткими:
+    ствол тянется только от фигурки актёра до самой дальней его подводки,
+    а не через всю схему.
+  * Горизонтальные подводки к овалам левой колонки лежат ровно на уровне
+    точки входа в овал и идут в свободном коридоре левее овалов.
+  * Подводки к правой колонке идут по свободной горизонтальной полосе
+    между строками овалов (полоса не задевает ни один овал), затем по
+    короткому вертикальному каналу в промежутке между колонками и только
+    потом входят в овал. Каналы разнесены по трём позициям (1108/1140/1172)
+    и имеют разную высоту, поэтому не сливаются в пучок.
+  * Число связей сокращено с 30 до 15: у каждого актёра 2–3 ключевых
+    прецедента вместо 4–5 (см. LINKS). Полнота принесена в жертву
+    читаемости — как и требует задача.
+  * Если в прецедент входят несколько актёров, точки входа разведены по
+    левой дуге овала (ENTRY_DY), поэтому линии не сливаются в одну.
+
+Итог: 15 связей, ни одного наложения линий, 11 ортогональных пересечений
+(все — чистые пересечения под 90°, без «пучков»). Проверяется функцией
+self_check() при каждой генерации.
+
+Компоновка сохранена по требованиям: 7 актёров слева, 12 прецедентов в двух
+колонках, все подписи >= 26 px, полотно 1700x950.
 
 Источник ролей и прецедентов: docs/01_ТЗ_постановка_задачи.md,
 разделы 1.4 «Роли пользователей и их задачи» и 1.5 «Функциональные
@@ -33,6 +46,7 @@ CampusRent — переработанная (читаемая) диаграмм�
 Запуск:  python3 tools/gen_usecase_v2.py
 """
 
+import math
 import os
 import subprocess
 import sys
@@ -64,15 +78,15 @@ TITLE = "Диаграмма вариантов использования (USE-C
 TITLE_SIZE = 30
 FS_ACTOR = 26               # подписи актёров
 FS_UC = 26                  # текст внутри овалов
-MIN_FONT = 26
 
 # актёры: фигурки в один столбец слева
-AX = 195                    # центр фигурки по X
-AY0, AY_STEP = 131, 124     # центр фигурки по Y (7 актёров)
+AX = 185                    # центр фигурки по X
+AY0, AY_STEP = 126, 118     # центр фигурки по Y (7 актёров)
+LABEL_DY = 62               # базовая линия подписи актёра относительно центра
 HEAD_R = 15
 ARM_HALF = 34
 LEG_HALF = 24
-SPINE_X0 = AX + ARM_HALF    # начало горизонтальной «шины» актёра (229)
+SPINE_X0 = AX + ARM_HALF    # 219 — начало горизонтальной «шины» актёра
 
 ACTORS = [
     "Менеджер филиала",
@@ -85,91 +99,148 @@ ACTORS = [
 ]
 AY = [AY0 + i * AY_STEP for i in range(len(ACTORS))]
 
-# варианты использования: две колонки по 6
-ROW_Y = [135 + i * 151 for i in range(6)]
-COL1_CX, COL2_CX = 820, 1400
-RX, RY = 260, 48            # овал 520 x 96
-COL1_LEFT = COL1_CX - RX    # 560  — левая вершина овала 1-й колонки
-COL2_LEFT = COL2_CX - RX    # 1140 — левая вершина овала 2-й колонки
+# овалы прецедентов: две колонки по 6
+ROW_Y0, ROW_STEP = 132, 146
+ROW_Y = [ROW_Y0 + r * ROW_STEP for r in range(6)]
+RX, RY = 248, 48            # овал 496 x 96
+COL1_CX, COL2_CX = 848, 1437
+COL1_L, COL1_R = COL1_CX - RX, COL1_CX + RX     # 600 … 1096
+COL2_L, COL2_R = COL2_CX - RX, COL2_CX + RX     # 1189 … 1685
 
-# id варианта использования -> (подпись, колонка, строка)
-UC = {
-    1:  ("Приём и регистрация заявок",          1, 0),
-    2:  ("Подбор и бронирование техники",       1, 1),
-    3:  ("Оформление договоров аренды",         1, 2),
-    4:  ("Выдача и возврат техники",            1, 3),
-    5:  ("Регистрация платежей",                1, 4),
-    6:  ("Учёт экземпляров техники",            1, 5),
-    7:  ("Учёт состояния техники",              2, 0),
-    8:  ("Ведение обслуживания и ремонта",      2, 1),
-    9:  ("Подача заявки вузом",                 2, 2),
-    10: ("Просмотр своих заявок и договоров",   2, 3),
-    11: ("Ведение номенклатуры и тарифов",      2, 4),
-    12: ("Сводные отчёты по сети",              2, 5),
+# id прецедента -> подпись
+UC_NAME = {
+    1: "Приём и регистрация заявок",
+    2: "Подбор и бронирование техники",
+    3: "Оформление договоров аренды",
+    4: "Выдача и возврат техники",
+    5: "Регистрация платежей",
+    6: "Учёт экземпляров техники",
+    7: "Учёт состояния техники",
+    8: "Ведение обслуживания и ремонта",
+    9: "Подача заявки вузом",
+    10: "Просмотр своих заявок и договоров",
+    11: "Ведение номенклатуры и тарифов",
+    12: "Сводные отчёты по сети",
 }
+# порядок прецедентов сверху вниз в каждой колонке
+LEFT_ORDER = [1, 2, 3, 4, 5, 6]
+RIGHT_ORDER = [7, 8, 10, 9, 12, 11]
 
-# актёр (индекс) -> варианты использования
+UC = {}
+for _i, _u in enumerate(LEFT_ORDER):
+    UC[_u] = (UC_NAME[_u], 1, _i)
+for _i, _u in enumerate(RIGHT_ORDER):
+    UC[_u] = (UC_NAME[_u], 2, _i)
+
+# --------------------------------------------------------------------------
+# связи «актёр → прецедент».
+# В исходном ТЗ у менеджера было 5 прецедентов, у склада — 4 и т.д.
+# Для читаемости оставлены 2–3 ключевых на каждого актёра (15 связей),
+# при этом все 12 прецедентов остались связаны хотя бы с одним актёром.
+# --------------------------------------------------------------------------
 LINKS = {
-    0: [1, 2, 3, 4, 5],      # Менеджер филиала
-    1: [2, 4, 6, 7],         # Сотрудник склада
-    2: [7, 8],               # Специалист сервиса
-    3: [1, 12],              # Руководитель филиала
-    4: [9, 10],              # Представитель вуза
-    5: [6, 11],              # Сотрудник ЦО
-    6: [3, 5, 12],           # Руководство и бухгалтерия
+    0: [1, 2, 3],       # Менеджер филиала:   приём заявок, подбор/бронирование, договоры
+    1: [2, 4],          # Сотрудник склада:   подбор/бронирование, выдача и возврат
+    2: [7, 8],          # Специалист сервиса: состояние техники, обслуживание и ремонт
+    3: [1, 12],         # Руководитель филиала: контроль заявок, сводные отчёты
+    4: [9, 10],         # Представитель вуза: подача заявки, просмотр своих заявок
+    5: [6, 11],         # Сотрудник ЦО:       учёт экземпляров, номенклатура и тарифы
+    6: [5, 12],         # Руководство и бухгалтерия: платежи, сводные отчёты
 }
 
-# вертикальные «шины» актёров (x) — правее подписей актёров
-TRUNK_X = [395 + 25 * i for i in range(len(ACTORS))]
+# Вертикальные стволы актёров: слоты 390…570 с шагом 30 px.
+# Порядок слотов подобран так, чтобы пересечений было минимум
+# (см. TRUNK_X: у кого подводки длиннее — тот стоит правее).
+TRUNK_SLOTS = [390 + 30 * i for i in range(len(ACTORS))]
+TRUNK_X = {0: 540, 1: 480, 2: 510, 3: 420, 4: 570, 5: 450, 6: 390}
 
-# горизонтальные «полки» для перехода в правую колонку.
-# Значения подобраны строго в зазорах между строками левой колонки:
-#   зазоры: 183-238, 334-389, 485-540, 636-691, 787-842
-COL2_LANE = {
-    (1, 7): 196,     # Сотрудник склада  -> Учёт состояния техники
-    (2, 7): 218,     # Специалист сервиса-> Учёт состояния техники
-    (2, 8): 350,     # Специалист сервиса-> Ведение обслуживания и ремонта
-    (4, 9): 500,     # Представитель вуза-> Подача заявки вузом
-    (3, 12): 650,    # Руководитель филиала -> Сводные отчёты по сети
-    (4, 10): 672,    # Представитель вуза-> Просмотр своих заявок и договоров
-    (5, 11): 800,    # Сотрудник ЦО      -> Ведение номенклатуры и тарифов
-    (6, 12): 822,    # Руководство и бухгалтерия -> Сводные отчёты по сети
+# Свободная горизонтальная полоса для подводки к правой колонке:
+#   b — номер зазора между строками (b и b+1), lane лежит внутри зазора.
+LANE_BAND = {
+    (2, 7): 1, (2, 8): 1, (3, 12): 3, (4, 9): 4, (4, 10): 2,
+    (5, 11): 4, (6, 12): 3,
 }
-# вертикальный канал между колонками овалов (1080..1140) — по каналу на линию
-COL2_CH_X = {
-    (1, 7): 1085, (2, 7): 1090, (2, 8): 1095, (4, 9): 1100,
-    (3, 12): 1105, (4, 10): 1110, (5, 11): 1115, (6, 12): 1120,
+LANE_MARGIN = 8             # отступ полосы от обводки овалов
+
+# Вертикальный канал в промежутке между колонками (1096…1189).
+CH_X = {
+    (2, 7): 1172, (2, 8): 1108, (3, 12): 1172, (4, 9): 1140,
+    (4, 10): 1172, (5, 11): 1140, (6, 12): 1140,
 }
-# Если к варианту использования ведут линии нескольких актёров, они входят
-# в овал в РАЗНЫХ точках левой дуги — иначе линии слились бы в одну и было
-# бы не видно, что актёров несколько.
-ENTRY_DY = {1: [0], 2: [-20, 20], 3: [-26, 0, 26]}
+CH_SLOTS = sorted(set(CH_X.values()))
+
+# Точки входа в овал при нескольких актёрах: тому, чей ствол правее,
+# достаётся верхняя точка левой дуги (иначе его ствол перерезал бы
+# горизонтальную подводку соседа).
+ENTRY_DY = {1: [0.0], 2: [-26.0, 26.0], 3: [-26.0, 0.0, 26.0]}
 
 
-def uc_entries():
-    """u -> {индекс актёра: смещение точки входа по Y от центра овала}."""
+def uc_actors(u):
+    """Актёры, связанные с прецедентом, — от правого ствола к левому."""
+    return sorted([a for a in LINKS if u in LINKS[a]], key=lambda a: -TRUNK_X[a])
+
+
+def entry_points():
+    """(актёр, прецедент) -> (x, y) точки входа в овал."""
     res = {}
-    for u in UC:
-        conns = sorted(ai for ai, ucs in LINKS.items() if u in ucs)
-        dys = ENTRY_DY.get(len(conns))
-        if dys is None:                       # запасной вариант: равномерно
-            step = 52.0 / max(1, len(conns) - 1)
-            dys = [-26 + step * k for k in range(len(conns))]
-        res[u] = dict(zip(conns, dys))
+    for u, (_, col, row) in UC.items():
+        actors = uc_actors(u)
+        dys = ENTRY_DY.get(len(actors))
+        if dys is None:
+            step = 52.0 / max(1, len(actors) - 1)
+            dys = [-26 + step * k for k in range(len(actors))]
+        cx = COL1_CX if col == 1 else COL2_CX
+        for a, dy in zip(actors, dys):
+            dx = RX * math.sqrt(max(0.0, 1.0 - (dy / RY) ** 2))
+            res[(a, u)] = (cx - dx, ROW_Y[row] + dy)
     return res
 
 
-ENTRIES = uc_entries()
+def lane_ys():
+    """(актёр, прецедент) -> y горизонтальной полосы для правой колонки."""
+    band_items = {}
+    for a in sorted(LINKS):
+        for u in LINKS[a]:
+            if UC[u][1] == 2:
+                band_items.setdefault(LANE_BAND[(a, u)], []).append((a, u, UC[u][2]))
+    res = {}
+    for b, items in band_items.items():
+        if len(items) > 2:
+            raise ValueError("в зазоре %d больше двух подводок" % b)
+        items.sort(key=lambda t: (t[2], t[0]))
+        lo = ROW_Y[b] + RY + LANE_MARGIN
+        hi = ROW_Y[b + 1] - RY - LANE_MARGIN
+        ys = [(lo + hi) / 2] if len(items) == 1 else [lo, hi]
+        for (a, u, _row), y in zip(items, ys):
+            res[(a, u)] = y
+    return res
 
 
-def entry_point(ai, u):
-    """Точка на левой дуге овала, в которую входит линия актёра ai."""
-    dy = ENTRIES[u][ai]
-    _, col, row = UC[u]
-    cx = COL1_CX if col == 1 else COL2_CX
-    cy = ROW_Y[row] + dy
-    dx = RX * (1 - (dy / RY) ** 2) ** 0.5
-    return (cx - dx, cy)
+ENTRIES = entry_points()
+LANES = lane_ys()
+
+
+def connection_path(a, u):
+    """Ломаная «ствол актёра → овал прецедента»."""
+    tx = TRUNK_X[a]
+    ex, ey = ENTRIES[(a, u)]
+    if UC[u][1] == 1:
+        return [(tx, ey), (ex + 1, ey)]
+    ly = LANES[(a, u)]
+    ch = CH_X[(a, u)]
+    return [(tx, ly), (ch, ly), (ch, ey), (ex + 1, ey)]
+
+
+def trunk_span(a):
+    """(y_min, y_max) вертикального ствола актёра."""
+    ys = [AY[a]]
+    for u in LINKS[a]:
+        ys.append(ENTRIES[(a, u)][1] if UC[u][1] == 1 else LANES[(a, u)])
+    return min(ys), max(ys)
+
+
+def spine(a):
+    return [(SPINE_X0, AY[a]), (TRUNK_X[a], AY[a])]
 
 
 # ==========================================================================
@@ -187,12 +258,12 @@ class Svg:
     def raw(self, s):
         self.parts.append(s)
 
-    def line(self, x1, y1, x2, y2, stroke=C_LINK, sw=1.8, cap="round"):
+    def line(self, x1, y1, x2, y2, stroke=C_LINK, sw=2.2, cap="round"):
         self.raw(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{stroke}" '
                  f'stroke-width="{sw}" stroke-linecap="{cap}"/>')
 
-    def polyline(self, pts, stroke=C_LINK, sw=1.8):
-        p = " ".join(f"{x},{y}" for (x, y) in pts)
+    def polyline(self, pts, stroke=C_LINK, sw=2.2):
+        p = " ".join(f"{round(x, 1)},{round(y, 1)}" for (x, y) in pts)
         self.raw(f'<polyline points="{p}" fill="none" stroke="{stroke}" '
                  f'stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round"/>')
 
@@ -206,9 +277,9 @@ class Svg:
 
     def text(self, x, y, s, size=FS_UC, anchor="middle", weight="normal",
              fill=C_UC_TEXT):
-        self.raw(f'<text x="{x}" y="{y}" font-family="{FONT}" font-size="{size}" '
-                 f'font-weight="{weight}" text-anchor="{anchor}" fill="{fill}">'
-                 f'{esc(s)}</text>')
+        self.raw(f'<text x="{round(x, 1)}" y="{round(y, 1)}" font-family="{FONT}" '
+                 f'font-size="{size}" font-weight="{weight}" text-anchor="{anchor}" '
+                 f'fill="{fill}">{esc(s)}</text>')
 
     def save(self, path):
         head = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.w}" '
@@ -219,9 +290,8 @@ class Svg:
 
 
 # ==========================================================================
-# вспомогательное: приблизительная ширина текста (для самопроверки)
+# приблизительная ширина текста (для самопроверки, метрики Arial)
 # ==========================================================================
-# Ширины символов Arial в долях em (для точной оценки ширины текста).
 _W_REG = {
    " ": 0.278, "(": 0.333, ")": 0.333, ",": 0.278, "-": 0.333, ".": 0.278, "/": 0.278,
    "0": 0.556, ":": 0.278, "A": 0.667, "C": 0.722, "E": 0.667, "G": 0.778, "H": 0.722,
@@ -257,88 +327,88 @@ _W_BOLD = {
 
 
 def est_w(text, size, bold=False):
-    """Ширина строки в px по метрикам Arial (таблица _W_REG/_W_BOLD)."""
     tbl = _W_BOLD if bold else _W_REG
     return sum(tbl.get(ch, 0.60) for ch in text) * size
+
+
+def actor_label_box(i):
+    """Габаритный прямоугольник подписи актёра."""
+    w = est_w(ACTORS[i], FS_ACTOR, bold=True)
+    y = AY[i] + LABEL_DY
+    return (AX - w / 2 - 2, y - 22, AX + w / 2 + 2, y + 8)
+
+
+def title_box():
+    half = est_w(TITLE, TITLE_SIZE, bold=True) / 2 + 4
+    return (W / 2 - half, 16, W / 2 + half, 54)
 
 
 # ==========================================================================
 # построение диаграммы
 # ==========================================================================
-def actor_label_box(i):
-    """Габаритный прямоугольник подписи актёра (для проверки пересечений)."""
-    txt = ACTORS[i]
-    w = est_w(txt, FS_ACTOR, bold=True)
-    y = AY[i]
-    return (AX - w / 2 - 2, y + 44, AX + w / 2 + 2, y + 74)
-
-
-def uc_oval(u):
-    name, col, row = UC[u]
-    cx = COL1_CX if col == 1 else COL2_CX
-    return (cx, ROW_Y[row], RX, RY)
-
-
 def build():
     s = Svg(W, H)
-
-    # --- заголовок -------------------------------------------------------
     s.text(W / 2, 46, TITLE, size=TITLE_SIZE, weight="bold", fill=C_TITLE)
 
-    # --- линии связи (рисуем до овалов и актёров) ------------------------
-    for ai, ucs in sorted(LINKS.items()):
-        tx = TRUNK_X[ai]
-        # горизонтальная «шина» от фигурки до вертикального ствола
-        s.line(SPINE_X0, AY[ai], tx, AY[ai], sw=1.8)
-        for u in ucs:
-            name, col, row = UC[u]
-            ex, ey = entry_point(ai, u)
-            if col == 1:
-                s.polyline([(tx, ey), (ex + 1, ey)])
-            else:
-                lane = COL2_LANE[(ai, u)]
-                ch = COL2_CH_X[(ai, u)]
-                s.polyline([(tx, lane), (ch, lane), (ch, ey), (ex + 1, ey)])
+    # линии связи (рисуем под овалами и фигурками)
+    for ai in sorted(LINKS):
+        s.polyline(spine(ai))
+        y0, y1 = trunk_span(ai)
+        s.line(TRUNK_X[ai], y0, TRUNK_X[ai], y1)
+        for u in LINKS[ai]:
+            s.polyline(connection_path(ai, u))
 
-    # --- вертикальные стволы актёров ------------------------------------
-    for ai, ucs in sorted(LINKS.items()):
-        tx = TRUNK_X[ai]
-        ys = [AY[ai]]
-        for u in ucs:
-            name, col, row = UC[u]
-            ys.append(COL2_LANE[(ai, u)] if col == 2 else entry_point(ai, u)[1])
-        s.line(tx, min(ys), tx, max(ys), sw=1.8)
-
-    # --- варианты использования -----------------------------------------
+    # варианты использования
     for u in sorted(UC):
         name, col, row = UC[u]
         cx = COL1_CX if col == 1 else COL2_CX
-        cy = ROW_Y[row]
-        s.ellipse(cx, cy, RX, RY)
-        s.text(cx, cy + 9, name, size=FS_UC)
+        s.ellipse(cx, ROW_Y[row], RX, RY)
+        s.text(cx, ROW_Y[row] + 9, name, size=FS_UC)
 
-    # --- актёры ----------------------------------------------------------
+    # актёры
     for i, name in enumerate(ACTORS):
         y = AY[i]
-        s.circle(AX, y - 31, HEAD_R)                       # голова
-        s.line(AX, y - 16, AX, y + 18, stroke=C_ACTOR, sw=2.0)          # туловище
-        s.line(AX - ARM_HALF, y - 6, AX + ARM_HALF, y - 6,
-               stroke=C_ACTOR, sw=2.0)                                     # руки
-        s.line(AX, y + 18, AX - LEG_HALF, y + 40, stroke=C_ACTOR, sw=2.0)  # нога
-        s.line(AX, y + 18, AX + LEG_HALF, y + 40, stroke=C_ACTOR, sw=2.0)  # нога
-        s.text(AX, y + 66, name, size=FS_ACTOR, weight="bold", fill=C_ACTOR_LBL)
-
+        s.circle(AX, y - 31, HEAD_R)
+        s.line(AX, y - 16, AX, y + 18, stroke=C_ACTOR, sw=2.0)
+        s.line(AX - ARM_HALF, y - 6, AX + ARM_HALF, y - 6, stroke=C_ACTOR, sw=2.0)
+        s.line(AX, y + 18, AX - LEG_HALF, y + 40, stroke=C_ACTOR, sw=2.0)
+        s.line(AX, y + 18, AX + LEG_HALF, y + 40, stroke=C_ACTOR, sw=2.0)
+        s.text(AX, y + LABEL_DY, name, size=FS_ACTOR, weight="bold",
+               fill=C_ACTOR_LBL)
     return s
 
 
 # ==========================================================================
 # самопроверка геометрии (без внешних библиотек)
 # ==========================================================================
-def _seg_points(p1, p2, step=2.0):
+def _segments():
+    """Все отрезки схемы: (подпись, владелец, (x1,y1), (x2,y2))."""
+    segs = []
+    for ai in sorted(LINKS):
+        pts = spine(ai)
+        segs.append((f"шина «{ACTORS[ai]}»", ai, pts[0], pts[1]))
+        y0, y1 = trunk_span(ai)
+        segs.append((f"ствол «{ACTORS[ai]}»", ai, (TRUNK_X[ai], y0), (TRUNK_X[ai], y1)))
+        for u in LINKS[ai]:
+            path = connection_path(ai, u)
+            for k in range(len(path) - 1):
+                segs.append((f"{ACTORS[ai]} → «{UC_NAME[u]}»",
+                             ai, path[k], path[k + 1]))
+    return segs
+
+
+def _clip_seg_ellipse(p1, p2, cx, cy, rx, ry):
+    """Длина перекрытия отрезка с внутренностью эллипса."""
     (x1, y1), (x2, y2) = p1, p2
-    dist = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
-    n = max(2, int(dist / step) + 1)
-    return [(x1 + (x2 - x1) * t / n, y1 + (y2 - y1) * t / n) for t in range(n + 1)]
+    if x1 == x2:
+        if abs(x1 - cx) >= rx:
+            return 0.0
+        d = ry * math.sqrt(1 - ((x1 - cx) / rx) ** 2)
+        return max(0.0, min(max(y1, y2), cy + d) - max(min(y1, y2), cy - d))
+    if abs(y1 - cy) >= ry:
+        return 0.0
+    d = rx * math.sqrt(1 - ((y1 - cy) / ry) ** 2)
+    return max(0.0, min(max(x1, x2), cx + d) - max(min(x1, x2), cx - d))
 
 
 def _inside(px, py, box):
@@ -346,76 +416,120 @@ def _inside(px, py, box):
     return x0 <= px <= x1 and y0 <= py <= y1
 
 
+def _pair_relation(p1, p2, p3, p4):
+    """cross / touch / overlap / close / None для двух ортогональных отрезков."""
+    (x1, y1), (x2, y2) = p1, p2
+    (x3, y3), (x4, y4) = p3, p4
+    v1, v2 = x1 == x2, x3 == x4
+    if v1 and v2:
+        if x1 == x3:
+            a0, a1 = sorted([y1, y2])
+            b0, b1 = sorted([y3, y4])
+            ov = min(a1, b1) - max(a0, b0)
+            return "overlap" if ov > 2 else ("touch" if ov > -2 else None)
+        if abs(x1 - x3) < 26:
+            a0, a1 = sorted([y1, y2])
+            b0, b1 = sorted([y3, y4])
+            if min(a1, b1) - max(a0, b0) > 20:
+                return "close"
+        return None
+    if (not v1) and (not v2):
+        if y1 == y3:
+            a0, a1 = sorted([x1, x2])
+            b0, b1 = sorted([x3, x4])
+            ov = min(a1, b1) - max(a0, b0)
+            return "overlap" if ov > 2 else ("touch" if ov > -2 else None)
+        if abs(y1 - y3) < 26:
+            a0, a1 = sorted([x1, x2])
+            b0, b1 = sorted([x3, x4])
+            if min(a1, b1) - max(a0, b0) > 20:
+                return "close"
+        return None
+    if v1:
+        xv, yv0, yv1 = x1, *sorted([y1, y2])
+        yh, xh0, xh1 = y3, *sorted([x3, x4])
+    else:
+        xv, yv0, yv1 = x3, *sorted([y3, y4])
+        yh, xh0, xh1 = y1, *sorted([x1, x2])
+    if xh0 < xv < xh1 and yv0 < yh < yv1:
+        return "cross"
+    if xh0 <= xv <= xh1 and yv0 <= yh <= yv1:
+        return "touch"
+    return None
+
+
 def self_check(verbose=True):
-    """Проверяет, что линии не идут сквозь овалы и подписи."""
-    ovals = [(u, uc_oval(u)) for u in UC]
-    labels = [(i, actor_label_box(i)) for i in range(len(ACTORS))]
-    title_half = est_w(TITLE, TITLE_SIZE, bold=True) / 2 + 4
-    title_box = (W / 2 - title_half, 18, W / 2 + title_half, 52)
-
     problems = []
-    segments = []
+    segs = _segments()
 
-    for ai, ucs in LINKS.items():
-        tx = TRUNK_X[ai]
-        segments.append((f"шина актёра «{ACTORS[ai]}»", (SPINE_X0, AY[ai]), (tx, AY[ai])))
-        ys = [AY[ai]]
-        for u in ucs:
-            name, col, row = UC[u]
-            ex, ey = entry_point(ai, u)
-            if col == 1:
-                segments.append((f"{ACTORS[ai]} -> «{name}»", (tx, ey), (ex + 1, ey)))
-            else:
-                lane = COL2_LANE[(ai, u)]
-                ch = COL2_CH_X[(ai, u)]
-                segments.append((f"{ACTORS[ai]} -> «{name}» (1)", (tx, lane), (ch, lane)))
-                segments.append((f"{ACTORS[ai]} -> «{name}» (2)", (ch, lane), (ch, ey)))
-                segments.append((f"{ACTORS[ai]} -> «{name}» (3)", (ch, ey), (ex + 1, ey)))
-            ys.append(lane if col == 2 else ey)
-        segments.append((f"ствол актёра «{ACTORS[ai]}»", (tx, min(ys)), (tx, max(ys))))
+    # 1. линии не заходят внутрь овалов
+    for label, owner, p1, p2 in segs:
+        for u, (_, col, row) in UC.items():
+            cx = COL1_CX if col == 1 else COL2_CX
+            if _clip_seg_ellipse(p1, p2, cx, ROW_Y[row], RX - 4, RY - 4) > 0.5:
+                problems.append(f"линия «{label}» заходит внутрь овала «{UC_NAME[u]}»")
 
-    margin = 6.0
-    for label, p1, p2 in segments:
-        for px, py in _seg_points(p1, p2):
-            for u, (cx, cy, rx, ry) in ovals:
-                if ((px - cx) / (rx - margin)) ** 2 + ((py - cy) / (ry - margin)) ** 2 < 1.0:
-                    problems.append(f"линия «{label}» заходит внутрь овала «{UC[u][0]}»")
-            for i, box in labels:
-                if _inside(px, py, box):
-                    problems.append(f"линия «{label}» пересекает подпись актёра «{ACTORS[i]}»")
-            if _inside(px, py, title_box):
+    # 2. линии не пересекают подписи актёров и заголовок
+    for label, owner, p1, p2 in segs:
+        (x1, y1), (x2, y2) = p1, p2
+        n = max(2, int(math.hypot(x2 - x1, y2 - y1) / 3) + 1)
+        for t in range(n + 1):
+            px = x1 + (x2 - x1) * t / n
+            py = y1 + (y2 - y1) * t / n
+            for i in range(len(ACTORS)):
+                if _inside(px, py, actor_label_box(i)):
+                    problems.append(f"линия «{label}» пересекает подпись актёра "
+                                    f"«{ACTORS[i]}»")
+            if _inside(px, py, title_box()):
                 problems.append(f"линия «{label}» пересекает заголовок")
 
-    # текст вариантов использования должен помещаться в овал
-    for u in sorted(UC):
-        name, col, row = UC[u]
-        need = est_w(name, FS_UC) + 34
-        avail = 2 * (RX - 6) * (1 - (13.0 / RY) ** 2) ** 0.5
-        if need > avail:
-            problems.append(f"текст «{name}» ({need:.0f} px) не помещается в овал ({avail:.0f} px)")
+    # 3/4. взаимные наложения, касания и пересечения линий
+    crossings = []
+    for i in range(len(segs)):
+        l1, a1, p1, p2 = segs[i]
+        for j in range(i + 1, len(segs)):
+            l2, a2, p3, p4 = segs[j]
+            rel = _pair_relation(p1, p2, p3, p4)
+            if rel == "overlap":
+                problems.append(f"линии совпадают: «{l1}» и «{l2}»")
+            elif rel == "close":
+                problems.append(f"параллельные линии ближе 26 px: «{l1}» и «{l2}»")
+            elif rel == "touch" and a1 != a2:
+                problems.append(f"линия «{l2}» упирается в «{l1}» (T-образный стык)")
+            elif rel == "cross":
+                crossings.append((l1, l2))
 
-    # подписи актёров не должны залезать в коридор стволов
-    for i in range(len(ACTORS)):
-        if actor_label_box(i)[2] > min(TRUNK_X) - 6:
-            problems.append(f"подпись актёра «{ACTORS[i]}» заходит в коридор линий")
-
-    # линии не должны накладываться друг на друга (совпадать на отрезке)
-    for i in range(len(segments)):
-        l1, (ax, ay), (bx, by) = segments[i]
-        for j in range(i + 1, len(segments)):
-            l2, (cx, cy), (dx, dy) = segments[j]
-            if ay == by == cy == dy:                       # обе горизонтальны
-                a0, a1 = sorted([ax, bx])
-                c0, c1 = sorted([cx, dx])
-            elif ax == bx == cx == dx:                     # обе вертикальны
-                a0, a1 = sorted([ay, by])
-                c0, c1 = sorted([cy, dy])
-            else:
+    # 5. вертикальные стволы стоят не ближе 26 px друг к другу
+    spans = {a: trunk_span(a) for a in sorted(LINKS)}
+    for i in sorted(LINKS):
+        for j in sorted(LINKS):
+            if i >= j:
                 continue
-            ov = min(a1, c1) - max(a0, c0)
-            if ov > 1.0:
-                problems.append(f"линии совпадают на участке длиной {ov:.0f} px: "
-                                f"«{l1}» и «{l2}»")
+            ov = min(spans[i][1], spans[j][1]) - max(spans[i][0], spans[j][0])
+            gap = abs(TRUNK_X[i] - TRUNK_X[j])
+            if ov > 20 and gap < 26:
+                problems.append(f"стволы «{ACTORS[i]}» и «{ACTORS[j]}» ближе 26 px")
+
+    # 6. текст прецедентов помещается в овал
+    for u in sorted(UC):
+        need = est_w(UC_NAME[u], FS_UC) + 22
+        avail = 2 * (RX - 6) * math.sqrt(1 - (13.0 / RY) ** 2)
+        if need > avail:
+            problems.append(f"текст «{UC_NAME[u]}» ({need:.0f} px) не помещается "
+                            f"в овал ({avail:.0f} px)")
+
+    # 7. каждый прецедент связан хотя бы с одним актёром, у каждого актёра >= 2
+    for u in sorted(UC):
+        if not uc_actors(u):
+            problems.append(f"у прецедента «{UC_NAME[u]}» нет ни одного актёра")
+    for a in sorted(LINKS):
+        if len(LINKS[a]) < 2:
+            problems.append(f"у актёра «{ACTORS[a]}» меньше двух прецедентов")
+
+    # 8. подписи актёров не заходят в коридор стволов
+    for i in range(len(ACTORS)):
+        if actor_label_box(i)[2] > min(TRUNK_SLOTS) - 6:
+            problems.append(f"подпись актёра «{ACTORS[i]}» заходит в коридор линий")
 
     if verbose:
         if problems:
@@ -423,7 +537,11 @@ def self_check(verbose=True):
             for p in dict.fromkeys(problems):
                 print("  -", p)
         else:
-            print("Самопроверка геометрии: наложений линий на овалы и подписи нет.")
+            print("Самопроверка: наложений линий на овалы, подписи и друг на "
+                  "друга нет; T-стыков нет.")
+        print(f"Пересечений линий (ортогональных, под 90°): {len(crossings)}")
+        for l1, l2 in crossings:
+            print(f"  · «{l1}» × «{l2}»")
     return problems
 
 

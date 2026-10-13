@@ -24,6 +24,23 @@ CampusRent — схема фрагментации РБД, версия 3: ДВ�
       с тремя крупными значками-стрелками и пояснениями РОК / РБОК / РКД,
       ниже — легенда цветов групп.
 
+  diagrams/05e_fragmentation_arrows.svg / .png  (1700 x 1050)
+      ВАРИАНТ C — классическая схема фрагментации: ЯЧЕЙКИ ЗАЛИТЫ цветом
+      своей группы, а СТРЕЛКИ ПОТОКОВ нарисованы ПРЯМО ВНУТРИ схемы.
+      Сетка по горизонтали: 250 (плашки «группа данных + метод») +
+      4 x 245 (колонки-узлы) + 3 x 150 (зазоры под стрелки) + поля 10/10
+      = 1700 px. В каждом зазоре 150 px — стрелки того метода, которым
+      поддерживается группа: РОК — синие однонаправленные (вниз по
+      цепочке), РБОК — зелёные двунаправленные (ОДНА линия с наконечниками
+      на ОБОИХ концах, без «бантиков»), РКД — оранжевые (свод), передача
+      фрагментов — амбер.
+      Связи НЕсоседних узлов (СПб -> consol, ЦО <-> Казань) проложены
+      обводными трассами по горизонтальным зазорам между строками: так
+      стрелки не пересекают промежуточные блоки и текст. Подпись потока
+      стоит прямо на горизонтальном участке обводной трассы.
+      Внизу — легенда: цветовые образцы всех шести групп + расшифровка
+      трёх методов (РОК / РБОК / РКД) с образцами стрелок.
+
 Встроенная проверка вёрстки (см. Svg.check):
   * наложение прямоугольников (блоков) и зазор меньше MIN_BLOCK_GAP;
   * наложение текста на текст, выход текста за полотно и за отведённую
@@ -31,7 +48,10 @@ CampusRent — схема фрагментации РБД, версия 3: ДВ�
   * текст поверх линий;
   * линия внутри блока-карточки (трасса не должна идти по карточке);
   * наконечники: расстояние между наконечниками меньше MIN_HEAD_GAP,
-    пересечение наконечников, наконечник внутри блока;
+    пересечение наконечников, наконечник заходит внутрь блока (проверяется
+    ВЕСЬ треугольник наконечника против блока, сжатого на 1 px; для варианта
+    C добавлено ещё и минимальное расстояние 20 px между многоугольниками
+    наконечников разных стрелок);
   * совпадающие (наложенные друг на друга) отрезки.
 
 Панели-контейнеры (легенда, панель потоков) помечены container=True:
@@ -41,7 +61,7 @@ CampusRent — схема фрагментации РБД, версия 3: ДВ�
 SVG генерируется чистым Python, PNG — командой
     rsvg-convert -w 1700 файл.svg -o файл.png
 
-Запуск:  python3 tools/gen_fragmentation_v3.py [A|B]
+Запуск:  python3 tools/gen_fragmentation_v3.py [A|B|C]
 """
 
 import math
@@ -73,13 +93,35 @@ C_RBOK = "#15803d"   # РБОК — зелёный
 C_RKD = "#c2410c"    # РКД  — оранжевый
 
 MIN_SIZE = 26        # минимальный кегль
+METHOD_SIZE = 20     # кегль подписей методов (РОК / РБОК / РКД)
 HEAD_SIZE = 30       # заголовки блоков
 TITLE_SIZE = 34      # заголовок схемы
 
 MIN_BLOCK_GAP = 30   # минимальный зазор между блоками, px
-MIN_HEAD_GAP = 22    # минимальное расстояние между наконечниками, px
+MIN_HEAD_GAP = 22    # минимальное расстояние между остриями наконечников, px
+HEAD_MIN_GAP = 20    # минимальное расстояние между наконечниками (полигонами)
 HEAD_LEN = 26        # длина наконечника, px
 HEAD_HALF = 11       # полуширина наконечника, px
+
+# --- вариант C: геометрия классической схемы со стрелками ------------------
+C_W, C_H = 1700, 1078           # полотно
+C_M = 10                        # внешние поля (10 + 10 = 20 px)
+C_LBL_SLOT, C_LBL_W = 250, 220  # слот колонки «группы данных» и плашка в нём
+C_COL_W = 245                   # ширина колонки-узла
+C_CORR = 150                    # зазор между колонками-узлами (для стрелок)
+C_HDR_Y, C_HDR_H = 118, 100     # шапка (опущена ниже подзаголовка)
+C_ROW_H = 84                    # высота строки данных
+C_GAP_S = 30                    # зазор между строками (без обводной трассы)
+C_GAP_L = 42                    # зазор со стрелкой-обводкой
+C_LEG_H = 84                    # высота легенды
+C_SW = 4.5                      # толщина стрелок (>= 3 px)
+C_HEAD_L, C_HEAD_H = 26, 12     # наконечник: длина и полуширина
+C_HEAD_LANE = 22                # наконечник обводной трассы
+C_CAP = "butt"                  # плоские концы линий: не лезут в блоки
+C_FRAG = "#d97706"              # передача фрагментов — амбер
+C_RKD_A = "#c2410c"             # РКД — оранжевый (как группа «Договоры»)
+C_NODE_SKY_F, C_NODE_SKY_S = "#e0f2fe", "#0369a1"   # филиал СПб
+C_NODE_TEAL_F, C_NODE_TEAL_S = "#ccfbf1", "#0f766e"  # филиал Казань
 
 
 # ==========================================================================
@@ -109,6 +151,15 @@ def tw(text, size, bold=False):
 
 def esc(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def mix_white(hex_color, k=0.78):
+    """Осветлить цвет: k=0 — исходный, k=1 — белый."""
+    r, g, b = (int(hex_color[i:i + 2], 16) for i in (1, 3, 5))
+    r = int(round(r + (255 - r) * k))
+    g = int(round(g + (255 - g) * k))
+    b = int(round(b + (255 - b) * k))
+    return f"#{r:02x}{g:02x}{b:02x}"
 
 
 # ==========================================================================
@@ -166,12 +217,36 @@ def poly_intersect(p1, p2):
     return True
 
 
-def head_poly(tip, ux, uy):
+def head_poly(tip, ux, uy, ln=None, half=None):
     """Многоугольник наконечника: tip — остриё, (ux,uy) — направление полёта."""
-    bx, by = tip[0] - ux * HEAD_LEN, tip[1] - uy * HEAD_LEN
+    ln = HEAD_LEN if ln is None else ln
+    half = HEAD_HALF if half is None else half
+    bx, by = tip[0] - ux * ln, tip[1] - uy * ln
     nx, ny = -uy, ux
-    return [tip, (bx + nx * HEAD_HALF, by + ny * HEAD_HALF),
-            (bx - nx * HEAD_HALF, by - ny * HEAD_HALF)]
+    return [tip, (bx + nx * half, by + ny * half),
+            (bx - nx * half, by - ny * half)]
+
+
+def _pt_seg_dist(p, a, b):
+    """Расстояние от точки p до отрезка ab."""
+    ax, ay = a
+    bx, by = b
+    dx, dy = bx - ax, by - ay
+    l2 = dx * dx + dy * dy
+    if l2 <= 1e-12:
+        return math.dist(p, a)
+    t = ((p[0] - ax) * dx + (p[1] - ay) * dy) / l2
+    t = max(0.0, min(1.0, t))
+    return math.hypot(p[0] - (ax + t * dx), p[1] - (ay + t * dy))
+
+
+def poly_dist(p1, p2):
+    """Минимальное расстояние между двумя выпуклыми многоугольниками."""
+    if poly_intersect(p1, p2):
+        return 0.0
+    n2 = len(p2)
+    return min(min(_pt_seg_dist(v, p2[i], p2[(i + 1) % n2]) for i in range(n2))
+               for v in p1)
 
 
 # ==========================================================================
@@ -189,6 +264,9 @@ class Svg:
         self.heads = []       # (poly, tip, name)
         self.fit = []         # текст шире отведённого места
         self.min_gap = MIN_BLOCK_GAP
+        # строгая проверка «наконечники разных стрелок не ближе HEAD_MIN_GAP»
+        # (включается там, где она требуется; 0 — выключена)
+        self.head_min_gap = 0.0
 
     # --- примитивы --------------------------------------------------------
     def add(self, s):
@@ -206,8 +284,8 @@ class Svg:
         return (x, y, w, h)
 
     def text(self, x, y, s, size=MIN_SIZE, anchor="middle", weight="normal",
-             fill="#111827", bold=None, maxw=None):
-        if size < MIN_SIZE:
+             fill="#111827", bold=None, maxw=None, method=False):
+        if size < MIN_SIZE and not (method and size >= METHOD_SIZE):
             raise ValueError(f"кегль {size} < {MIN_SIZE}: {s!r}")
         if bold is None:
             bold = (weight == "bold")
@@ -234,36 +312,38 @@ class Svg:
         if record:
             self.segs.append((x1, y1, x2, y2, sw))
 
-    def poly(self, pts, stroke=C_LINE, sw=2.4, dash=None):
+    def poly(self, pts, stroke=C_LINE, sw=2.4, dash=None, cap="round"):
         p = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
         d = ' stroke-dasharray="10 7"' if dash else ""
         self.add(f'<polyline points="{p}" fill="none" stroke="{stroke}" '
                  f'stroke-width="{sw}" stroke-linejoin="round" '
-                 f'stroke-linecap="round"{d}/>')
+                 f'stroke-linecap="{cap}"{d}/>')
         for i in range(len(pts) - 1):
             self.segs.append((pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1], sw))
 
-    def head(self, tip, direction, color, name=""):
+    def head(self, tip, direction, color, name="", ln=None, half=None):
         """Наконечник стрелки отдельным многоугольником (точная геометрия)."""
         ux, uy = direction
         n = math.hypot(ux, uy) or 1.0
         ux, uy = ux / n, uy / n
-        poly = head_poly(tip, ux, uy)
+        poly = head_poly(tip, ux, uy, ln, half)
         pts = " ".join(f"{p[0]:.1f},{p[1]:.1f}" for p in poly)
         self.head_parts.append(f'<polygon points="{pts}" fill="{color}"/>')
         self.heads.append((poly, tip, name))
 
-    def arrow(self, pts, color, head_end=True, head_start=False, sw=2.4, name=""):
+    def arrow(self, pts, color, head_end=True, head_start=False, sw=2.4, name="",
+              ln=None, half=None, cap="round"):
         """Ломаная со стрелочными наконечниками на концах."""
         if len(pts) < 2:
             raise ValueError("arrow: нужно >= 2 точек")
-        self.poly(pts, stroke=color, sw=sw)
+        self.poly(pts, stroke=color, sw=sw, cap=cap)
         if head_end:
             (x1, y1), (x2, y2) = pts[-2], pts[-1]
-            self.head((x2, y2), (x2 - x1, y2 - y1), color, name)
+            self.head((x2, y2), (x2 - x1, y2 - y1), color, name, ln, half)
         if head_start:
             (x1, y1), (x2, y2) = pts[1], pts[0]
-            self.head((x2, y2), (x2 - x1, y2 - y1), color, name + " (обратно)")
+            self.head((x2, y2), (x2 - x1, y2 - y1), color, name + " (обратно)",
+                      ln, half)
         return self
 
     # --- сборка файла -----------------------------------------------------
@@ -328,6 +408,11 @@ class Svg:
                 d = math.dist(ti, tj)
                 if poly_intersect(pi, pj):
                     problems.append(f"наконечники пересекаются: {ni!r} <-> {nj!r}")
+                elif self.head_min_gap and poly_dist(pi, pj) < self.head_min_gap:
+                    problems.append(
+                        f"наконечники ближе {self.head_min_gap:.0f} px "
+                        f"({poly_dist(pi, pj):.0f}): {ni!r} <-> {nj!r} "
+                        f"в ({ti[0]:.0f},{ti[1]:.0f})")
                 elif d < MIN_HEAD_GAP:
                     problems.append(
                         f"наконечники ближе {MIN_HEAD_GAP} px ({d:.0f}): "
@@ -336,10 +421,14 @@ class Svg:
             for (bx, by, bw, bh, bname, container) in self.blocks:
                 if container:
                     continue
-                r = (bx, by, bw, bh)
-                if any(point_in_rect(px, py, r, 0.5) for px, py in poly[1:]):
+                # наконечник не должен заходить ВНУТРЬ блока: проверяем весь
+                # треугольник против блока, сжатого на 1 px, — тогда касание
+                # границы блока остриём нарушением не считается
+                rect = [(bx + 1, by + 1), (bx + bw - 1, by + 1),
+                        (bx + bw - 1, by + bh - 1), (bx + 1, by + bh - 1)]
+                if poly_intersect(poly, rect):
                     problems.append(
-                        f"наконечник {name!r} упирается в блок {bname!r}")
+                        f"наконечник {name!r} заходит внутрь блока {bname!r}")
 
         # 6. совпадающие отрезки (наложение линий друг на друга)
         for i in range(len(self.segs)):
@@ -589,8 +678,8 @@ def d05d_fragmentation_matrix():
     title_block(
         s,
         "Схема фрагментации РБД «CampusRent»: группы данных × узлы",
-        "Вариант B: просторная матрица (зазор 30–44 px, кегль 26 px); "
-        "стрелки вынесены в панель «Потоки данных» внизу")
+        "Строки — группы данных, столбцы — узлы сети; "
+        "цвет — метод поддержки распределённости")
 
     # ---------------- геометрия матрицы ----------------------------------
     LBL_X, LBL_W = 40, 400
@@ -656,7 +745,7 @@ def d05d_fragmentation_matrix():
             ("консолидированная", "копия"),
         ]),
         ("Договоры и платежи", "локально + РКД, выдачи", C_CTR_F, C_CTR_S, [
-            ("консолидированная", "копия (бухгалтерия)"),
+            ("консолидированная", "копия (финансы)"),
             ("рабочая копия", "филиал"),
             ("рабочая копия", "филиал"),
             ("консолидированная", "копия"),
@@ -679,8 +768,9 @@ def d05d_fragmentation_matrix():
                fill="#374151", maxw=LBL_W - 44)
         for j, (l1, l2) in enumerate(cells):
             x = COLS[j]
-            s.rect(x, y, COL_W, ROW_H, fill="#ffffff", stroke=st, sw=2, rx=10,
-                   kind="block", name=f"ячейка «{name}» / узел {j + 1}")
+            s.rect(x, y, COL_W, ROW_H, fill=mix_white(f), stroke=st, sw=2,
+                   rx=10, kind="block",
+                   name=f"ячейка «{name}» / узел {j + 1}")
             s.text(x + COL_W / 2, y + 30, l1, size=MIN_SIZE, anchor="middle",
                    fill="#111827", maxw=COL_W - 12)
             s.text(x + COL_W / 2, y + 58, l2, size=MIN_SIZE, anchor="middle",
@@ -716,6 +806,209 @@ def d05d_fragmentation_matrix():
 
 
 # ==========================================================================
+# ВАРИАНТ C — ЗАЛИТЫЕ ячейки + СТРЕЛКИ потоков внутри схемы (1700 x 1050)
+# ==========================================================================
+def _c_line_heads(s, pts, color, heads, name, sw=C_SW, ln=C_HEAD_L):
+    """Линия + наконечники. Линия укорачивается на 6 px у каждого острия:
+    иначе её плоский торец (4.5 px) шире вершины треугольника и торчит
+    «усиками» рядом с остриём."""
+    s.poly(pts, stroke=color, sw=sw, cap=C_CAP)
+    for tip, direction in heads:
+        s.head(tip, direction, color, name, ln, C_HEAD_H)
+
+
+def _c_corr_arrow(s, x_l, x_r, y, color, two_way, label, note, label_y):
+    """Стрелка в зазоре 150 px между соседними колонками-узлами.
+    Над стрелкой — метод поддержки (26 px) и короткая суть потока (20 px)."""
+    heads = [((x_r, y), (1, 0))]
+    if two_way:
+        heads.append(((x_l, y), (-1, 0)))
+    _c_line_heads(s, [(x_l + (6 if two_way else 0), y), (x_r - 6, y)],
+                  color, heads, f"поток {label}")
+    s.text((x_l + x_r) / 2.0, label_y, label, size=MIN_SIZE, weight="bold",
+           fill=color, maxw=(x_r - x_l) - 20)
+    s.text((x_l + x_r) / 2.0, label_y + 24, note, size=METHOD_SIZE,
+           method=True, fill=color, maxw=(x_r - x_l) - 20)
+
+
+def _c_lane_arrow(s, x_from, x_to, y_top, lane_y, color, two_way, label):
+    """Обводная трасса между НЕсоседними узлами: уход вниз по зазору между
+    строками, горизонтальный участок через промежуточную колонку и подъём
+    в блок-приёмник. Подпись стоит прямо на горизонтальном участке
+    (линия разорвана под подписью), поэтому текст не ложится на линию."""
+    w = tw(label, MIN_SIZE)
+    xc = (x_from + x_to) / 2.0
+    gap_l, gap_r = xc - w / 2.0 - 14, xc + w / 2.0 + 14
+    d6 = 6   # линия не доходит до острия (см. _c_line_heads)
+    _c_line_heads(s,
+                  [(x_from + (d6 if two_way else 0), y_top), (x_from, lane_y),
+                   (gap_l, lane_y)], color,
+                  [((x_from, y_top), (0, -1))] if two_way else [],
+                  f"обвод {label}", ln=C_HEAD_LANE)
+    _c_line_heads(s, [(gap_r, lane_y), (x_to, lane_y), (x_to, y_top + d6)],
+                  color, [((x_to, y_top), (0, -1))], f"обвод {label}",
+                  ln=C_HEAD_LANE)
+    s.text(xc, lane_y + 7, label, size=MIN_SIZE, fill=color,
+           maxw=(x_to - x_from) - 44)
+
+
+def d05e_fragmentation_arrows():
+    """ВАРИАНТ C: матрица «группы данных x узлы» с ЗАЛИТЫМИ цветом группы
+    ячейками и СТРЕЛКАМИ потоков прямо внутри схемы (1700 x 1050)."""
+    s = Svg(C_W, C_H, "Фрагментация: залитые ячейки и стрелки внутри схемы")
+    s.head_min_gap = HEAD_MIN_GAP
+    title_block(
+        s,
+        "Схема фрагментации РБД «CampusRent»: группы данных, узлы и потоки",
+        "Стрелки — направление передачи данных между узлами; "
+        "цвет блока — метод поддержки распределённости")
+
+    # ---------------- сетка ------------------------------------------------
+    col_x = [C_M + C_LBL_SLOT + k * (C_COL_W + C_CORR) for k in range(4)]
+    col_c = [x + C_COL_W / 2.0 for x in col_x]
+    corr_x = [(col_x[k] + C_COL_W, col_x[k + 1]) for k in range(3)]
+    row_y, y = [], C_HDR_Y + C_HDR_H + 30
+    for i in range(6):
+        row_y.append(y)
+        y += C_ROW_H + (C_GAP_S if i < 2 else C_GAP_L)
+    leg_y = y
+
+    # ---------------- шапка ------------------------------------------------
+    s.rect(C_M, C_HDR_Y, C_LBL_W, C_HDR_H, fill=C_NEU_F, stroke=C_NEU_S,
+           sw=2.4, rx=12, kind="block", name="шапка «Группы данных»")
+    s.text(C_M + C_LBL_W / 2.0, C_HDR_Y + 40, "Группы данных", size=MIN_SIZE,
+           fill="#374151", maxw=C_LBL_W - 16)
+    s.text(C_M + C_LBL_W / 2.0, C_HDR_Y + 68, "и метод поддержки",
+           size=METHOD_SIZE, method=True, fill="#4b5563", maxw=C_LBL_W - 16)
+    s.text(C_M + C_LBL_W / 2.0, C_HDR_Y + 90, "РОК · РБОК · РКД",
+           size=METHOD_SIZE, method=True, fill="#6b7280", maxw=C_LBL_W - 16)
+
+    node_head = [
+        (col_x[0], C_HQ_F, C_HQ_S, "Центральный офис HQ",
+         ["Центральный", "офис HQ · Москва"]),
+        (col_x[1], C_NODE_SKY_F, C_NODE_SKY_S, "Филиал СПб",
+         ["Филиал СПб", "Санкт-Петербург"]),
+        (col_x[2], C_NODE_TEAL_F, C_NODE_TEAL_S, "Филиал Казань",
+         ["Филиал Казань", "KZN · фрагменты"]),
+        (col_x[3], C_NEU_F, C_NEU_S, "Узел консолидации consol",
+         ["Узел", "консолидации", "consol · аналитика"]),
+    ]
+    for x, f, st, name, lines in node_head:
+        s.rect(x, C_HDR_Y, C_COL_W, C_HDR_H, fill=f, stroke=st, sw=2.4, rx=12,
+               kind="block", name=f"шапка узла {name}")
+        n = len(lines)
+        y0 = C_HDR_Y + (C_HDR_H - (30 * (n - 1) + 27)) / 2.0 + 20
+        for k, line in enumerate(lines):
+            s.text(x + C_COL_W / 2.0, y0 + 30 * k, line, size=MIN_SIZE,
+                   weight=("bold" if k == 0 else "normal"),
+                   fill=(st if k == 0 else "#374151"), maxw=C_COL_W - 16)
+
+    # ---------------- строки данных ---------------------------------------
+    # n1, n2 — две строки названия группы; method — метод поддержки;
+    # f/st — заливка и обводка группы; aclr — цвет стрелок;
+    # cells — по узлам; corr — стрелки в зазорах (номер зазора -> вид, подпись);
+    # byp  — обводная трасса (индекс источника, индекс приёмника, двусторонняя,
+    #        подпись) для связей НЕсоседних узлов.
+    ROWS = [
+        ("НСИ и", "справочники", "РОК · 1 раз/сут", C_REF_F, C_REF_S, C_ROK,
+         [("мастер-копия", "источник"), ("реплика", "снимок 1/сут"),
+          ("реплика", "снимок 1/сут"), ("реплика", "снимок 1/сут")],
+         {0: ("one", "РОК", "снимки"), 1: ("one", "РОК", "снимки"),
+          2: ("one", "РОК", "снимки")}, None),
+        ("Клиенты и", "подразделения", "РБОК · асинхронно", C_CLI_F, C_CLI_S,
+         C_RBOK,
+         [("рабочая копия", "РБОК (РИ)")] * 4,
+         {0: ("two", "РБОК", "РИ ⇄"), 1: ("two", "РБОК", "РИ ⇄"),
+          2: ("two", "РБОК", "РИ ⇄")}, None),
+        ("Экземпляры", "техники", "фрагм. + РКД", C_EQ_F, C_EQ_S, C_FRAG,
+         [("сводная копия", "аналитика"), ("фрагмент", "EQ_BR = СПб"),
+          ("фрагмент", "EQ_BR = KZN"), ("свод", "все фрагменты")],
+         {2: ("one", "РКД", "свод")},
+         (1, 3, False, "РКД · свод фрагментов в consol")),
+        ("Заявки и", "позиции заявок", "РКД · поток заявок", C_REQ_F, C_REQ_S,
+         C_RKD,
+         [("согласование", "в ЦО"), ("рабочая копия", "филиал ⇄ ЦО"),
+          ("рабочая копия", "филиал ⇄ ЦО"), ("свод", "аналитика")],
+         {0: ("two", "РКД", "согл."), 2: ("one", "РКД", "свод")},
+         (0, 2, True, "РКД · согласование ЦО ⇄ Казань")),
+        ("Договоры и", "платежи", "РКД · выдачи", C_CTR_F, C_CTR_S, C_RKD_A,
+         [("сводный реестр", "финансы"), ("рабочая копия", "филиал"),
+          ("рабочая копия", "филиал"), ("свод", "платежи")],
+         {0: ("two", "РКД", "согл."), 2: ("one", "РКД", "свод")},
+         (1, 3, False, "РКД · свод договоров и платежей")),
+        ("Обслуживание", "и ремонт", "РКД · затраты", C_SRV_F, C_SRV_S,
+         C_RKD_A,
+         [("сводный учёт", "затрат"), ("рабочая копия", "филиал"),
+          ("рабочая копия", "филиал"), ("свод", "затраты")],
+         {2: ("one", "РКД", "свод")},
+         (1, 3, False, "РКД · свод затрат на обслуживание")),
+    ]
+
+    for i, (n1, n2, method, f, st, aclr, cells, corr, byp) in enumerate(ROWS):
+        y = row_y[i]
+        # плашка группы данных: НАСЫЩЁННЫЙ цвет группы + метод поддержки
+        s.rect(C_M, y, C_LBL_W, C_ROW_H, fill=st, stroke=st, sw=2.2, rx=10,
+               kind="block", name=f"группа «{n1} {n2}»")
+        s.text(C_M + C_LBL_W / 2.0, y + 22, n1, size=MIN_SIZE, weight="bold",
+               fill="#ffffff", maxw=C_LBL_W - 16)
+        s.text(C_M + C_LBL_W / 2.0, y + 50, n2, size=MIN_SIZE, fill="#f1f5f9",
+               maxw=C_LBL_W - 16)
+        s.text(C_M + C_LBL_W / 2.0, y + 76, method, size=METHOD_SIZE,
+               method=True, fill="#e2e8f0", maxw=C_LBL_W - 16)
+        # ячейки строки — залиты цветом группы
+        for j, (l1, l2) in enumerate(cells):
+            x = col_x[j]
+            s.rect(x, y, C_COL_W, C_ROW_H, fill=f, stroke=st, sw=2.2, rx=10,
+                   kind="block", name=f"ячейка «{n1} {n2}» / узел {j + 1}")
+            s.text(x + C_COL_W / 2.0, y + 32, l1, size=MIN_SIZE,
+                   weight="bold", fill="#111827", maxw=C_COL_W - 14)
+            s.text(x + C_COL_W / 2.0, y + 64, l2, size=MIN_SIZE,
+                   fill="#374151", maxw=C_COL_W - 14)
+        # стрелки в зазорах 150 px между колонками-узлами
+        for k, (kind, label, note) in corr.items():
+            xl, xr = corr_x[k]
+            _c_corr_arrow(s, xl, xr, y + 58, aclr, kind == "two", label,
+                          note, y + 20)
+        # обводная трасса по зазору между строками (связь несоседних узлов)
+        if byp:
+            jf, jt, two, label = byp
+            _c_lane_arrow(s, col_c[jf], col_c[jt], y + C_ROW_H,
+                          y + C_ROW_H + C_HEAD_LANE + 2, aclr, two, label)
+
+    # ---------------- легенда ---------------------------------------------
+    s.rect(40, leg_y, 1620, C_LEG_H, fill="#ffffff", stroke=C_NEU_S, sw=1.6,
+           rx=12, kind="block", name="легенда", container=True)
+    groups = [("НСИ", C_REF_F, C_REF_S), ("Клиенты", C_CLI_F, C_CLI_S),
+              ("Техника", C_EQ_F, C_EQ_S), ("Заявки", C_REQ_F, C_REQ_S),
+              ("Договоры", C_CTR_F, C_CTR_S),
+              ("Обслуживание", C_SRV_F, C_SRV_S)]
+    x = 62
+    for name, f, st in groups:
+        swatch(s, x, leg_y + 8, f, st, f"цвет группы {name}", size=24)
+        w = s.text(x + 34, leg_y + 28, name, size=MIN_SIZE, weight="bold",
+                   anchor="start", fill=st, maxw=300)
+        x += 34 + w + 30
+
+    flows = [
+        (C_ROK, False, "РОК — снимки 1 раз/сут"),
+        (C_RBOK, True, "РБОК — узел ⇄ узел, без мастера"),
+        (C_RKD_A, False, "РКД — свод филиалов в consol"),
+    ]
+    for k, (color, two_way, txt) in enumerate(flows):
+        x0 = 62 + k * 540
+        heads = [((x0 + 78, leg_y + 60), (1, 0))]
+        if two_way:
+            heads.append(((x0, leg_y + 60), (-1, 0)))
+        _c_line_heads(s, [(x0 + (6 if two_way else 0), leg_y + 60),
+                          (x0 + 72, leg_y + 60)], color, heads,
+                      f"образец стрелки {k + 1}")
+        s.text(x0 + 94, leg_y + 66, txt, size=MIN_SIZE, anchor="start",
+               fill=color, maxw=1652 - (x0 + 94))
+
+    return problems_report(s, "05e_fragmentation_arrows")
+
+
+# ==========================================================================
 def problems_report(s, name):
     problems = s.check()
     write(s, name)
@@ -740,6 +1033,8 @@ def main():
         problems += d05c_fragmentation_cards()
     if only in (None, "B"):
         problems += d05d_fragmentation_matrix()
+    if only in (None, "C"):
+        problems += d05e_fragmentation_arrows()
     if problems:
         print("\nПРОБЛЕМЫ ВЁРСТКИ:")
         for p in problems:

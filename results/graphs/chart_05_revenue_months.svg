@@ -1,50 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560"><rect width="100%" height="100%" fill="#ffffff"/>
-<text x="40" y="42" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#111111">Динамика поступлений по месяцам</text>
-<line x1="120" y1="450.0" x2="1140" y2="450.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="108" y="455.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">0</text>
-<line x1="120" y1="378.0" x2="1140" y2="378.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="108" y="383.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">600 тыс</text>
-<line x1="120" y1="306.0" x2="1140" y2="306.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="108" y="311.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">1.2 млн</text>
-<line x1="120" y1="234.0" x2="1140" y2="234.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="108" y="239.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">1.8 млн</text>
-<line x1="120" y1="162.0" x2="1140" y2="162.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="108" y="167.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">2.4 млн</text>
-<line x1="120" y1="90.0" x2="1140" y2="90.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="108" y="95.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">3.0 млн</text>
-<polyline points="120.0,331.2 222.0,394.2 324.0,331.6 426.0,358.5 528.0,331.4 630.0,368.1 732.0,317.0 834.0,370.2 936.0,291.0 1038.0,145.5 1140.0,373.9" fill="none" stroke="#1f4e79" stroke-width="3"/>
-<circle cx="120.0" cy="331.2" r="5" fill="#1f4e79"/>
-<text x="120.0" y="317.22328" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">990 тыс</text>
-<circle cx="222.0" cy="394.2" r="5" fill="#1f4e79"/>
-<text x="222.0" y="380.23576" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">465 тыс</text>
-<circle cx="324.0" cy="331.6" r="5" fill="#1f4e79"/>
-<text x="324.0" y="317.64315999999997" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">986 тыс</text>
-<circle cx="426.0" cy="358.5" r="5" fill="#1f4e79"/>
-<text x="426.0" y="344.50275999999997" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">762 тыс</text>
-<circle cx="528.0" cy="331.4" r="5" fill="#1f4e79"/>
-<text x="528.0" y="317.38276" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">988 тыс</text>
-<circle cx="630.0" cy="368.1" r="5" fill="#1f4e79"/>
-<text x="630.0" y="354.05392" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">683 тыс</text>
-<circle cx="732.0" cy="317.0" r="5" fill="#1f4e79"/>
-<text x="732.0" y="302.99992" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">1.1 млн</text>
-<circle cx="834.0" cy="370.2" r="5" fill="#1f4e79"/>
-<text x="834.0" y="356.1808" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">665 тыс</text>
-<circle cx="936.0" cy="291.0" r="5" fill="#1f4e79"/>
-<text x="936.0" y="276.96352" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">1.3 млн</text>
-<circle cx="1038.0" cy="145.5" r="5" fill="#1f4e79"/>
-<text x="1038.0" y="131.50936000000002" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">2.5 млн</text>
-<circle cx="1140.0" cy="373.9" r="5" fill="#1f4e79"/>
-<text x="1140.0" y="359.89756" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#111111">634 тыс</text>
-<text x="120.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 120.0 478)">12/25</text>
-<text x="222.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 222.0 478)">01/26</text>
-<text x="324.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 324.0 478)">02/26</text>
-<text x="426.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 426.0 478)">03/26</text>
-<text x="528.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 528.0 478)">04/26</text>
-<text x="630.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 630.0 478)">05/26</text>
-<text x="732.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 732.0 478)">06/26</text>
-<text x="834.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 834.0 478)">07/26</text>
-<text x="936.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 936.0 478)">08/26</text>
-<text x="1038.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 1038.0 478)">09/26</text>
-<text x="1140.0" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 1140.0 478)">10/26</text>
-<text x="120" y="540" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#555555">Источник: запрос 7, руб.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="590" viewBox="0 0 1200 590"><rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="46" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#111111">Динамика поступлений по месяцам</text>
+<line x1="165" y1="450.0" x2="1130" y2="450.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="153" y="455.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">0</text>
+<line x1="165" y1="380.0" x2="1130" y2="380.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="153" y="385.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">600 000</text>
+<line x1="165" y1="310.0" x2="1130" y2="310.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="153" y="315.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">1 200 000</text>
+<line x1="165" y1="240.0" x2="1130" y2="240.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="153" y="245.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">1 800 000</text>
+<line x1="165" y1="170.0" x2="1130" y2="170.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="153" y="175.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">2 400 000</text>
+<line x1="165" y1="100.0" x2="1130" y2="100.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="153" y="105.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">3 000 000</text>
+<line x1="165" y1="100" x2="165" y2="450" stroke="#bfbfbf" stroke-width="1"/>
+<line x1="165" y1="450" x2="1130" y2="450" stroke="#bfbfbf" stroke-width="1"/>
+<polyline points="165.0,334.5 261.5,395.8 358.0,334.9 454.5,361.0 551.0,334.7 647.5,370.3 744.0,320.7 840.5,372.4 937.0,295.4 1033.5,154.0" fill="none" stroke="#1f4e79" stroke-width="3"/>
+<line x1="1033.5" y1="154.0" x2="1130.0" y2="376.0" stroke="#1f4e79" stroke-width="3" stroke-dasharray="8 6"/>
+<circle cx="165.0" cy="334.5" r="5" fill="#1f4e79"/>
+<text x="175.0" y="316.5226333333333" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="start" fill="#111111">989 806</text>
+<circle cx="261.5" cy="395.8" r="5" fill="#1f4e79"/>
+<text x="261.5" y="377.78476666666666" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">464 702</text>
+<circle cx="358.0" cy="334.9" r="5" fill="#1f4e79"/>
+<text x="358.0" y="316.93085" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">986 307</text>
+<circle cx="454.5" cy="361.0" r="5" fill="#1f4e79"/>
+<text x="454.5" y="343.04435" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">762 477</text>
+<circle cx="551.0" cy="334.7" r="5" fill="#1f4e79"/>
+<text x="551.0" y="316.67768333333333" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">988 477</text>
+<circle cx="647.5" cy="370.3" r="5" fill="#1f4e79"/>
+<text x="647.5" y="352.3302" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">682 884</text>
+<circle cx="744.0" cy="320.7" r="5" fill="#1f4e79"/>
+<text x="744.0" y="302.69436666666667" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">1 108 334</text>
+<circle cx="840.5" cy="372.4" r="5" fill="#1f4e79"/>
+<text x="840.5" y="354.398" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">665 160</text>
+<circle cx="937.0" cy="295.4" r="5" fill="#1f4e79"/>
+<text x="937.0" y="277.38120000000004" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">1 325 304</text>
+<circle cx="1033.5" cy="154.0" r="5" fill="#1f4e79"/>
+<text x="1033.5" y="135.96743333333336" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">2 537 422</text>
+<circle cx="1130.0" cy="376.0" r="6" fill="#ffffff" stroke="#1f4e79" stroke-width="3"/>
+<text x="1130.0" y="358.0115166666667" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#555555">634 187</text>
+<text x="165.0" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 165.0 480)">12/25</text>
+<text x="261.5" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 261.5 480)">01/26</text>
+<text x="358.0" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 358.0 480)">02/26</text>
+<text x="454.5" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 454.5 480)">03/26</text>
+<text x="551.0" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 551.0 480)">04/26</text>
+<text x="647.5" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 647.5 480)">05/26</text>
+<text x="744.0" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 744.0 480)">06/26</text>
+<text x="840.5" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 840.5 480)">07/26</text>
+<text x="937.0" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 937.0 480)">08/26</text>
+<text x="1033.5" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 1033.5 480)">09/26</text>
+<text x="1130.0" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-30 1130.0 480)">10/26</text>
+<text x="34" y="275.0" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-90 34 275.0)">Сумма, ₽</text>
+<text x="275.0" y="540" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#111111">Месяц</text>
+<text x="175" y="126" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#555555">Октябрь 2026 — неполный месяц (данные по 09.10.2026): пунктир — предварительные данные</text>
+<text x="165" y="576" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#555555">Источник: запрос 7.</text>
 </svg>

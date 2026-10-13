@@ -1,222 +1,173 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1180" viewBox="0 0 1700 1180"><title>ER-диаграмма: НСИ, клиенты, персонал</title><rect width="100%" height="100%" fill="#ffffff"/>
-<text x="40" y="54" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#111827">ER-диаграмма: НСИ, клиенты, персонал</text>
-<text x="40" y="92" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#4b5563">Подсистема из 10 таблиц; связи показаны в нотации «вороньи лапки»</text>
-<rect x="1050" y="27" width="34" height="26" rx="5" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
-<text x="1094" y="46" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">НСИ</text>
-<rect x="1178.4" y="27" width="34" height="26" rx="5" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
-<text x="1222.4" y="46" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">персонал</text>
-<rect x="1363.92" y="27" width="34" height="26" rx="5" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
-<text x="1407.92" y="46" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">клиенты</text>
-<polyline points="205.0,310.0 205.0,395.0" fill="none" stroke="#1f2937" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="220.0" y1="332.0" x2="190.0" y2="332.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="189.0" y1="395.0" x2="205.0" y2="369.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="221.0" y1="395.0" x2="205.0" y2="369.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<text x="188" y="342" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
-<text x="228" y="386" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
-<polyline points="370.0,520.0 410.0,520.0 410.0,240.0 470.0,240.0" fill="none" stroke="#1f2937" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="392.0" y1="505.0" x2="392.0" y2="535.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="470.0" y1="256.0" x2="444.0" y2="240.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="470.0" y1="224.0" x2="444.0" y2="240.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<text x="392" y="506" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1f2937">1</text>
-<text x="444" y="226" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1f2937">N</text>
-<polyline points="370.0,550.0 430.0,550.0 430.0,520.0 470.0,520.0" fill="none" stroke="#1f2937" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="392.0" y1="535.0" x2="392.0" y2="565.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="470.0" y1="536.0" x2="444.0" y2="520.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="470.0" y1="504.0" x2="444.0" y2="520.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<text x="400" y="536" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1f2937">1</text>
-<text x="446" y="506" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1f2937">N</text>
-<polyline points="370.0,580.0 400.0,580.0 400.0,780.0 470.0,780.0" fill="none" stroke="#1f2937" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="392.0" y1="565.0" x2="392.0" y2="595.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="470.0" y1="796.0" x2="444.0" y2="780.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="470.0" y1="764.0" x2="444.0" y2="780.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<text x="385" y="566" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1f2937">1</text>
-<text x="428" y="764" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1f2937">N</text>
-<polyline points="1045.0,400.0 1045.0,475.0" fill="none" stroke="#1f2937" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="1060.0" y1="422.0" x2="1030.0" y2="422.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1029.0" y1="475.0" x2="1045.0" y2="449.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1061.0" y1="475.0" x2="1045.0" y2="449.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<text x="1028" y="418" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
-<text x="1062" y="460" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
-<polyline points="1210.0,265.0 1300.0,265.0" fill="none" stroke="#1f2937" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="1232.0" y1="250.0" x2="1232.0" y2="280.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1300.0" y1="281.0" x2="1274.0" y2="265.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1300.0" y1="249.0" x2="1274.0" y2="265.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<text x="1240" y="251" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1f2937">1</text>
-<text x="1284" y="251" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1f2937">N</text>
-<polyline points="1465.0,370.0 1465.0,445.0" fill="none" stroke="#1f2937" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="1480.0" y1="392.0" x2="1450.0" y2="392.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1449.0" y1="445.0" x2="1465.0" y2="419.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1481.0" y1="445.0" x2="1465.0" y2="419.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<text x="1448" y="390" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
-<text x="1484" y="432" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
-<polyline points="1465.0,655.0 1465.0,740.0" fill="none" stroke="#1f2937" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="1480.0" y1="677.0" x2="1450.0" y2="677.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1449.0" y1="740.0" x2="1465.0" y2="714.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1481.0" y1="740.0" x2="1465.0" y2="714.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<text x="1448" y="686" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
-<text x="1484" y="727" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
-<polyline points="1630.0,285.0 1665.0,285.0 1665.0,925.0 1630.0,925.0" fill="none" stroke="#1f2937" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7"/>
-<line x1="1652.0" y1="270.0" x2="1652.0" y2="300.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1630.0" y1="909.0" x2="1656.0" y2="925.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="1630.0" y1="941.0" x2="1656.0" y2="925.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
-<text x="1642" y="271" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">1</text>
-<text x="1640" y="898" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
-<rect x="40" y="130" width="330" height="180" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.2"/>
-<line x1="40" y1="198" x2="370" y2="198" stroke="#1d4ed8" stroke-width="2.0" stroke-linecap="round"/>
-<text x="56" y="163" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#1d4ed8">Категории</text>
-<text x="56" y="190" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">categories</text>
-<text x="52" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="90" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">CAT_ID</text>
-<text x="360" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(3)</text>
-<text x="90" y="262" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">CAT_NAME</text>
-<text x="360" y="262" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(60)</text>
-<text x="90" y="292" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">CAT_DESCR</text>
-<text x="360" y="292" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(200)</text>
-<rect x="40" y="395" width="330" height="270" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.2"/>
-<line x1="40" y1="463" x2="370" y2="463" stroke="#1d4ed8" stroke-width="2.0" stroke-linecap="round"/>
-<text x="56" y="428" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#1d4ed8">Модели</text>
-<text x="56" y="455" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">models</text>
-<text x="52" y="497" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="90" y="497" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">MOD_ID</text>
-<text x="360" y="497" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="52" y="527" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
-<text x="90" y="527" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MOD_CAT</text>
-<text x="360" y="527" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(3)</text>
-<text x="90" y="557" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MOD_BRAND</text>
-<text x="360" y="557" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(40)</text>
-<text x="90" y="587" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MOD_NAME</text>
-<text x="360" y="587" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(80)</text>
-<text x="90" y="617" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MOD_COST</text>
-<text x="360" y="617" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(12,2)</text>
-<text x="90" y="647" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MOD_MINQTY</text>
-<text x="360" y="647" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(3)</text>
-<rect x="470" y="130" width="330" height="210" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.2"/>
-<line x1="470" y1="198" x2="800" y2="198" stroke="#1d4ed8" stroke-width="2.0" stroke-linecap="round"/>
-<text x="486" y="163" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#1d4ed8">Комплектация</text>
-<text x="486" y="190" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">model_components</text>
-<text x="482" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="520" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">MC_ID</text>
-<text x="790" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">BIGINT</text>
-<text x="482" y="262" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
-<text x="520" y="262" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MC_MOD</text>
-<text x="790" y="262" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="520" y="292" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MC_ITEM</text>
-<text x="790" y="292" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(80)</text>
-<text x="520" y="322" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MC_QTY</text>
-<text x="790" y="322" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(3)</text>
-<rect x="470" y="425" width="330" height="180" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.2"/>
-<line x1="470" y1="493" x2="800" y2="493" stroke="#1d4ed8" stroke-width="2.0" stroke-linecap="round"/>
-<text x="486" y="458" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#1d4ed8">Назначения</text>
-<text x="486" y="485" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">model_purposes</text>
-<text x="482" y="527" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="520" y="527" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">MP_ID</text>
-<text x="790" y="527" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">BIGINT</text>
-<text x="482" y="557" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
-<text x="520" y="557" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MP_MOD</text>
-<text x="790" y="557" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="520" y="587" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">MP_PURPOSE</text>
-<text x="790" y="587" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(60)</text>
-<rect x="470" y="690" width="330" height="270" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.2"/>
-<line x1="470" y1="758" x2="800" y2="758" stroke="#1d4ed8" stroke-width="2.0" stroke-linecap="round"/>
-<text x="486" y="723" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#1d4ed8">Тарифы</text>
-<text x="486" y="750" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">tariffs</text>
-<text x="482" y="792" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="520" y="792" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">TAR_ID</text>
-<text x="790" y="792" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="482" y="822" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
-<text x="520" y="822" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">TAR_MOD</text>
-<text x="790" y="822" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="520" y="852" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">TAR_UNIT</text>
-<text x="790" y="852" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(10)</text>
-<text x="520" y="882" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">TAR_PRICE</text>
-<text x="790" y="882" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(10,2)</text>
-<text x="520" y="912" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">TAR_BEGIN</text>
-<text x="790" y="912" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">D</text>
-<text x="520" y="942" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">TAR_END</text>
-<text x="790" y="942" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">D</text>
-<rect x="880" y="130" width="330" height="270" rx="10" fill="#e0e7ff" stroke="#3730a3" stroke-width="2.2"/>
-<line x1="880" y1="198" x2="1210" y2="198" stroke="#3730a3" stroke-width="2.0" stroke-linecap="round"/>
-<text x="896" y="163" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#3730a3">Филиалы</text>
-<text x="896" y="190" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">branches</text>
-<text x="892" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="930" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">BR_ID</text>
-<text x="1200" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(8)</text>
-<text x="930" y="262" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">BR_NAME</text>
-<text x="1200" y="262" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(100)</text>
-<text x="930" y="292" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">BR_CITY</text>
-<text x="1200" y="292" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(50)</text>
-<text x="930" y="322" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">BR_ADDRESS</text>
-<text x="1200" y="322" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(150)</text>
-<text x="930" y="352" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">BR_MANAGER</text>
-<text x="1200" y="352" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(100)</text>
-<text x="930" y="382" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">BR_BEGIN</text>
-<text x="1200" y="382" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">D</text>
-<rect x="880" y="475" width="330" height="240" rx="10" fill="#e0e7ff" stroke="#3730a3" stroke-width="2.2"/>
-<line x1="880" y1="543" x2="1210" y2="543" stroke="#3730a3" stroke-width="2.0" stroke-linecap="round"/>
-<text x="896" y="508" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#3730a3">Сотрудники</text>
-<text x="896" y="535" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">employees</text>
-<text x="892" y="577" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="930" y="577" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">EMP_ID</text>
-<text x="1200" y="577" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="892" y="607" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
-<text x="930" y="607" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">EMP_BR</text>
-<text x="1200" y="607" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(8)</text>
-<text x="930" y="637" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">EMP_FIO</text>
-<text x="1200" y="637" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(100)</text>
-<text x="930" y="667" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">EMP_POSITION</text>
-<text x="1200" y="667" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(60)</text>
-<text x="930" y="697" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">EMP_LOGIN</text>
-<text x="1200" y="697" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(30)</text>
-<rect x="1300" y="130" width="330" height="240" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2.2"/>
-<line x1="1300" y1="198" x2="1630" y2="198" stroke="#15803d" stroke-width="2.0" stroke-linecap="round"/>
-<text x="1316" y="163" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#15803d">ВУЗы</text>
-<text x="1316" y="190" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">universities</text>
-<text x="1312" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="1350" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">UN_ID</text>
-<text x="1620" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="1350" y="262" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">UN_SHORT</text>
-<text x="1620" y="262" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(60)</text>
-<text x="1350" y="292" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">UN_INN</text>
-<text x="1620" y="292" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">C(10)</text>
-<text x="1350" y="322" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">UN_CITY</text>
-<text x="1620" y="322" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(50)</text>
-<text x="1312" y="352" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
-<text x="1350" y="352" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">UN_BR</text>
-<text x="1620" y="352" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(8)</text>
-<rect x="1300" y="445" width="330" height="210" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2.2"/>
-<line x1="1300" y1="513" x2="1630" y2="513" stroke="#15803d" stroke-width="2.0" stroke-linecap="round"/>
-<text x="1316" y="478" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#15803d">Подразделения</text>
-<text x="1316" y="505" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">departments</text>
-<text x="1312" y="547" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="1350" y="547" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">DEP_ID</text>
-<text x="1620" y="547" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="1312" y="577" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
-<text x="1350" y="577" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">DEP_UN</text>
-<text x="1620" y="577" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="1350" y="607" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">DEP_NAME</text>
-<text x="1620" y="607" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(100)</text>
-<text x="1350" y="637" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">DEP_HEAD</text>
-<text x="1620" y="637" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(100)</text>
-<rect x="1300" y="740" width="330" height="270" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2.2"/>
-<line x1="1300" y1="808" x2="1630" y2="808" stroke="#15803d" stroke-width="2.0" stroke-linecap="round"/>
-<text x="1316" y="773" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#15803d">Представители</text>
-<text x="1316" y="800" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">representatives</text>
-<text x="1312" y="842" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
-<text x="1350" y="842" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#111827">REP_ID</text>
-<text x="1620" y="842" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="1312" y="872" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
-<text x="1350" y="872" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">REP_UN</text>
-<text x="1620" y="872" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="1312" y="902" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
-<text x="1350" y="902" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">REP_DEP</text>
-<text x="1620" y="902" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">N(6)</text>
-<text x="1350" y="932" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">REP_FIO</text>
-<text x="1620" y="932" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(100)</text>
-<text x="1350" y="962" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">REP_POSITION</text>
-<text x="1620" y="962" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(60)</text>
-<text x="1350" y="992" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#111827">REP_PHONE</text>
-<text x="1620" y="992" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="end" fill="#6b7280">V(20)</text>
-<text x="40" y="1090" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#4b5563">Цвет: синий — НСИ (справочники), индиго — филиалы и персонал, зелёный — клиенты вузов. 1 — «один», вороньи лапки — «многие»;</text>
-<text x="40" y="1122" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#4b5563">пунктир — необязательная связь. На таблицы подсистемы ссылаются таблицы диаграммы 11: requests (REQ_UN, REQ_DEP, REQ_REP,</text>
-<text x="40" y="1154" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" text-anchor="start" fill="#4b5563">REQ_BR), equipment_units (EQ_MOD, EQ_BR), transfers (TR_FROM, TR_TO), rentals (RNT_EMP), request_items (RIT_MOD, RIT_TAR).</text>
+<text x="30" y="52" font-family="Helvetica, Arial, sans-serif" font-size="38" font-weight="bold" text-anchor="start" fill="#111827">ER-диаграмма: НСИ, клиенты, персонал</text>
+<text x="30" y="90" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#4b5563">10 таблиц подсистемы. Показаны ключевые поля: PK — первичный ключ, FK — внешний ключ; «…» — остальные поля</text>
+<rect x="1181.02" y="33" width="34" height="26" rx="5" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="1225.02" y="52" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#111827">НСИ</text>
+<rect x="1312.22" y="33" width="34" height="26" rx="5" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
+<text x="1356.22" y="52" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#111827">персонал</text>
+<rect x="1510.74" y="33" width="34" height="26" rx="5" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="1554.74" y="52" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#111827">клиенты</text>
+<polyline points="205.0,332.0 205.0,464.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="220.0" y1="354.0" x2="190.0" y2="354.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="189.0" y1="464.0" x2="205.0" y2="438.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="221.0" y1="464.0" x2="205.0" y2="438.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<text x="185" y="428" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
+<text x="226" y="424" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
+<polyline points="381.0,600.0 420.0,600.0 420.0,300.0 459.0,300.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="403.0" y1="585.0" x2="403.0" y2="615.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="459.0" y1="316.0" x2="433.0" y2="300.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="459.0" y1="284.0" x2="433.0" y2="300.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<text x="400" y="576" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
+<text x="428" y="272" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
+<polyline points="381.0,640.0 459.0,640.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="403.0" y1="625.0" x2="403.0" y2="655.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="459.0" y1="656.0" x2="433.0" y2="640.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="459.0" y1="624.0" x2="433.0" y2="640.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<text x="403" y="608" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1f2937">1</text>
+<text x="437" y="606" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1f2937">N</text>
+<polyline points="205.0,742.0 205.0,802.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="220.0" y1="764.0" x2="190.0" y2="764.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="189.0" y1="802.0" x2="205.0" y2="776.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="221.0" y1="802.0" x2="205.0" y2="776.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<text x="185" y="766" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
+<text x="226" y="762" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
+<polyline points="1065.0,404.0 1065.0,464.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="1080.0" y1="426.0" x2="1050.0" y2="426.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1049.0" y1="464.0" x2="1065.0" y2="438.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1081.0" y1="464.0" x2="1065.0" y2="438.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<text x="1045" y="428" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
+<text x="1086" y="424" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
+<polyline points="1241.0,300.0 1319.0,300.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="1263.0" y1="285.0" x2="1263.0" y2="315.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1319.0" y1="316.0" x2="1293.0" y2="300.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1319.0" y1="284.0" x2="1293.0" y2="300.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<text x="1263" y="268" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1f2937">1</text>
+<text x="1296" y="266" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1f2937">N</text>
+<polyline points="1495.0,404.0 1495.0,464.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="1510.0" y1="426.0" x2="1480.0" y2="426.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1479.0" y1="464.0" x2="1495.0" y2="438.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1511.0" y1="464.0" x2="1495.0" y2="438.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<text x="1475" y="428" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
+<text x="1516" y="424" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
+<polyline points="1495.0,706.0 1495.0,802.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="1510.0" y1="728.0" x2="1480.0" y2="728.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1479.0" y1="802.0" x2="1495.0" y2="776.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1511.0" y1="802.0" x2="1495.0" y2="776.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<text x="1475" y="766" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="end" fill="#1f2937">1</text>
+<text x="1516" y="762" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#1f2937">N</text>
+<polyline points="1319.0,220.0 1280.0,220.0 1280.0,950.0 1319.0,950.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7"/>
+<line x1="1297.0" y1="235.0" x2="1297.0" y2="205.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1319.0" y1="966.0" x2="1293.0" y2="950.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1319.0" y1="934.0" x2="1293.0" y2="950.0" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round"/>
+<text x="1300" y="196" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#1f2937">1</text>
+<text x="1310" y="922" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="end" fill="#1f2937">N</text>
+<rect x="29" y="126" width="352" height="206" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.4"/>
+<line x1="29" y1="206" x2="381" y2="206" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/>
+<text x="45" y="164" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#1d4ed8">Категории</text>
+<text x="45" y="196" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">categories</text>
+<text x="43" y="241" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="93" y="241" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">CAT_ID</text>
+<text x="93" y="277" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">CAT_NAME</text>
+<text x="93" y="313" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">CAT_DESCR</text>
+<rect x="29" y="464" width="352" height="278" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.4"/>
+<line x1="29" y1="544" x2="381" y2="544" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/>
+<text x="45" y="502" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#1d4ed8">Модели</text>
+<text x="45" y="534" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">models</text>
+<text x="43" y="579" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="93" y="579" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">MOD_ID</text>
+<text x="43" y="615" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
+<text x="93" y="615" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">MOD_CAT</text>
+<text x="93" y="651" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">MOD_BRAND</text>
+<text x="93" y="687" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">MOD_NAME</text>
+<text x="43" y="723" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#6b7280">…</text>
+<text x="93" y="723" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">ещё 2 поля</text>
+<rect x="29" y="802" width="352" height="278" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.4"/>
+<line x1="29" y1="882" x2="381" y2="882" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/>
+<text x="45" y="840" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#1d4ed8">Тарифы</text>
+<text x="45" y="872" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">tariffs</text>
+<text x="43" y="917" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="93" y="917" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">TAR_ID</text>
+<text x="43" y="953" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
+<text x="93" y="953" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">TAR_MOD</text>
+<text x="93" y="989" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">TAR_UNIT</text>
+<text x="93" y="1025" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">TAR_PRICE</text>
+<text x="43" y="1061" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#6b7280">…</text>
+<text x="93" y="1061" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">ещё 2 поля</text>
+<rect x="459" y="126" width="352" height="242" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.4"/>
+<line x1="459" y1="206" x2="811" y2="206" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/>
+<text x="475" y="164" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#1d4ed8">Комплектация</text>
+<text x="475" y="196" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">model_components</text>
+<text x="473" y="241" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="523" y="241" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">MC_ID</text>
+<text x="473" y="277" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
+<text x="523" y="277" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">MC_MOD</text>
+<text x="523" y="313" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">MC_ITEM</text>
+<text x="523" y="349" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">MC_QTY</text>
+<rect x="459" y="464" width="352" height="206" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.4"/>
+<line x1="459" y1="544" x2="811" y2="544" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/>
+<text x="475" y="502" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#1d4ed8">Назначения</text>
+<text x="475" y="534" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">model_purposes</text>
+<text x="473" y="579" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="523" y="579" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">MP_ID</text>
+<text x="473" y="615" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
+<text x="523" y="615" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">MP_MOD</text>
+<text x="523" y="651" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">MP_PURPOSE</text>
+<rect x="889" y="126" width="352" height="278" rx="10" fill="#e0e7ff" stroke="#3730a3" stroke-width="2.4"/>
+<line x1="889" y1="206" x2="1241" y2="206" stroke="#3730a3" stroke-width="2.2" stroke-linecap="round"/>
+<text x="905" y="164" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#3730a3">Филиалы</text>
+<text x="905" y="196" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">branches</text>
+<text x="903" y="241" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="953" y="241" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">BR_ID</text>
+<text x="953" y="277" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">BR_NAME</text>
+<text x="953" y="313" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">BR_CITY</text>
+<text x="953" y="349" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">BR_ADDRESS</text>
+<text x="903" y="385" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#6b7280">…</text>
+<text x="953" y="385" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">ещё 2 поля</text>
+<rect x="889" y="464" width="352" height="278" rx="10" fill="#e0e7ff" stroke="#3730a3" stroke-width="2.4"/>
+<line x1="889" y1="544" x2="1241" y2="544" stroke="#3730a3" stroke-width="2.2" stroke-linecap="round"/>
+<text x="905" y="502" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#3730a3">Сотрудники</text>
+<text x="905" y="534" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">employees</text>
+<text x="903" y="579" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="953" y="579" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">EMP_ID</text>
+<text x="903" y="615" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
+<text x="953" y="615" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">EMP_BR</text>
+<text x="953" y="651" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">EMP_FIO</text>
+<text x="953" y="687" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">EMP_POSITION</text>
+<text x="953" y="723" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">EMP_LOGIN</text>
+<rect x="1319" y="126" width="352" height="278" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2.4"/>
+<line x1="1319" y1="206" x2="1671" y2="206" stroke="#15803d" stroke-width="2.2" stroke-linecap="round"/>
+<text x="1335" y="164" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#15803d">ВУЗы</text>
+<text x="1335" y="196" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">universities</text>
+<text x="1333" y="241" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="1383" y="241" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">UN_ID</text>
+<text x="1383" y="277" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">UN_SHORT</text>
+<text x="1383" y="313" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">UN_INN</text>
+<text x="1383" y="349" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">UN_CITY</text>
+<text x="1333" y="385" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
+<text x="1383" y="385" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">UN_BR</text>
+<rect x="1319" y="464" width="352" height="242" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2.4"/>
+<line x1="1319" y1="544" x2="1671" y2="544" stroke="#15803d" stroke-width="2.2" stroke-linecap="round"/>
+<text x="1335" y="502" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#15803d">Подразделения</text>
+<text x="1335" y="534" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">departments</text>
+<text x="1333" y="579" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="1383" y="579" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">DEP_ID</text>
+<text x="1333" y="615" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
+<text x="1383" y="615" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">DEP_UN</text>
+<text x="1383" y="651" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">DEP_NAME</text>
+<text x="1383" y="687" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">DEP_HEAD</text>
+<rect x="1319" y="802" width="352" height="278" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2.4"/>
+<line x1="1319" y1="882" x2="1671" y2="882" stroke="#15803d" stroke-width="2.2" stroke-linecap="round"/>
+<text x="1335" y="840" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#15803d">Представители</text>
+<text x="1335" y="872" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">representatives</text>
+<text x="1333" y="917" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">PK</text>
+<text x="1383" y="917" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#111827">REP_ID</text>
+<text x="1333" y="953" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
+<text x="1383" y="953" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">REP_UN</text>
+<text x="1333" y="989" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#1f2937">FK</text>
+<text x="1383" y="989" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">REP_DEP</text>
+<text x="1383" y="1025" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#111827">REP_FIO</text>
+<text x="1333" y="1061" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#6b7280">…</text>
+<text x="1383" y="1061" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="start" fill="#6b7280" font-style="italic">ещё 2 поля</text>
+<text x="29" y="1114" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#4b5563">1 — «один», вороньи лапки — «многие»; пунктир — необязательная связь. На таблицы этой подсистемы ссылаются</text>
+<text x="29" y="1148" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" text-anchor="start" fill="#4b5563">таблицы диаграммы 11: requests, request_items, equipment_units, transfers, rentals.</text>
 </svg>

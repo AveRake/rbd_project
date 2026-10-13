@@ -8,9 +8,21 @@ CampusRent — ER-диаграммы в нотации «вороньи лапк
   10_er_crowsfoot_clients.svg/.png  — подсистема «НСИ, клиенты, персонал» (10 таблиц)
   11_er_crowsfoot_rental.svg/.png   — подсистема «Техника, аренда, сервис» (12 таблиц)
 
+Читаемость на слайде (важно!).
+  Диаграмма вставляется в слайд 1280x720 в рамку 900x575 (fit: contain), т.е. PNG
+  шириной 1700 px показывается шириной ~830 px — коэффициент 0,487. Поэтому кегли
+  подняты так, чтобы на слайде получилось >= 15 px:
+      атрибуты        32 px  -> ~15,6 px на слайде
+      заголовки       34 px  -> ~16,6 px
+      легенда         28 px  -> ~13,6 px
+      кардинальности  28 px  -> ~13,6 px
+      сноска          28 px  -> ~13,6 px
+  Чтобы это поместилось, убраны отступы, тип поля вынесен в отчёт (в ER остаются
+  только PK/FK и ключевые атрибуты), а скрытые поля помечены строкой «… ещё N полей».
+
 Особенности реализации:
-  * чистый Python + SVG, без внешних библиотек (тот же подход, что и в gen_diagrams.py);
-  * полотно 1700 px по ширине, кегль текста не меньше 24 px, заголовки таблиц 27 px;
+  * чистый Python + SVG, без внешних библиотек (Pillow используется только для
+    точного контроля ширины строк, если он доступен);
   * координаты плашек подобраны вручную; связи — ортогональные ломаные по свободным
     «коридорам» между плашками, поэтому линии не проходят сквозь таблицы;
   * встроенная проверка QA: каждый отрезок связи проверяется на пересечение с
@@ -18,6 +30,9 @@ CampusRent — ER-диаграммы в нотации «вороньи лапк
 
 Запуск:  python3 tools/gen_er_crowsfoot.py
          (SVG пишутся всегда; PNG — через rsvg-convert -w 1700, если он есть в PATH)
+
+Проверка «как на слайде»:
+    rsvg-convert -w 807 diagrams/10_er_crowsfoot_clients.svg -o /tmp/slide10.png
 """
 
 import math
@@ -47,13 +62,20 @@ P_CTR = ("#ffedd5", "#c2410c")     # договоры / финансы / сер�
 P_HQ = ("#e0e7ff", "#3730a3")      # филиалы и персонал — индиго
 
 # ---------------------------------------------------------------------------
-# Геометрия
+# Геометрия и кегли
 # ---------------------------------------------------------------------------
-TBL_W = 330          # ширина плашки таблицы
-HDR_H = 68           # высота шапки таблицы
-LINE_H = 30          # шаг строки полей
-PAD_TOP = 12
-PAD_BOT = 10
+CANVAS_W = 1700
+CANVAS_H = 1180
+TBL_W = 352          # ширина плашки таблицы на ER-диаграммах
+BADGE_X = 14         # левый край метки PK/FK
+NAME_X = 64          # левый край имени поля
+COLS = (29, 459, 889, 1319)   # левые края четырёх колонок
+
+HDR_H = 80           # высота шапки таблицы
+LINE_H = 36          # шаг строки полей
+PAD_TOP = 10
+PAD_BOT = 8
+ROW_GAP = 60         # вертикальный коридор между рядами таблиц
 
 BAR_D = 22           # расстояние от плашки до черты «один»
 BAR_HH = 15          # половина длины черты «один»
@@ -62,37 +84,62 @@ CF_SPREAD = 16       # половина раствора «вороньей ла
 CIRC_D = 38          # расстояние от плашки до кружка «необязательно»
 CIRC_R = 9
 
-SW_LINE = 2.2
-SW_SYM = 2.4
-SW_BOX = 2.2
+SW_LINE = 2.4
+SW_SYM = 2.6
+SW_BOX = 2.4
 
-FS_TXT = 24          # основной кегль (минимум по заданию — 24)
-FS_HDR = 27          # заголовок таблицы
-FS_TITLE = 34
-FS_RU_ENT = 27
+# Кегли: атрибуты >= 32, заголовки >= 34, кардинальности/легенда >= 28
+FS_TXT = 32          # атрибуты
+FS_HDR = 34          # заголовок таблицы
+FS_EN = 26           # английское имя сущности (диаграмма нотации)
+FS_TBL_EN = 28       # английское имя таблицы на ER-диаграммах
+FS_CARD = 28         # подписи кардинальностей «1»/«N»/«0..1»
+FS_LEG = 28          # легенда
+FS_NOTE = 28         # сноска
+FS_TITLE = 38        # заголовок диаграммы
+FS_SUB = 28          # подзаголовок диаграммы
+FS_ENT = 32          # имя сущности на диаграмме нотации
 
 # ---------------------------------------------------------------------------
-# Оценка ширины строки (чистый Python, без библиотек) — контроль переполнения
+# Оценка ширины строки — контроль переполнения.
+# Если доступен Pillow, метрики берутся из того же Helvetica, которым рисует
+# rsvg-convert; иначе — грубая оценка.
 # ---------------------------------------------------------------------------
 _W_NARROW = set("iljI.,:;!|'`()[]{}-/\\ft ")
 _W_WIDE = set("MW@ШЩЖЮФМmw")
 
+try:                                        # pragma: no cover
+    from PIL import ImageFont as _ImageFont
+    _FONT_CACHE = {}
 
-def est_w(text, size):
-    """Приблизительная ширина строки в пикселях (Helvetica, с запасом вверх)."""
-    w = 0.0
-    for ch in text:
-        if ch in _W_NARROW:
-            w += 0.34
-        elif ch in _W_WIDE:
-            w += 0.90
-        elif ch.isdigit():
-            w += 0.56
-        elif ch.isupper():
-            w += 0.70
-        else:
-            w += 0.56
-    return w * size
+    def _pil(size, style):
+        key = (size, style)
+        f = _FONT_CACHE.get(key)
+        if f is None:
+            idx = 0 if style == "regular" else (1 if style == "bold" else 2)
+            f = _ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc",
+                                    size, index=idx)
+            _FONT_CACHE[key] = f
+        return f
+
+    def text_w(text, size, style="regular"):
+        """Ширина строки в пикселях (с запасом 2 %)."""
+        return _pil(size, style).getlength(text) * 1.02
+except Exception:                           # pragma: no cover
+    def text_w(text, size, style="regular"):
+        w = 0.0
+        for ch in text:
+            if ch in _W_NARROW:
+                w += 0.34
+            elif ch in _W_WIDE:
+                w += 0.90
+            elif ch.isdigit():
+                w += 0.56
+            elif ch.isupper():
+                w += 0.70
+            else:
+                w += 0.56
+        return w * size
 
 
 def esc(s):
@@ -149,22 +196,20 @@ class Svg:
         return path
 
     def header(self, title, subtitle=None):
-        self.text(40, 54, title, size=FS_TITLE, anchor="start", weight="bold")
-        if est_w(title, FS_TITLE) + 80 > self.w:
+        self.text(30, 52, title, size=FS_TITLE, anchor="start", weight="bold")
+        if text_w(title, FS_TITLE, "bold") + 34 > self.w:
             QA_WARNS.append("заголовок шире полотна: «%s»" % title)
-        if est_w(title, FS_TITLE) + 40 > 1010:
-            QA_WARNS.append("заголовок доходит до легенды: «%s»" % title)
         if subtitle:
-            self.text(40, 92, subtitle, size=FS_TXT, anchor="start", fill=C_SUB)
-            if est_w(subtitle, FS_TXT) + 40 > 1010:
-                QA_WARNS.append("подзаголовок доходит до легенды: «%s»" % subtitle)
+            self.text(30, 90, subtitle, size=FS_SUB, anchor="start", fill=C_SUB)
+            if text_w(subtitle, FS_SUB) + 34 > self.w:
+                QA_WARNS.append("подзаголовок шире полотна: «%s»" % subtitle)
 
 
 def wrap(text, size, max_w):
     lines, cur = [], ""
     for word in text.split():
         trial = word if not cur else cur + " " + word
-        if est_w(trial, size) <= max_w or not cur:
+        if text_w(trial, size) <= max_w or not cur:
             cur = trial
         else:
             lines.append(cur)
@@ -182,8 +227,8 @@ def fy(t, i):
     return t["y"] + HDR_H + PAD_TOP + i * LINE_H + LINE_H / 2.0
 
 
-def tbl_h(n_fields):
-    return HDR_H + PAD_TOP + n_fields * LINE_H + PAD_BOT
+def tbl_h(n_rows):
+    return HDR_H + PAD_TOP + n_rows * LINE_H + PAD_BOT
 
 
 def L(t, y):
@@ -202,40 +247,80 @@ def B(t, x):
     return (x, t["y"] + t["h"])
 
 
-def make_table(key, ru, en, x, y, pal, fields):
-    return {"key": key, "ru": ru, "en": en, "x": x, "y": y, "pal": pal,
+def elide(n):
+    """Строка «… ещё N полей» вместо скрытых неключевых полей."""
+    if n % 10 == 1 and n % 100 != 11:
+        word = "поле"
+    elif n % 10 in (2, 3, 4) and n % 100 not in (12, 13, 14):
+        word = "поля"
+    else:
+        word = "полей"
+    return ("ELIDE", "ещё %d %s" % (n, word))
+
+
+def make_table(key, ru, en, row, col, pal, fields):
+    """fields: [(badge, name)], badge: PK | FK | FKX | ''."""
+    return {"key": key, "ru": ru, "en": en, "row": row, "col": col, "pal": pal,
             "fields": fields, "h": tbl_h(len(fields))}
+
+
+def place_tables(tables, y0=126, gap=ROW_GAP):
+    by_row = {}
+    for t in tables.values():
+        by_row.setdefault(t["row"], []).append(t["h"])
+    y, ys = y0, {}
+    for r in sorted(by_row):
+        ys[r] = y
+        y += max(by_row[r]) + gap
+    for t in tables.values():
+        t["x"] = COLS[t["col"]]
+        t["y"] = ys[t["row"]]
+    return y - gap      # нижняя граница таблиц
 
 
 def draw_table(s, t, qa_boxes, qa_warns):
     x, y, w, h = t["x"], t["y"], TBL_W, t["h"]
     fill, stroke = t["pal"]
     s.rect(x, y, w, h, fill=fill, stroke=stroke, sw=SW_BOX, rx=10)
-    s.line(x, y + HDR_H, x + w, y + HDR_H, stroke=stroke, sw=2.0)
-    s.text(x + 16, y + 33, t["ru"], size=FS_HDR, anchor="start", weight="bold",
+    s.line(x, y + HDR_H, x + w, y + HDR_H, stroke=stroke, sw=2.2)
+    s.text(x + 16, y + 38, t["ru"], size=FS_HDR, anchor="start", weight="bold",
            fill=stroke)
-    s.text(x + 16, y + 60, t["en"], size=FS_TXT, anchor="start", fill=C_GRAY,
+    s.text(x + 16, y + 70, t["en"], size=FS_TBL_EN, anchor="start", fill=C_GRAY,
            italic=True)
-    for i, (badge, name, typ) in enumerate(t["fields"]):
-        by = y + HDR_H + PAD_TOP + i * LINE_H + 22
+    if text_w(t["ru"], FS_HDR, "bold") + 32 > w:
+        qa_warns.append("%s: заголовок «%s» шире плашки" % (t["key"], t["ru"]))
+    if text_w(t["en"], FS_TBL_EN, "italic") + 32 > w:
+        qa_warns.append("%s: англ. имя «%s» шире плашки" % (t["key"], t["en"]))
+    for i, f in enumerate(t["fields"]):
+        by = y + HDR_H + PAD_TOP + i * LINE_H + 25
+        if f[0] == "ELIDE":
+            s.text(x + BADGE_X, by, "…", size=FS_TXT, anchor="start", weight="bold",
+                   fill=C_GRAY)
+            s.text(x + NAME_X, by, f[1], size=FS_TXT, anchor="start", fill=C_GRAY,
+                   italic=True)
+            continue
+        badge, name = f
         if badge == "PK":
-            s.text(x + 12, by, "PK", size=FS_TXT, anchor="start", weight="bold",
+            s.text(x + BADGE_X, by, "PK", size=FS_TXT, anchor="start", weight="bold",
                    fill=C_LINE)
-            s.text(x + 50, by, name, size=FS_TXT, anchor="start", weight="bold")
+            s.text(x + NAME_X, by, name, size=FS_TXT, anchor="start", weight="bold")
         elif badge == "FK":
-            ext = name.endswith("↗")
-            s.text(x + 12, by, "FK", size=FS_TXT, anchor="start", weight="bold",
-                   fill=C_GRAY if ext else C_LINE)
-            s.text(x + 50, by, name, size=FS_TXT, anchor="start",
-                   fill=C_GRAY if ext else C_TXT)
+            s.text(x + BADGE_X, by, "FK", size=FS_TXT, anchor="start", weight="bold",
+                   fill=C_LINE)
+            s.text(x + NAME_X, by, name, size=FS_TXT, anchor="start")
+        elif badge == "FKX":
+            s.text(x + BADGE_X, by, "FK", size=FS_TXT, anchor="start", weight="bold",
+                   fill=C_GRAY)
+            s.text(x + NAME_X, by, name + " ↗", size=FS_TXT, anchor="start",
+                   fill=C_GRAY)
         else:
-            s.text(x + 50, by, name, size=FS_TXT, anchor="start")
-        if typ:
-            s.text(x + w - 10, by, typ, size=FS_TXT, anchor="end", fill=C_GRAY)
-        used = 50 + est_w(name, FS_TXT) + (est_w(typ, FS_TXT) + 10 if typ else 0) + 10
+            s.text(x + NAME_X, by, name, size=FS_TXT, anchor="start")
+        used = NAME_X + text_w(name, FS_TXT) + 8
+        if badge == "FKX":
+            used += text_w(" ↗", FS_TXT)
         if used > w:
-            qa_warns.append("%s: строка «%s %s» шире плашки (%.0f > %d)"
-                            % (t["key"], name, typ, used, w))
+            qa_warns.append("%s: строка «%s» шире плашки (%.0f > %d)"
+                            % (t["key"], name, used, w))
     qa_boxes.append((t["key"], x, y, w, h))
 
 
@@ -243,8 +328,8 @@ def draw_ent(s, x, y, w, h, ru, en, pal, qa_boxes=None, key=None):
     """Плашка сущности для диаграммы нотации (без списка полей)."""
     fill, stroke = pal
     s.rect(x, y, w, h, fill=fill, stroke=stroke, sw=SW_BOX, rx=10)
-    s.text(x + w / 2, y + h / 2 - 4, ru, size=FS_RU_ENT, weight="bold", fill=stroke)
-    s.text(x + w / 2, y + h / 2 + 24, en, size=FS_TXT, fill=C_GRAY, italic=True)
+    s.text(x + w / 2, y + h / 2 - 4, ru, size=FS_ENT, weight="bold", fill=stroke)
+    s.text(x + w / 2, y + h / 2 + 24, en, size=FS_EN, fill=C_GRAY, italic=True)
     if qa_boxes is not None:
         qa_boxes.append((key or ru, x, y, w, h))
 
@@ -318,8 +403,8 @@ def edge(s, name, path, many=True, dash=False, labels=(), color=C_LINE):
 
 def card(s, txt, x, y, anchor="middle", color=C_LINE):
     """Подпись кардинальности + регистрация в QA."""
-    s.text(x, y, txt, size=FS_TXT, anchor=anchor, weight="bold", fill=color)
-    w = est_w(txt, FS_TXT)
+    s.text(x, y, txt, size=FS_CARD, anchor=anchor, weight="bold", fill=color)
+    w = text_w(txt, FS_CARD, "bold")
     cx = x if anchor == "middle" else (x + w / 2.0 if anchor == "start"
                                        else x - w / 2.0)
     QA_LABELS.append((txt, cx, y - 9, w, 22))
@@ -380,15 +465,18 @@ def run_qa(name):
         for (bkey, rx, ry, rw, rh) in QA_BOXES:
             if (bx1 < rx + rw - 3 and bx2 > rx + 3
                     and by1 < ry + rh - 3 and by2 > ry + 3):
-                problems.append("подпись «%s» попадает на плашку %s" % (txt, bkey))
+                problems.append("подпись «%s» [(%.0f,%.0f)-(%.0f,%.0f)] "
+                                "попадает на плашку %s" % (txt, bx1, by1, bx2, by2,
+                                                           bkey))
         # текст не должен пересекаться с чужими линиями
         for (sname, path) in QA_SEGS:
             for i in range(len(path) - 1):
                 if band_seg_hit(bx1, cy - 17, bx2, cy - 17, path[i], path[i + 1]) \
                         or band_seg_hit(bx1, cy - 2, bx2, cy - 2,
                                         path[i], path[i + 1]):
-                    problems.append("подпись «%s» перечёркнута линией «%s»"
-                                    % (txt, sname))
+                    problems.append("подпись «%s» [(%.0f,%.0f)-(%.0f,%.0f)] "
+                                    "перечёркнута линией «%s»"
+                                    % (txt, bx1, cy - 17, bx2, cy - 2, sname))
     problems += QA_WARNS
     if problems:
         print("[QA] %s: НАЙДЕНО %d" % (name, len(problems)))
@@ -410,29 +498,30 @@ def qa_reset():
 # ---------------------------------------------------------------------------
 # Легенда и сноски
 # ---------------------------------------------------------------------------
-def legend(s, x, y, items, qa_boxes=None):
-    """items: [(подпись, палитра)] — цветные чипы в строку."""
-    cx = x
+def legend(s, y, items, right=30, gap=26):
+    """items: [(подпись, палитра)] — цветные чипы в строку, выровнены вправо."""
+    total = sum(44 + text_w(label, FS_LEG) for (label, _) in items) \
+        + gap * (len(items) - 1)
+    cx = s.w - right - total
     for (label, pal) in items:
         fill, stroke = pal
         s.rect(cx, y - 19, 34, 26, fill=fill, stroke=stroke, sw=2, rx=5)
-        s.text(cx + 44, y, label, size=FS_TXT, anchor="start")
-        cx += 44 + est_w(label, FS_TXT) + 34
+        s.text(cx + 44, y, label, size=FS_LEG, anchor="start")
+        cx += 44 + text_w(label, FS_LEG) + gap
     return cx
 
 
-def footnote(s, x, y, text, max_w=1620):
-    lines = wrap(text, FS_TXT, max_w)
+def footnote(s, x, y, text, max_w=1640, size=FS_NOTE, lead=34):
+    lines = wrap(text, size, max_w)
     for i, line in enumerate(lines):
-        s.text(x, y + i * 32, line, size=FS_TXT, anchor="start", fill=C_SUB)
-    last = y + (len(lines) - 1) * 32
+        s.text(x, y + i * lead, line, size=size, anchor="start", fill=C_SUB)
+        if x + text_w(line, size) > s.w - 10:
+            QA_WARNS.append("строка сноски шире полотна: «%s…»" % line[:40])
+    last = y + (len(lines) - 1) * lead
     if last > s.h - 14:
         QA_WARNS.append("сноска выходит за нижний край полотна "
                         "(последняя строка y=%d, высота %d)" % (last, s.h))
-    for line in lines:
-        if x + est_w(line, FS_TXT) > s.w - 10:
-            QA_WARNS.append("строка сноски шире полотна: «%s…»" % line[:40])
-    return last + 32
+    return last
 
 
 # ===========================================================================
@@ -447,76 +536,82 @@ def d09_notation():
     # --- карточки-пояснения символов ------------------------------------
     cards = [
         ("одна черта — «один»", "ровно один экземпляр", "one"),
-        ("воронья лапка — «многие»", "много экземпляров", "many"),
+        ("воронья лапка — N", "много экземпляров", "many"),
         ("один ко многим (1:N)", "основной тип связи в БД", "onetomany"),
-        ("кружок — «необязательно»", "связь может отсутствовать (0..N)", "opt"),
+        ("кружок — «0..N»", "связь может отсутствовать", "opt"),
     ]
-    cy = 195
+    cy = 175
     for i, (line1, line2, kind) in enumerate(cards):
-        cxx = 30 + i * 420
-        s.rect(cxx, 130, 380, 150, fill="#f9fafb", stroke=C_SOFT, sw=2, rx=10)
-        ex, ey, ew, eh = cxx + 240, cy - 30, 120, 60
+        cxx = 30 + i * 415
+        s.rect(cxx, 120, 395, 182, fill="#f9fafb", stroke=C_SOFT, sw=2, rx=10)
+        ex, ey, ew, eh = cxx + 245, cy - 30, 120, 60
         s.rect(ex, ey, ew, eh, fill="#ffffff", stroke=C_GRAY, sw=2, rx=8)
         s.text(ex + ew / 2, ey + 40, "…", size=FS_TXT, fill=C_GRAY)
-        s.line(cxx + 40, cy, ex, cy, stroke=C_LINE, sw=SW_LINE)
+        s.line(cxx + 35, cy, ex, cy, stroke=C_LINE, sw=SW_LINE)
         if kind == "one":
             sym_one(s, ex, cy, -1, 0)
-            card(s, "1", ex - 34, cy - 18)
+            card(s, "1", ex - BAR_D, cy - 30)
         elif kind == "many":
             sym_many(s, ex, cy, -1, 0)
-            card(s, "N", ex - 44, cy - 18)
+            card(s, "N", ex - CF_APEX - 14, cy - 36)
         elif kind == "onetomany":
-            sym_one(s, cxx + 40, cy, 1, 0)
+            sym_one(s, cxx + 35, cy, 1, 0)
             sym_many(s, ex, cy, -1, 0)
-            card(s, "1", cxx + 62, cy - 18)
-            card(s, "N", ex - 44, cy - 18)
+            card(s, "1", cxx + 35 + BAR_D, cy - 30)
+            card(s, "N", ex - CF_APEX - 14, cy - 36)
         else:
             sym_circle(s, ex, cy, -1, 0, rmul=1.45)
             sym_many(s, ex, cy, -1, 0)
-            card(s, "0..N", ex - 92, cy - 18)
-        s.text(cxx + 20, 240, line1, size=FS_TXT, anchor="start", weight="bold")
-        s.text(cxx + 20, 268, line2, size=FS_TXT, anchor="start", fill=C_SUB)
+            card(s, "0..N", ex - 95, cy - 30)
+        s.text(cxx + 20, 245, line1, size=FS_LEG, anchor="start", weight="bold")
+        s.text(cxx + 20, 277, line2, size=FS_EN, anchor="start", fill=C_SUB)
+        if text_w(line1, FS_LEG, "bold") + 40 > 395:
+            QA_WARNS.append("карточка «%s»: текст шире плашки" % line1)
+        if text_w(line2, FS_EN) + 40 > 395:
+            QA_WARNS.append("карточка «%s»: пояснение шире плашки" % line1)
 
     # --- три примера ----------------------------------------------------
     panels = [
-        (300, "Пример 1. Один к одному (1:1): «Заявка» — «Договор»",
+        (310, "Пример 1. Один к одному (1:1): «Заявка» — «Договор»",
          "У одной заявки не более одного договора; каждый договор относится ровно "
          "к одной заявке (со стороны заявки связь необязательна: 0..1).",
-         [("Заявка", "requests", 140, 300, P_REQ),
-          ("Договор", "contracts", 1260, 300, P_CTR)]),
-        (515, "Пример 2. Один ко многим (1:N): «Модель» — «Экземпляр техники»",
+         [("Заявка", "requests", 110, 200, P_REQ),
+          ("Договор", "contracts", 1290, 220, P_CTR)]),
+        (520, "Пример 2. Один ко многим (1:N): «Модель» — «Экземпляр техники»",
          "Одной модели соответствует много экземпляров техники; каждый экземпляр "
          "принадлежит ровно одной модели.",
-         [("Модель", "models", 140, 300, P_NSI),
-          ("Экземпляр техники", "equipment_units", 1180, 380, P_EQ)]),
+         [("Модель", "models", 110, 200, P_NSI),
+          ("Экземпляр техники", "equipment_units", 1200, 360, P_EQ)]),
         (730, "Пример 3. Многие ко многим (M:N) через промежуточную таблицу",
          "Заявка содержит много позиций, каждая позиция ссылается на одну модель: "
          "M:N реализуется таблицей request_items.",
-         [("Заявка", "requests", 110, 260, P_REQ),
-          ("Позиция заявки", "request_items", 700, 340, P_REQ),
-          ("Модель", "models", 1310, 260, P_NSI)]),
+         [("Заявка", "requests", 90, 200, P_REQ),
+          ("Позиция заявки", "request_items", 680, 300, P_REQ),
+          ("Модель", "models", 1330, 200, P_NSI)]),
     ]
     for (py, cap, expl, boxes) in panels:
-        s.rect(30, py, 1640, 200, fill="#ffffff", stroke=C_SOFT, sw=2, rx=12)
-        s.text(60, py + 38, cap, size=FS_TXT, anchor="start", weight="bold",
+        s.rect(30, py, 1640, 198, fill="#ffffff", stroke=C_SOFT, sw=2, rx=12)
+        s.text(60, py + 34, cap, size=FS_LEG, anchor="start", weight="bold",
                fill=C_LINE)
-        byy = py + 56
+        if text_w(cap, FS_LEG, "bold") + 70 > 1640:
+            QA_WARNS.append("заголовок панели шире рамки: «%s»" % cap)
+        byy = py + 62
         for (ru, en, bx, bw, pal) in boxes:
-            draw_ent(s, bx, byy, bw, 70, ru, en, pal, QA_BOXES, ru)
-        mid = byy + 35
+            draw_ent(s, bx, byy, bw, 64, ru, en, pal, QA_BOXES, ru)
+        mid = byy + 32
         if len(boxes) == 2:
             (ru1, en1, bx1, bw1, _), (ru2, en2, bx2, bw2, _) = boxes
             x1, x2 = bx1 + bw1, bx2
             s.line(x1, mid, x2, mid, stroke=C_LINE, sw=SW_LINE)
             QA_SEGS.append((cap, [(x1, mid), (x2, mid)]))
             sym_one(s, x1, mid, 1, 0)
-            card(s, "1", x1 + 34, mid - 18)
-            if py == 300:                       # 1:1 — черта с двух сторон
+            card(s, "1", x1 + BAR_D, mid - 30)
+            if py == 310:                       # 1:1 — черта с двух сторон
                 sym_one(s, x2, mid, -1, 0)
-                card(s, "1", x2 - 34, mid - 18)
+                card(s, "1", x2 - BAR_D, mid - 30)
             else:                               # 1:N
                 sym_many(s, x2, mid, -1, 0)
-                card(s, "N", x2 - 48, mid - 18)
+                card(s, "N", x2 - CF_APEX - 16, mid - 36)
         else:
             (ru1, en1, bx1, bw1, _), (ru2, en2, bx2, bw2, _), \
                 (ru3, en3, bx3, bw3, _) = boxes
@@ -524,16 +619,16 @@ def d09_notation():
             QA_SEGS.append((cap + " (1)", [(bx1 + bw1, mid), (bx2, mid)]))
             sym_one(s, bx1 + bw1, mid, 1, 0)
             sym_many(s, bx2, mid, -1, 0)
-            card(s, "1", bx1 + bw1 + 34, mid - 18)
-            card(s, "N", bx2 - 48, mid - 18)
+            card(s, "1", bx1 + bw1 + BAR_D, mid - 30)
+            card(s, "N", bx2 - CF_APEX - 16, mid - 36)
             s.line(bx2 + bw2, mid, bx3, mid, stroke=C_LINE, sw=SW_LINE)
             QA_SEGS.append((cap + " (2)", [(bx2 + bw2, mid), (bx3, mid)]))
             sym_many(s, bx2 + bw2, mid, 1, 0)
             sym_one(s, bx3, mid, -1, 0)
-            card(s, "N", bx2 + bw2 + 48, mid - 18)
-            card(s, "1", bx3 - 34, mid - 18)
-        for (k, line) in enumerate(wrap(expl, FS_TXT, 1560)):
-            s.text(60, py + 160 + k * 30, line, size=FS_TXT, anchor="start",
+            card(s, "N", bx2 + bw2 + CF_APEX + 16, mid - 36, "start")
+            card(s, "1", bx3 - BAR_D, mid - 30)
+        for (k, line) in enumerate(wrap(expl, FS_LEG, 1560)):
+            s.text(60, py + 156 + k * 32, line, size=FS_LEG, anchor="start",
                    fill=C_SUB)
 
     s.save("09_er_notation.svg")
@@ -545,119 +640,103 @@ def d09_notation():
 # ===========================================================================
 def d10_clients():
     qa_reset()
-    s = Svg(1700, 1180, "ER-диаграмма: НСИ, клиенты, персонал")
+    s = Svg(CANVAS_W, CANVAS_H, "ER-диаграмма: НСИ, клиенты, персонал")
     s.header("ER-диаграмма: НСИ, клиенты, персонал",
-             "Подсистема из 10 таблиц; связи показаны в нотации «вороньи лапки»")
-    legend(s, 1050, 46, [("НСИ", P_NSI), ("персонал", P_HQ),
-                         ("клиенты", P_CLI)])
+             "10 таблиц подсистемы. Показаны ключевые поля: PK — первичный ключ, "
+             "FK — внешний ключ; «…» — остальные поля")
+    legend(s, 52, [("НСИ", P_NSI), ("персонал", P_HQ), ("клиенты", P_CLI)])
 
     tb = {}
-    tb["categories"] = make_table("categories", "Категории", "categories",
-                                  40, 130, P_NSI, [
-        ("PK", "CAT_ID", "N(3)"), ("", "CAT_NAME", "V(60)"),
-        ("", "CAT_DESCR", "V(200)")])
-    tb["models"] = make_table("models", "Модели", "models", 40, 395, P_NSI, [
-        ("PK", "MOD_ID", "N(6)"), ("FK", "MOD_CAT", "N(3)"),
-        ("", "MOD_BRAND", "V(40)"), ("", "MOD_NAME", "V(80)"),
-        ("", "MOD_COST", "N(12,2)"), ("", "MOD_MINQTY", "N(3)")])
+    tb["categories"] = make_table("categories", "Категории", "categories", 0, 0, P_NSI, [
+        ("PK", "CAT_ID"), ("", "CAT_NAME"), ("", "CAT_DESCR")])
+    tb["models"] = make_table("models", "Модели", "models", 1, 0, P_NSI, [
+        ("PK", "MOD_ID"), ("FK", "MOD_CAT"), ("", "MOD_BRAND"), ("", "MOD_NAME"),
+        elide(2)])
+    tb["tariffs"] = make_table("tariffs", "Тарифы", "tariffs", 2, 0, P_NSI, [
+        ("PK", "TAR_ID"), ("FK", "TAR_MOD"), ("", "TAR_UNIT"), ("", "TAR_PRICE"),
+        elide(2)])
     tb["model_components"] = make_table(
-        "model_components", "Комплектация", "model_components", 470, 130, P_NSI, [
-            ("PK", "MC_ID", "BIGINT"), ("FK", "MC_MOD", "N(6)"),
-            ("", "MC_ITEM", "V(80)"), ("", "MC_QTY", "N(3)")])
+        "model_components", "Комплектация", "model_components", 0, 1, P_NSI, [
+            ("PK", "MC_ID"), ("FK", "MC_MOD"), ("", "MC_ITEM"), ("", "MC_QTY")])
     tb["model_purposes"] = make_table(
-        "model_purposes", "Назначения", "model_purposes", 470, 425, P_NSI, [
-            ("PK", "MP_ID", "BIGINT"), ("FK", "MP_MOD", "N(6)"),
-            ("", "MP_PURPOSE", "V(60)")])
-    tb["tariffs"] = make_table("tariffs", "Тарифы", "tariffs", 470, 690, P_NSI, [
-        ("PK", "TAR_ID", "N(6)"), ("FK", "TAR_MOD", "N(6)"),
-        ("", "TAR_UNIT", "V(10)"), ("", "TAR_PRICE", "N(10,2)"),
-        ("", "TAR_BEGIN", "D"), ("", "TAR_END", "D")])
-    tb["branches"] = make_table("branches", "Филиалы", "branches",
-                                880, 130, P_HQ, [
-        ("PK", "BR_ID", "V(8)"), ("", "BR_NAME", "V(100)"),
-        ("", "BR_CITY", "V(50)"), ("", "BR_ADDRESS", "V(150)"),
-        ("", "BR_MANAGER", "V(100)"), ("", "BR_BEGIN", "D")])
-    tb["employees"] = make_table("employees", "Сотрудники", "employees",
-                                 880, 475, P_HQ, [
-        ("PK", "EMP_ID", "N(6)"), ("FK", "EMP_BR", "V(8)"),
-        ("", "EMP_FIO", "V(100)"), ("", "EMP_POSITION", "V(60)"),
-        ("", "EMP_LOGIN", "V(30)")])
-    tb["universities"] = make_table("universities", "ВУЗы", "universities",
-                                    1300, 130, P_CLI, [
-        ("PK", "UN_ID", "N(6)"), ("", "UN_SHORT", "V(60)"),
-        ("", "UN_INN", "C(10)"), ("", "UN_CITY", "V(50)"),
-        ("FK", "UN_BR", "V(8)")])
-    tb["departments"] = make_table("departments", "Подразделения", "departments",
-                                   1300, 445, P_CLI, [
-        ("PK", "DEP_ID", "N(6)"), ("FK", "DEP_UN", "N(6)"),
-        ("", "DEP_NAME", "V(100)"), ("", "DEP_HEAD", "V(100)")])
+        "model_purposes", "Назначения", "model_purposes", 1, 1, P_NSI, [
+            ("PK", "MP_ID"), ("FK", "MP_MOD"), ("", "MP_PURPOSE")])
+    tb["branches"] = make_table("branches", "Филиалы", "branches", 0, 2, P_HQ, [
+        ("PK", "BR_ID"), ("", "BR_NAME"), ("", "BR_CITY"), ("", "BR_ADDRESS"),
+        elide(2)])
+    tb["employees"] = make_table("employees", "Сотрудники", "employees", 1, 2, P_HQ, [
+        ("PK", "EMP_ID"), ("FK", "EMP_BR"), ("", "EMP_FIO"), ("", "EMP_POSITION"),
+        ("", "EMP_LOGIN")])
+    tb["universities"] = make_table(
+        "universities", "ВУЗы", "universities", 0, 3, P_CLI, [
+            ("PK", "UN_ID"), ("", "UN_SHORT"), ("", "UN_INN"), ("", "UN_CITY"),
+            ("FK", "UN_BR")])
+    tb["departments"] = make_table(
+        "departments", "Подразделения", "departments", 1, 3, P_CLI, [
+            ("PK", "DEP_ID"), ("FK", "DEP_UN"), ("", "DEP_NAME"), ("", "DEP_HEAD")])
     tb["representatives"] = make_table(
-        "representatives", "Представители", "representatives", 1300, 740, P_CLI, [
-            ("PK", "REP_ID", "N(6)"), ("FK", "REP_UN", "N(6)"),
-            ("FK", "REP_DEP", "N(6)"), ("", "REP_FIO", "V(100)"),
-            ("", "REP_POSITION", "V(60)"), ("", "REP_PHONE", "V(20)")])
+        "representatives", "Представители", "representatives", 2, 3, P_CLI, [
+            ("PK", "REP_ID"), ("FK", "REP_UN"), ("FK", "REP_DEP"), ("", "REP_FIO"),
+            elide(2)])
+
+    bottom = place_tables(tb)
 
     # ---- связи ---------------------------------------------------------
     # categories 1 : N models
     edge(s, "categories→models",
          [B(tb["categories"], 205), T(tb["models"], 205)],
-         labels=[("1", 188, 342, "end"), ("N", 228, 386, "start")])
+         labels=[("1", 185, 428, "end"), ("N", 226, 424, "start")])
 
     # models 1 : N model_components
     edge(s, "models→model_components",
-         [R(tb["models"], 520), (410, 520), (410, 240),
-          L(tb["model_components"], 240)],
-         labels=[("1", 392, 506), ("N", 444, 226)])
+         [R(tb["models"], 600), (420, 600), (420, 300),
+          L(tb["model_components"], 300)],
+         labels=[("1", 400, 576, "end"), ("N", 428, 272, "start")])
 
-    # models 1 : N model_purposes
+    # models 1 : N model_purposes (коридор ниже линии models→model_components)
     edge(s, "models→model_purposes",
-         [R(tb["models"], 550), (430, 550), (430, 520),
-          L(tb["model_purposes"], 520)],
-         labels=[("1", 400, 536), ("N", 446, 506)])
+         [R(tb["models"], 640), L(tb["model_purposes"], 640)],
+         labels=[("1", 403, 608), ("N", 437, 606)])
 
     # models 1 : N tariffs
     edge(s, "models→tariffs",
-         [R(tb["models"], 580), (400, 580), (400, 780),
-          L(tb["tariffs"], 780)],
-         labels=[("1", 385, 566), ("N", 428, 764)])
+         [B(tb["models"], 205), T(tb["tariffs"], 205)],
+         labels=[("1", 185, 766, "end"), ("N", 226, 762, "start")])
 
     # branches 1 : N employees
     edge(s, "branches→employees",
-         [B(tb["branches"], 1045), T(tb["employees"], 1045)],
-         labels=[("1", 1028, 418, "end"), ("N", 1062, 460, "start")])
+         [B(tb["branches"], 1065), T(tb["employees"], 1065)],
+         labels=[("1", 1045, 428, "end"), ("N", 1086, 424, "start")])
 
     # branches 1 : N universities
     edge(s, "branches→universities",
-         [R(tb["branches"], 265), L(tb["universities"], 265)],
-         labels=[("1", 1240, 251), ("N", 1284, 251)])
+         [R(tb["branches"], 300), L(tb["universities"], 300)],
+         labels=[("1", 1263, 268), ("N", 1296, 266)])
 
     # universities 1 : N departments
     edge(s, "universities→departments",
-         [B(tb["universities"], 1465), T(tb["departments"], 1465)],
-         labels=[("1", 1448, 390, "end"), ("N", 1484, 432, "start")])
+         [B(tb["universities"], 1495), T(tb["departments"], 1495)],
+         labels=[("1", 1475, 428, "end"), ("N", 1516, 424, "start")])
 
     # departments 1 : N representatives
     edge(s, "departments→representatives",
-         [B(tb["departments"], 1465), T(tb["representatives"], 1465)],
-         labels=[("1", 1448, 686, "end"), ("N", 1484, 727, "start")])
+         [B(tb["departments"], 1495), T(tb["representatives"], 1495)],
+         labels=[("1", 1475, 766, "end"), ("N", 1516, 762, "start")])
 
     # universities 1 : N representatives — REP_DEP необязателен (пунктир)
     edge(s, "universities→representatives",
-         [R(tb["universities"], 285), (1665, 285), (1665, 925),
-          R(tb["representatives"], 925)],
+         [L(tb["universities"], 220), (1280, 220), (1280, 950),
+          L(tb["representatives"], 950)],
          dash=True,
-         labels=[("1", 1642, 271, "start"), ("N", 1640, 898, "start")])
+         labels=[("1", 1300, 196, "start"), ("N", 1310, 922, "end")])
 
     for t in tb.values():
         draw_table(s, t, QA_BOXES, QA_WARNS)
 
-    footnote(s, 40, 1090,
-             "Цвет: синий — НСИ (справочники), индиго — филиалы и персонал, "
-             "зелёный — клиенты вузов. 1 — «один», вороньи лапки — «многие»; "
-             "пунктир — необязательная связь. На таблицы подсистемы ссылаются "
-             "таблицы диаграммы 11: requests (REQ_UN, REQ_DEP, REQ_REP, REQ_BR), "
-             "equipment_units (EQ_MOD, EQ_BR), transfers (TR_FROM, TR_TO), "
-             "rentals (RNT_EMP), request_items (RIT_MOD, RIT_TAR).", max_w=1620)
+    footnote(s, 29, bottom + 34,
+             "1 — «один», вороньи лапки — «многие»; пунктир — необязательная связь. "
+             "На таблицы этой подсистемы ссылаются таблицы диаграммы 11: requests, "
+             "request_items, equipment_units, transfers, rentals.")
 
     s.save("10_er_crowsfoot_clients.svg")
     return run_qa("10_er_crowsfoot_clients")
@@ -668,158 +747,144 @@ def d10_clients():
 # ===========================================================================
 def d11_rental():
     qa_reset()
-    s = Svg(1700, 1250, "ER-диаграмма: техника, аренда, сервис")
+    s = Svg(CANVAS_W, CANVAS_H, "ER-диаграмма: техника, аренда, сервис")
     s.header("ER-диаграмма: техника, аренда, сервис",
-             "Подсистема из 12 таблиц (4 справочника); связи в нотации «вороньи лапки»")
-    legend(s, 1050, 46, [("НСИ", P_NSI), ("техника", P_EQ), ("аренда", P_REQ),
-                         ("договоры", P_CTR)])
+             "12 таблиц подсистемы (4 справочника). Показаны ключевые поля: PK, FK; "
+             "«…» — остальные поля")
+    legend(s, 52, [("НСИ", P_NSI), ("техника", P_EQ), ("аренда", P_REQ),
+                   ("договоры", P_CTR)])
 
     tb = {}
-    tb["requests"] = make_table("requests", "Заявки", "requests", 40, 130, P_REQ, [
-        ("PK", "REQ_ID", "N(10)"), ("", "REQ_NUMBER", "C(12)"),
-        ("FK", "REQ_UN", "↗"), ("FK", "REQ_DEP", "↗"), ("FK", "REQ_REP", "↗"),
-        ("FK", "REQ_BR", "↗"), ("FK", "REQ_STATUS", "N(2)"),
-        ("", "REQ_BEGIN", "D"), ("", "REQ_END", "D")])
+    tb["requests"] = make_table("requests", "Заявки", "requests", 0, 0, P_REQ, [
+        ("PK", "REQ_ID"), ("FKX", "REQ_UN"), ("FKX", "REQ_DEP"),
+        ("FKX", "REQ_REP"), ("FKX", "REQ_BR"), ("FK", "REQ_STATUS"), elide(3)])
     tb["request_items"] = make_table(
-        "request_items", "Позиции заявки", "request_items", 40, 600, P_REQ, [
-            ("PK", "RIT_ID", "N(10)"), ("FK", "RIT_REQ", "N(10)"),
-            ("FK", "RIT_MOD", "↗"), ("FK", "RIT_TAR", "↗"),
-            ("", "RIT_QTY", "N(3)"), ("", "RIT_COST", "N(12,2)")])
+        "request_items", "Позиции заявки", "request_items", 1, 0, P_REQ, [
+            ("PK", "RIT_ID"), ("FK", "RIT_REQ"), ("FKX", "RIT_MOD"),
+            ("FKX", "RIT_TAR"), ("", "RIT_QTY"), elide(1)])
     tb["request_statuses"] = make_table(
-        "request_statuses", "Статусы заявок", "request_statuses", 40, 940, P_NSI, [
-            ("PK", "RST_ID", "N(2)"), ("", "RST_NAME", "V(30)")])
-    tb["contracts"] = make_table("contracts", "Договоры", "contracts",
-                                 470, 130, P_CTR, [
-        ("PK", "CTR_ID", "N(10)"), ("", "CTR_NUMBER", "C(15)"),
-        ("FK", "CTR_REQ", "N(10)"), ("", "CTR_BEGIN", "D"),
-        ("", "CTR_END", "D"), ("", "CTR_SUM", "N(12,2)"),
-        ("", "CTR_STATUS", "V(12)")])
+        "request_statuses", "Статусы заявок", "request_statuses", 2, 0, P_NSI, [
+            ("PK", "RST_ID"), ("", "RST_NAME")])
+    tb["contracts"] = make_table("contracts", "Договоры", "contracts", 0, 1, P_CTR, [
+        ("PK", "CTR_ID"), ("FK", "CTR_REQ"), ("", "CTR_NUMBER"), ("", "CTR_SUM"),
+        ("", "CTR_STATUS"), elide(2)])
     tb["equipment_units"] = make_table(
-        "equipment_units", "Экземпляры техники", "equipment_units", 470, 600, P_EQ, [
-            ("PK", "EQ_ID", "N(10)"), ("", "EQ_INV", "C(12)"),
-            ("FK", "EQ_MOD", "↗"), ("FK", "EQ_BR", "↗"),
-            ("FK", "EQ_COND", "N(2)"), ("", "EQ_STATUS", "V(12)")])
+        "equipment_units", "Экземпляры", "equipment_units", 1, 1, P_EQ, [
+            ("PK", "EQ_ID"), ("FKX", "EQ_MOD"), ("FKX", "EQ_BR"),
+            ("FK", "EQ_COND"), ("", "EQ_INV"), ("", "EQ_STATUS")])
     tb["condition_grades"] = make_table(
-        "condition_grades", "Степени состояния", "condition_grades", 470, 940, P_NSI, [
-            ("PK", "CG_ID", "N(2)"), ("", "CG_NAME", "V(30)")])
-    tb["rentals"] = make_table("rentals", "Выдачи", "rentals", 880, 130, P_CTR, [
-        ("PK", "RNT_ID", "N(10)"), ("FK", "RNT_CTR", "N(10)"),
-        ("FK", "RNT_EQ", "N(10)"), ("", "RNT_ISSUE", "D"),
-        ("", "RNT_DUE", "D"), ("", "RNT_RETURN", "D"),
-        ("FK", "RNT_COND_OUT", "N(2)"), ("FK", "RNT_COND_IN", "N(2)"),
-        ("FK", "RNT_EMP", "↗")])
-    tb["transfers"] = make_table("transfers", "Перемещения", "transfers",
-                                 880, 600, P_EQ, [
-        ("PK", "TR_ID", "N(10)"), ("FK", "TR_EQ", "N(10)"),
-        ("FK", "TR_FROM", "↗"), ("FK", "TR_TO", "↗"),
-        ("", "TR_DATE", "D"), ("", "TR_REASON", "V(200)")])
-    tb["maintenance"] = make_table("maintenance", "Обслуживание", "maintenance",
-                                   1300, 600, P_CTR, [
-        ("PK", "MNT_ID", "N(10)"), ("FK", "MNT_EQ", "N(10)"),
-        ("FK", "MNT_TYPE", "N(2)"), ("", "MNT_BEGIN", "D"),
-        ("", "MNT_END", "D"), ("", "MNT_COST", "N(10,2)")])
-    tb["payments"] = make_table("payments", "Платежи", "payments", 1300, 130, P_CTR, [
-        ("PK", "PAY_ID", "N(10)"), ("FK", "PAY_CTR", "N(10)"),
-        ("FK", "PAY_METHOD", "N(2)"), ("", "PAY_DATE", "D"),
-        ("", "PAY_AMOUNT", "N(12,2)"), ("", "PAY_PURPOSE", "V(100)")])
+        "condition_grades", "Состояние", "condition_grades", 2, 1, P_NSI, [
+            ("PK", "CG_ID"), ("", "CG_NAME")])
+    tb["rentals"] = make_table("rentals", "Выдачи", "rentals", 0, 2, P_CTR, [
+        ("PK", "RNT_ID"), ("FK", "RNT_CTR"), ("FK", "RNT_EQ"),
+        ("FK", "RNT_COND_OUT"), ("FK", "RNT_COND_IN"), ("FKX", "RNT_EMP"),
+        elide(3)])
+    tb["transfers"] = make_table("transfers", "Перемещения", "transfers", 1, 2, P_EQ, [
+        ("PK", "TR_ID"), ("FK", "TR_EQ"), ("FKX", "TR_FROM"), ("FKX", "TR_TO"),
+        ("", "TR_DATE"), elide(1)])
     tb["maintenance_types"] = make_table(
-        "maintenance_types", "Виды обслуживания", "maintenance_types", 880, 940, P_NSI, [
-            ("PK", "MT_ID", "N(2)"), ("", "MT_NAME", "V(40)")])
+        "maintenance_types", "Виды работ", "maintenance_types", 2, 2, P_NSI, [
+            ("PK", "MT_ID"), ("", "MT_NAME")])
+    tb["payments"] = make_table("payments", "Платежи", "payments", 0, 3, P_CTR, [
+        ("PK", "PAY_ID"), ("FK", "PAY_CTR"), ("FK", "PAY_METHOD"), ("", "PAY_AMOUNT"),
+        ("", "PAY_DATE"), elide(1)])
+    tb["maintenance"] = make_table("maintenance", "Обслуживание", "maintenance",
+                                   1, 3, P_CTR, [
+        ("PK", "MNT_ID"), ("FK", "MNT_EQ"), ("FK", "MNT_TYPE"), ("", "MNT_BEGIN"),
+        ("", "MNT_END"), ("", "MNT_COST")])
     tb["payment_methods"] = make_table(
-        "payment_methods", "Способы оплаты", "payment_methods", 1300, 940, P_NSI, [
-            ("PK", "PM_ID", "N(2)"), ("", "PM_NAME", "V(30)")])
+        "payment_methods", "Способы оплаты", "payment_methods", 2, 3, P_NSI, [
+            ("PK", "PM_ID"), ("", "PM_NAME")])
+
+    bottom = place_tables(tb)
 
     # ---- связи ---------------------------------------------------------
-    # request_statuses 1 : N requests — обход слева
+    # request_statuses 1 : N requests — обход снизу: коридор слева от колонки 1,
+    # затем по межрядному коридору в нижнюю грань requests
     edge(s, "request_statuses→requests",
-         [L(tb["request_statuses"], 1025), (20, 1025), (20, 574), (150, 574),
-          B(tb["requests"], 150)],
-         labels=[("1", 34, 1058, "end"), ("N", 120, 562, "end")])
+         [R(tb["request_statuses"], 1000), (420, 1000), (420, 506), (300, 506),
+          B(tb["requests"], 300)],
+         labels=[("1", 426, 966, "start"), ("N", 326, 500, "start")])
 
     # requests 1 : N request_items
     edge(s, "requests→request_items",
          [B(tb["requests"], 205), T(tb["request_items"], 205)],
-         labels=[("1", 188, 512, "end"), ("N", 228, 584, "start")])
+         labels=[("1", 185, 500, "end"), ("N", 230, 496, "start")])
 
     # requests 1 : 0..1 contracts (CTR_REQ — уникальный внешний ключ)
     edge(s, "requests→contracts",
-         [R(tb["requests"], 285), L(tb["contracts"], 285)],
+         [R(tb["requests"], 300), L(tb["contracts"], 300)],
          many=False,
-         labels=[("1", 392, 271), ("0..1", 448, 271)])
+         labels=[("1", 403, 268), ("0..1", 420, 330)])
 
     # contracts 1 : N rentals
     edge(s, "contracts→rentals",
-         [R(tb["contracts"], 255), L(tb["rentals"], 255)],
-         labels=[("1", 828, 241), ("N", 872, 241)])
+         [R(tb["contracts"], 300), L(tb["rentals"], 300)],
+         labels=[("1", 833, 268), ("N", 866, 266)])
 
     # contracts 1 : N payments — нижний коридор (необязательная связь)
     edge(s, "contracts→payments",
-         [B(tb["contracts"], 620), (620, 574), (1450, 574),
-          B(tb["payments"], 1450)],
+         [B(tb["contracts"], 620), (620, 506), (1500, 506),
+          B(tb["payments"], 1500)],
          dash=True,
-         labels=[("1", 636, 560, "start"), ("N", 1418, 562, "end")])
-
-    # payment_methods 1 : N payments — правый коридор
-    edge(s, "payment_methods→payments",
-         [R(tb["payment_methods"], 1025), (1665, 1025), (1665, 522),
-          (1580, 522), B(tb["payments"], 1580)],
-         labels=[("1", 1642, 1011, "start"), ("N", 1572, 510, "end")])
+         labels=[("1", 600, 490, "end"), ("N", 1526, 492, "start")])
 
     # equipment_units 1 : N rentals
     edge(s, "equipment_units→rentals",
-         [R(tb["equipment_units"], 715), (850, 715), (850, 440),
-          L(tb["rentals"], 440)],
-         labels=[("1", 828, 701), ("N", 866, 426, "end")])
+         [R(tb["equipment_units"], 620), (822, 620), (822, 400),
+          L(tb["rentals"], 400)],
+         labels=[("1", 826, 648), ("N", 858, 366)])
 
     # equipment_units 1 : N transfers
     edge(s, "equipment_units→transfers",
-         [R(tb["equipment_units"], 745), L(tb["transfers"], 745)],
-         labels=[("1", 828, 731), ("N", 872, 731)])
+         [R(tb["equipment_units"], 760), L(tb["transfers"], 760)],
+         labels=[("1", 826, 730), ("N", 872, 726)])
 
     # equipment_units 1 : N maintenance — нижний коридор (необязательная)
     edge(s, "equipment_units→maintenance",
-         [B(tb["equipment_units"], 700), (700, 908), (1560, 908),
-          B(tb["maintenance"], 1560)],
+         [B(tb["equipment_units"], 700), (700, 880), (1500, 880),
+          B(tb["maintenance"], 1500)],
          dash=True,
-         labels=[("1", 716, 930, "start"), ("N", 1530, 890, "end")])
+         labels=[("1", 730, 876, "start"), ("N", 1524, 872, "start")])
 
     # maintenance_types 1 : N maintenance
     edge(s, "maintenance_types→maintenance",
-         [R(tb["maintenance_types"], 1025), (1255, 1025), (1255, 930),
-          (1400, 930), B(tb["maintenance"], 1400)],
-         labels=[("1", 1232, 1011, "start"), ("N", 1385, 890, "end")])
+         [R(tb["maintenance_types"], 1000), (1280, 1000), (1280, 700),
+          L(tb["maintenance"], 700)],
+         labels=[("1", 1256, 976, "start"), ("N", 1270, 690, "end")])
 
     # condition_grades 1 : N equipment_units
     edge(s, "condition_grades→equipment_units",
-         [T(tb["condition_grades"], 600), B(tb["equipment_units"], 600)],
-         labels=[("1", 570, 916, "end"), ("N", 570, 890, "end")])
+         [T(tb["condition_grades"], 560), B(tb["equipment_units"], 560)],
+         labels=[("1", 540, 890, "end"), ("N", 586, 886, "start")])
 
-    # condition_grades 1 : N rentals (RNT_COND_OUT) — через левый коридор
-    y0 = fy(tb["condition_grades"], 0)
+    # condition_grades 1 : N rentals (RNT_COND_OUT) — в нижнюю грань «Выдачи»
     edge(s, "condition_grades→rentals (RNT_COND_OUT)",
-         [L(tb["condition_grades"], y0), (412, y0), (412, 522), (1060, 522),
-          B(tb["rentals"], 1060)],
-         labels=[("1", 392, y0 - 14, "end"), ("N", 1028, 508, "end")])
+         [R(tb["condition_grades"], 990), (846, 990), (846, 520), (950, 520),
+          B(tb["rentals"], 950)],
+         labels=[("1", 820, 960, "start"), ("N", 980, 512, "start")])
 
-    # condition_grades 1 : N rentals (RNT_COND_IN) — необязательная связь
-    y1 = fy(tb["condition_grades"], 1)
+    # condition_grades 1 : N rentals (RNT_COND_IN) — необязательная связь;
+    # уводим её из правого коридора колонки 1 в левый, чтобы не сгущать подписи
     edge(s, "condition_grades→rentals (RNT_COND_IN)",
-         [L(tb["condition_grades"], y1), (428, y1), (428, 548), (1180, 548),
-          B(tb["rentals"], 1180)],
+         [L(tb["condition_grades"], 1030), (400, 1030), (400, 534), (1120, 534),
+          B(tb["rentals"], 1120)],
          dash=True,
-         labels=[("1", 408, y1 + 26, "end"), ("N", 1148, 536, "end")])
+         labels=[("1", 452, 1010, "end"), ("N", 1150, 512, "start")])
+
+    # payment_methods 1 : N payments — правый коридор
+    edge(s, "payment_methods→payments",
+         [L(tb["payment_methods"], 1000), (1300, 1000), (1300, 300),
+          L(tb["payments"], 300)],
+         labels=[("1", 1265, 1030, "end"), ("N", 1282, 268, "end")])
 
     for t in tb.values():
         draw_table(s, t, QA_BOXES, QA_WARNS)
 
-    footnote(s, 40, 1128,
-             "Цвет: синий — НСИ, жёлтый — техника, красный — заявки и аренда, "
-             "оранжевый — договоры и сервис. 1 — «один», вороньи лапки — «многие», "
-             "0..1 — «один, но необязательно»; пунктир — необязательная связь. "
-             "Серые поля с ↗ — внешние ключи к таблицам диаграммы 10: requests "
-             "(REQ_UN, REQ_DEP, REQ_REP, REQ_BR), request_items (RIT_MOD, RIT_TAR), "
-             "equipment_units (EQ_MOD, EQ_BR), transfers (TR_FROM, TR_TO), "
-             "rentals (RNT_EMP).", max_w=1620)
+    footnote(s, 29, bottom + 34,
+             "1 — «один», вороньи лапки — «многие», 0..1 — «один, но необязательно»; "
+             "пунктир — необязательная связь. Серые поля с ↗ — внешние ключи к "
+             "таблицам диаграммы 10.")
 
     s.save("11_er_crowsfoot_rental.svg")
     return run_qa("11_er_crowsfoot_rental")
@@ -828,7 +893,7 @@ def d11_rental():
 # ===========================================================================
 # Запуск
 # ===========================================================================
-def to_png(svg_name, width=1700):
+def to_png(svg_name, width=CANVAS_W):
     if not shutil.which("rsvg-convert"):
         return None
     svg = os.path.join(OUT, svg_name)

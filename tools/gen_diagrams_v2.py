@@ -217,7 +217,8 @@ def d03b_db_schema_groups():
                    "цвет — подсистема", size=MIN_SIZE, fill="#4b5563", anchor="start")
 
     # ---------- 1. НСИ и номенклатура (верхний широкий блок) -------------
-    bx, by, bw, bh = 40, 112, 1620, 228
+    # Верх блока — 118 (а не 112): до подзаголовка остаётся 14 px зазора.
+    bx, by, bw, bh = 40, 118, 1620, 222
     s.rect(bx, by, bw, bh, fill=C_REF_F, stroke=C_REF_S, sw=3, rx=16)
     s.text(bx + 26, by + 44, "НСИ и номенклатура", size=HEAD_SIZE, weight="bold",
            anchor="start", fill=C_REF_S)
@@ -267,7 +268,8 @@ def d03b_db_schema_groups():
            maxw=teq[2] - 52)
 
     # ---------- 3-й ряд: Аренда | Сервис ---------------------------------
-    r3y, r3h = 840, 180
+    # Высота 160 px (было 180): освобождает место под легенду в две строки.
+    r3y, r3h = 840, 160
     are = (40, r3y, 1140, r3h)
     srv = (1250, r3y, 410, r3h)
 
@@ -292,45 +294,55 @@ def d03b_db_schema_groups():
            maxw=srv[2] - 52)
 
     # ---------- Полоса связей 1 (НСИ -> ряд 2) ---------------------------
+    # Наконечник при sw=2.2: markerWidth=18 * stroke-width => длина 39.6 px,
+    # кончик выступает на 4 px за конец линии, основание — в 36 px перед ним.
+    # Подпись стоит в разрыве линии: 14 px до верхнего отрезка, 12 px до
+    # нижнего, 26 px от низа текста до основания наконечника.
+    LINK_SW = 2.2
+
     def vlink(x, y1, y2, label, color=C_REF_S):
-        s.line(x, y1, x, 388, stroke=color, sw=2.6)
-        s.line(x, 432, x, y2, stroke=color, sw=2.6, marker=True)
-        s.text(x, 420, label, size=MIN_SIZE)
+        s.line(x, y1, x, 373, stroke=color, sw=LINK_SW)
+        s.line(x, 426, x, y2 - 4, stroke=color, sw=LINK_SW, marker=True)
+        s.text(x, 408, label, size=MIN_SIZE)
 
     vlink(290, by + bh, r2y, "филиал 1 — N ВУЗ")
     vlink(830, by + bh, r2y, "филиал 1 — N сотрудник")
     vlink(1382, by + bh, r2y, "модель 1 — N экземпляр")
 
     # ---------- Полоса связей 2 (ряд 2 -> ряд 3) ------------------------
-    yhi, ylo = 756, 796            # два уровня подписей, чтобы не пересекались
-    # (a) Клиенты -> Аренда (подпись в разрыве линии)
-    s.line(290, r2y + r2h, 290, ylo - 25, stroke=C_CLI_S, sw=2.6)
-    s.line(290, ylo + 11, 290, r3y, stroke=C_CLI_S, sw=2.6, marker=True)
-    s.text(290, ylo, "ВУЗ 1 — N заявка", size=MIN_SIZE)
-    # (b) Персонал -> Аренда (вертикаль смещена влево, чтобы освободить центр)
-    s.line(640, r2y + r2h, 640, yhi - 25, stroke=C_HQ_S, sw=2.6)
-    s.line(640, yhi + 11, 640, r3y, stroke=C_HQ_S, sw=2.6, marker=True)
-    s.text(640, yhi, "сотрудник 1 — N выдача", size=MIN_SIZE)
-    # (c) Техника -> Сервис (прямая вниз, подпись в две строки слева от линии)
-    s.line(1550, r2y + r2h, 1550, r3y, stroke=C_EQ_S, sw=2.6, marker=True)
-    s.text(1520, yhi, "экземпляр 1 — N обслуживание", size=MIN_SIZE, anchor="end")
-    # (d) Техника -> Аренда (прямая вниз у правого края блока «Аренда»)
-    s.line(1100, r2y + r2h, 1100, r3y, stroke=C_EQ_S, sw=2.6, marker=True)
-    s.text(1080, ylo, "экземпляр 1 — N позиция заявки", size=MIN_SIZE, anchor="end")
+    # Все четыре подписи — в один ряд (общая базовая линия y = 770) и слева
+    # от своей линии с зазором 24 px: текст (низ 776) не касается ни линии,
+    # ни наконечника (основание на 800, кончик упирается в верх блока 840).
+    LINK_Y = 770
 
-    # ---------- Легенда --------------------------------------------------
-    ly, lh = 1032, 62
+    def hlink(x, label, color):
+        s.line(x, r2y + r2h, x, r3y - 4, stroke=color, sw=LINK_SW, marker=True)
+        s.text(x - 24, LINK_Y, label, size=MIN_SIZE, anchor="end")
+
+    hlink(290, "ВУЗ 1 — N заявка", C_CLI_S)
+    hlink(640, "сотрудник 1 — N выдача", C_HQ_S)
+    # линия идёт из блока «Техника» (1105…1660), а не из зазора между блоками
+    hlink(1130, "экземпляр 1 — N позиция заявки", C_EQ_S)
+    hlink(1580, "экземпляр 1 — N обслуживание", C_EQ_S)
+
+    # ---------- Легенда: состав подсистем + расшифровка аббревиатур ------
+    ly, lh = 1006, 90
     s.rect(40, ly, 1620, lh, fill="#ffffff", stroke=C_NEU_S, sw=1.6, rx=12)
     legend = [(C_REF_F, C_REF_S, "НСИ и номенклатура"), (C_CLI_F, C_CLI_S, "Клиенты"),
               (C_HQ_F, C_HQ_S, "Персонал"), (C_EQ_F, C_EQ_S, "Техника"),
               (C_REQ_F, C_REQ_S, "Аренда и договоры"), (C_SRV_F, C_SRV_S, "Сервис")]
     lx = 66
     for f, st, t in legend:
-        s.rect(lx, ly + 18, 26, 26, fill=f, stroke=st, sw=2, rx=5)
-        s.text(lx + 38, ly + 40, t, size=MIN_SIZE, anchor="start", maxw=300)
+        s.rect(lx, ly + 11, 26, 26, fill=f, stroke=st, sw=2, rx=5)
+        s.text(lx + 38, ly + 32, t, size=MIN_SIZE, anchor="start", maxw=300)
         lx += 38 + tw(t, MIN_SIZE) + 46
     if lx - 46 > 1634:
         s.fit_problems.append(f"легенда не влезает: правый край {lx - 46:.0f} > 1634")
+    # Аббревиатуры РОК и РКД встречаются в шапках блоков — расшифровываем
+    # их прямо в легенде, чтобы на слайде не осталось необъяснённых сокращений.
+    s.text(66, ly + 70, "Обозначения: РОК — репликация с основной копией; "
+                        "РКД — репликация с консолидацией",
+           size=MIN_SIZE, anchor="start", fill="#374151", maxw=1568)
 
     problems = s.check()
     write(s, "03b_db_schema_groups")

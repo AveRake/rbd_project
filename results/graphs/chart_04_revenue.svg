@@ -1,28 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="600" viewBox="0 0 1100 600"><rect width="100%" height="100%" fill="#ffffff"/>
-<text x="40" y="42" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#111111">Поступления платежей по филиалам</text>
-<line x1="110" y1="490.0" x2="1060" y2="490.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="98" y="495.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">0</text>
-<line x1="110" y1="410.0" x2="1060" y2="410.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="98" y="415.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">800 тыс</text>
-<line x1="110" y1="330.0" x2="1060" y2="330.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="98" y="335.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">1.6 млн</text>
-<line x1="110" y1="250.0" x2="1060" y2="250.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="98" y="255.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">2.4 млн</text>
-<line x1="110" y1="170.0" x2="1060" y2="170.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="98" y="175.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">3.2 млн</text>
-<line x1="110" y1="90.0" x2="1060" y2="90.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="98" y="95.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#111111">4.0 млн</text>
-<rect x="152.75" y="113.4556" width="152.0" height="376.5444" fill="#1f4e79" stroke="none" stroke-width="0"/>
-<text x="228.75" y="103.4556" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#111111">3.8 млн</text>
-<text x="228.75" y="516" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">HQ</text>
-<rect x="390.25" y="194.30200000000002" width="152.0" height="295.698" fill="#2e75b6" stroke="none" stroke-width="0"/>
-<text x="466.25" y="184.30200000000002" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#111111">3.0 млн</text>
-<text x="466.25" y="516" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">SPB</text>
-<rect x="627.75" y="263.7016" width="152.0" height="226.2984" fill="#9dc3e6" stroke="none" stroke-width="0"/>
-<text x="703.75" y="253.70159999999998" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#111111">2.3 млн</text>
-<text x="703.75" y="516" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">KZN</text>
-<rect x="865.25" y="274.0348" width="152.0" height="215.9652" fill="#c9c9c9" stroke="none" stroke-width="0"/>
-<text x="941.25" y="264.0348" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#111111">2.2 млн</text>
-<text x="941.25" y="516" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="middle" fill="#111111">NSK</text>
-<text x="110" y="574" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#555555">Источник: запрос 6, руб.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620"><rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="46" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#111111">Поступления платежей по филиалам</text>
+<line x1="160" y1="486.0" x2="1060" y2="486.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="148" y="491.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">0</text>
+<line x1="160" y1="408.8" x2="1060" y2="408.8" stroke="#d9d9d9" stroke-width="1"/>
+<text x="148" y="413.8" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">800 000</text>
+<line x1="160" y1="331.6" x2="1060" y2="331.6" stroke="#d9d9d9" stroke-width="1"/>
+<text x="148" y="336.6" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">1 600 000</text>
+<line x1="160" y1="254.4" x2="1060" y2="254.4" stroke="#d9d9d9" stroke-width="1"/>
+<text x="148" y="259.4" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">2 400 000</text>
+<line x1="160" y1="177.2" x2="1060" y2="177.2" stroke="#d9d9d9" stroke-width="1"/>
+<text x="148" y="182.2" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">3 200 000</text>
+<line x1="160" y1="100.0" x2="1060" y2="100.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="148" y="105.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#555555">4 000 000</text>
+<line x1="160" y1="100" x2="160" y2="486" stroke="#bfbfbf" stroke-width="1"/>
+<line x1="160" y1="486" x2="1060" y2="486" stroke="#bfbfbf" stroke-width="1"/>
+<rect x="200.5" y="122.63465400000001" width="144.0" height="363.365346" fill="#1f4e79" stroke="none" stroke-width="0"/>
+<text x="272.5" y="110.63465400000001" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">3 765 444</text>
+<text x="272.5" y="516" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#111111">HQ</text>
+<text x="272.5" y="535" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#111111">Москва</text>
+<rect x="425.5" y="200.65143" width="144.0" height="285.34857" fill="#1f4e79" stroke="none" stroke-width="0"/>
+<text x="497.5" y="188.65143" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">2 956 980</text>
+<text x="497.5" y="516" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#111111">SPB</text>
+<text x="497.5" y="535" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#111111">Санкт-Петербург</text>
+<rect x="650.5" y="267.62204399999996" width="144.0" height="218.377956" fill="#1f4e79" stroke="none" stroke-width="0"/>
+<text x="722.5" y="255.62204399999996" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">2 262 984</text>
+<text x="722.5" y="516" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#111111">KZN</text>
+<text x="722.5" y="535" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#111111">Казань</text>
+<rect x="875.5" y="277.59358199999997" width="144.0" height="208.406418" fill="#1f4e79" stroke="none" stroke-width="0"/>
+<text x="947.5" y="265.59358199999997" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#111111">2 159 652</text>
+<text x="947.5" y="516" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#111111">NSK</text>
+<text x="947.5" y="535" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#111111">Новосибирск</text>
+<text x="34" y="293.0" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#111111" transform="rotate(-90 34 293.0)">Сумма, ₽</text>
+<text x="293.0" y="574" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#111111">Филиал</text>
+<text x="160" y="606" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#555555">Источник: запрос 6. Коды филиалов: HQ — Москва, SPB — Санкт-Петербург, KZN — Казань, NSK — Новосибирск.</text>
 </svg>

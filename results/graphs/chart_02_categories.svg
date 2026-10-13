@@ -1,31 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="640" viewBox="0 0 980 640"><rect width="100%" height="100%" fill="#ffffff"/>
-<text x="40" y="42" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#111111">Структура парка техники по категориям</text>
-<path d="M 330 350 L 330.0 160.0 A 190 190 0 0 1 466.1 482.6 Z" fill="#1f4e79" stroke="#ffffff" stroke-width="2"/>
-<text x="445.5358717688257" y="306.2493863154783" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">37%</text>
-<path d="M 330 350 L 466.1 482.6 A 190 190 0 0 1 304.7 538.3 Z" fill="#2e75b6" stroke="#ffffff" stroke-width="2"/>
-<text x="370.919690764094" y="473.5358127646279" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">15%</text>
-<path d="M 330 350 L 304.7 538.3 A 190 190 0 0 1 168.4 449.8 Z" fill="#9dc3e6" stroke="#ffffff" stroke-width="2"/>
-<text x="261.7377956865913" y="460.1923545809031" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">14%</text>
-<path d="M 330 350 L 168.4 449.8 A 190 190 0 0 1 142.2 321.2 Z" fill="#c9c9c9" stroke="#ffffff" stroke-width="2"/>
-<text x="207.11603467010968" y="379.9938205323299" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">11%</text>
-<path d="M 330 350 L 142.2 321.2 A 190 190 0 0 1 201.1 210.4 Z" fill="#8faadc" stroke="#ffffff" stroke-width="2"/>
-<text x="219.26511652662336" y="296.1532024479012" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">11%</text>
-<path d="M 330 350 L 201.1 210.4 A 190 190 0 0 1 266.5 170.9 Z" fill="#44546a" stroke="#ffffff" stroke-width="2"/>
-<text x="265.1844080430649" y="247.64964350654404" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">6%</text>
-<path d="M 330 350 L 266.5 170.9 A 190 190 0 0 1 330.0 160.0 Z" fill="#bdd7ee" stroke="#ffffff" stroke-width="2"/>
-<rect x="600" y="150" width="22" height="18" fill="#1f4e79" stroke="none" stroke-width="0"/>
-<text x="634" y="164" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#111111">Компьютерная техника — 289 (37.3%)</text>
-<rect x="600" y="184" width="22" height="18" fill="#2e75b6" stroke="none" stroke-width="0"/>
-<text x="634" y="198" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#111111">Лабораторное оборудование — 115 (14.8%)</text>
-<rect x="600" y="218" width="22" height="18" fill="#9dc3e6" stroke="none" stroke-width="0"/>
-<text x="634" y="232" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#111111">Проекционное оборудование — 109 (14.1%)</text>
-<rect x="600" y="252" width="22" height="18" fill="#c9c9c9" stroke="none" stroke-width="0"/>
-<text x="634" y="266" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#111111">Сетевое оборудование — 87 (11.2%)</text>
-<rect x="600" y="286" width="22" height="18" fill="#8faadc" stroke="none" stroke-width="0"/>
-<text x="634" y="300" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#111111">Аудио- и видеооборудование — 83 (10.7%)</text>
-<rect x="600" y="320" width="22" height="18" fill="#44546a" stroke="none" stroke-width="0"/>
-<text x="634" y="334" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#111111">VR/AR-оборудование — 50 (6.5%)</text>
-<rect x="600" y="354" width="22" height="18" fill="#bdd7ee" stroke="none" stroke-width="0"/>
-<text x="634" y="368" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#111111">Оргтехника и печать — 42 (5.4%)</text>
-<text x="40" y="616" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#555555">Всего: 775 экз.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660"><rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="46" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#111111">Структура парка техники по категориям</text>
+<path d="M 330 360 L 330.0 165.0 A 195 195 0 0 1 469.7 496.1 Z" fill="#1F4E79" stroke="#ffffff" stroke-width="2"/>
+<text x="448.57628944695267" y="314.96647542904356" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">37%</text>
+<path d="M 330 360 L 469.7 496.1 A 195 195 0 0 1 304.0 553.3 Z" fill="#F2C14E" stroke="#ffffff" stroke-width="2"/>
+<text x="371.99652473157016" y="486.6551762584339" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#111111">15%</text>
+<path d="M 330 360 L 304.0 553.3 A 195 195 0 0 1 164.1 462.5 Z" fill="#4E8A5F" stroke="#ffffff" stroke-width="2"/>
+<text x="259.94142188887" y="472.96057443829534" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">14%</text>
+<path d="M 330 360 L 164.1 462.5 A 195 195 0 0 1 137.2 330.5 Z" fill="#BFBFBF" stroke="#ffffff" stroke-width="2"/>
+<text x="203.88224610879678" y="390.6515526516017" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#111111">11%</text>
+<path d="M 330 360 L 137.2 330.5 A 195 195 0 0 1 197.7 216.8 Z" fill="#7D5BA6" stroke="#ffffff" stroke-width="2"/>
+<text x="216.351040645745" y="304.6046025123197" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">11%</text>
+<path d="M 330 360 L 197.7 216.8 A 195 195 0 0 1 264.9 176.2 Z" fill="#BDD7EE" stroke="#ffffff" stroke-width="2"/>
+<text x="263.4787345705139" y="254.8246341251373" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#111111">6%</text>
+<path d="M 330 360 L 264.9 176.2 A 195 195 0 0 1 330.0 165.0 Z" fill="#2E8B8B" stroke="#ffffff" stroke-width="2"/>
+<rect x="620" y="150" width="24" height="20" fill="#1F4E79" stroke="none" stroke-width="0"/>
+<text x="658" y="165" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="start" fill="#111111">Компьютерная техника — 289 (37,3%)</text>
+<rect x="620" y="188" width="24" height="20" fill="#F2C14E" stroke="none" stroke-width="0"/>
+<text x="658" y="203" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="start" fill="#111111">Лабораторное оборудование — 115 (14,8%)</text>
+<rect x="620" y="226" width="24" height="20" fill="#4E8A5F" stroke="none" stroke-width="0"/>
+<text x="658" y="241" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="start" fill="#111111">Проекционное оборудование — 109 (14,1%)</text>
+<rect x="620" y="264" width="24" height="20" fill="#BFBFBF" stroke="none" stroke-width="0"/>
+<text x="658" y="279" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="start" fill="#111111">Сетевое оборудование — 87 (11,2%)</text>
+<rect x="620" y="302" width="24" height="20" fill="#7D5BA6" stroke="none" stroke-width="0"/>
+<text x="658" y="317" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="start" fill="#111111">Аудио- и видеооборудование — 83 (10,7%)</text>
+<rect x="620" y="340" width="24" height="20" fill="#BDD7EE" stroke="none" stroke-width="0"/>
+<text x="658" y="355" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="start" fill="#111111">VR/AR-оборудование — 50 (6,5%)</text>
+<rect x="620" y="378" width="24" height="20" fill="#2E8B8B" stroke="none" stroke-width="0"/>
+<text x="658" y="393" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" text-anchor="start" fill="#111111">Оргтехника и печать — 42 (5,4%)</text>
+<text x="40" y="636" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#555555">Всего: 775 экз.</text>
 </svg>

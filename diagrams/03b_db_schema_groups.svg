@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1100" viewBox="0 0 1700 1100"><defs><marker id="arw15803d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="18" markerHeight="18" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#15803d"/></marker><marker id="arw1d4ed8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="18" markerHeight="18" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1d4ed8"/></marker><marker id="arw3730a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="18" markerHeight="18" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3730a3"/></marker><marker id="arwa16207" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="18" markerHeight="18" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a16207"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/>
 <text x="50" y="54" font-family="Helvetica, Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="start" fill="#111827">Схема базы данных «CampusRent»: подсистемы и основные связи</text>
 <text x="50" y="96" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#4b5563">22 таблицы собраны в 6 подсистем; стрелки — основные связи 1 — N; цвет — подсистема</text>
-<rect x="40" y="112" width="1620" height="228" rx="16" fill="#dbeafe" stroke="#1d4ed8" stroke-width="3"/>
-<text x="66" y="156" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="start" fill="#1d4ed8">НСИ и номенклатура</text>
-<text x="1634" y="156" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#374151">10 таблиц · справочники-источники (РОК)</text>
-<text x="66" y="234" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">branches</text>
-<text x="386" y="234" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">categories</text>
-<text x="706" y="234" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">models</text>
-<text x="1026" y="234" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">model_components</text>
-<text x="1346" y="234" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">model_purposes</text>
-<text x="66" y="298" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">tariffs</text>
-<text x="386" y="298" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">request_statuses</text>
-<text x="706" y="298" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">payment_methods</text>
-<text x="1026" y="298" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">maintenance_types</text>
-<text x="1346" y="298" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">condition_grades</text>
+<rect x="40" y="118" width="1620" height="222" rx="16" fill="#dbeafe" stroke="#1d4ed8" stroke-width="3"/>
+<text x="66" y="162" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="start" fill="#1d4ed8">НСИ и номенклатура</text>
+<text x="1634" y="162" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#374151">10 таблиц · справочники-источники (РОК)</text>
+<text x="66" y="240" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">branches</text>
+<text x="386" y="240" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">categories</text>
+<text x="706" y="240" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">models</text>
+<text x="1026" y="240" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">model_components</text>
+<text x="1346" y="240" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">model_purposes</text>
+<text x="66" y="304" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">tariffs</text>
+<text x="386" y="304" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">request_statuses</text>
+<text x="706" y="304" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">payment_methods</text>
+<text x="1026" y="304" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">maintenance_types</text>
+<text x="1346" y="304" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">condition_grades</text>
 <rect x="40" y="480" width="500" height="220" rx="16" fill="#dcfce7" stroke="#15803d" stroke-width="3"/>
 <text x="66" y="524" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="start" fill="#15803d">Клиенты</text>
 <text x="514" y="524" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#374151">3 таблицы</text>
@@ -30,7 +30,7 @@
 <text x="1634" y="524" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#374151">2 таблицы</text>
 <text x="1131" y="585" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">equipment_units</text>
 <text x="1131" y="630" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">transfers</text>
-<rect x="40" y="840" width="1140" height="180" rx="16" fill="#fee2e2" stroke="#b91c1c" stroke-width="3"/>
+<rect x="40" y="840" width="1140" height="160" rx="16" fill="#fee2e2" stroke="#b91c1c" stroke-width="3"/>
 <text x="66" y="886" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="start" fill="#b91c1c">Аренда и договоры</text>
 <text x="1154" y="886" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#374151">5 таблиц · РКД + рабочий поток</text>
 <text x="66" y="968" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">requests</text>
@@ -38,40 +38,39 @@
 <text x="440.18" y="968" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">contracts</text>
 <text x="601.26" y="968" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">rentals</text>
 <text x="734.8" y="968" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">payments</text>
-<rect x="1250" y="840" width="410" height="180" rx="16" fill="#ede9fe" stroke="#6d28d9" stroke-width="3"/>
+<rect x="1250" y="840" width="410" height="160" rx="16" fill="#ede9fe" stroke="#6d28d9" stroke-width="3"/>
 <text x="1276" y="886" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="start" fill="#6d28d9">Сервис</text>
 <text x="1634" y="886" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#374151">1 таблица</text>
 <text x="1276" y="968" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">maintenance</text>
-<line x1="290" y1="340" x2="290" y2="388" stroke="#1d4ed8" stroke-width="2.6"/>
-<line x1="290" y1="432" x2="290" y2="480" stroke="#1d4ed8" stroke-width="2.6" marker-end="url(#arw1d4ed8)"/>
-<text x="290" y="420" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">филиал 1 — N ВУЗ</text>
-<line x1="830" y1="340" x2="830" y2="388" stroke="#1d4ed8" stroke-width="2.6"/>
-<line x1="830" y1="432" x2="830" y2="480" stroke="#1d4ed8" stroke-width="2.6" marker-end="url(#arw1d4ed8)"/>
-<text x="830" y="420" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">филиал 1 — N сотрудник</text>
-<line x1="1382" y1="340" x2="1382" y2="388" stroke="#1d4ed8" stroke-width="2.6"/>
-<line x1="1382" y1="432" x2="1382" y2="480" stroke="#1d4ed8" stroke-width="2.6" marker-end="url(#arw1d4ed8)"/>
-<text x="1382" y="420" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">модель 1 — N экземпляр</text>
-<line x1="290" y1="700" x2="290" y2="771" stroke="#15803d" stroke-width="2.6"/>
-<line x1="290" y1="807" x2="290" y2="840" stroke="#15803d" stroke-width="2.6" marker-end="url(#arw15803d)"/>
-<text x="290" y="796" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">ВУЗ 1 — N заявка</text>
-<line x1="640" y1="700" x2="640" y2="731" stroke="#3730a3" stroke-width="2.6"/>
-<line x1="640" y1="767" x2="640" y2="840" stroke="#3730a3" stroke-width="2.6" marker-end="url(#arw3730a3)"/>
-<text x="640" y="756" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">сотрудник 1 — N выдача</text>
-<line x1="1550" y1="700" x2="1550" y2="840" stroke="#a16207" stroke-width="2.6" marker-end="url(#arwa16207)"/>
-<text x="1520" y="756" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#111827">экземпляр 1 — N обслуживание</text>
-<line x1="1100" y1="700" x2="1100" y2="840" stroke="#a16207" stroke-width="2.6" marker-end="url(#arwa16207)"/>
-<text x="1080" y="796" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#111827">экземпляр 1 — N позиция заявки</text>
-<rect x="40" y="1032" width="1620" height="62" rx="12" fill="#ffffff" stroke="#4b5563" stroke-width="1.6"/>
-<rect x="66" y="1050" width="26" height="26" rx="5" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
-<text x="104" y="1072" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">НСИ и номенклатура</text>
-<rect x="411.12" y="1050" width="26" height="26" rx="5" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
-<text x="449.12" y="1072" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Клиенты</text>
-<rect x="604.26" y="1050" width="26" height="26" rx="5" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
-<text x="642.26" y="1072" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Персонал</text>
-<rect x="807.6" y="1050" width="26" height="26" rx="5" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
-<text x="845.6" y="1072" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Техника</text>
-<rect x="993.6" y="1050" width="26" height="26" rx="5" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
-<text x="1031.6" y="1072" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Аренда и договоры</text>
-<rect x="1316.28" y="1050" width="26" height="26" rx="5" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
-<text x="1354.28" y="1072" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Сервис</text>
+<line x1="290" y1="340" x2="290" y2="373" stroke="#1d4ed8" stroke-width="2.2"/>
+<line x1="290" y1="426" x2="290" y2="476" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#arw1d4ed8)"/>
+<text x="290" y="408" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">филиал 1 — N ВУЗ</text>
+<line x1="830" y1="340" x2="830" y2="373" stroke="#1d4ed8" stroke-width="2.2"/>
+<line x1="830" y1="426" x2="830" y2="476" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#arw1d4ed8)"/>
+<text x="830" y="408" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">филиал 1 — N сотрудник</text>
+<line x1="1382" y1="340" x2="1382" y2="373" stroke="#1d4ed8" stroke-width="2.2"/>
+<line x1="1382" y1="426" x2="1382" y2="476" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#arw1d4ed8)"/>
+<text x="1382" y="408" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">модель 1 — N экземпляр</text>
+<line x1="290" y1="700" x2="290" y2="836" stroke="#15803d" stroke-width="2.2" marker-end="url(#arw15803d)"/>
+<text x="266" y="770" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#111827">ВУЗ 1 — N заявка</text>
+<line x1="640" y1="700" x2="640" y2="836" stroke="#3730a3" stroke-width="2.2" marker-end="url(#arw3730a3)"/>
+<text x="616" y="770" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#111827">сотрудник 1 — N выдача</text>
+<line x1="1130" y1="700" x2="1130" y2="836" stroke="#a16207" stroke-width="2.2" marker-end="url(#arwa16207)"/>
+<text x="1106" y="770" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#111827">экземпляр 1 — N позиция заявки</text>
+<line x1="1580" y1="700" x2="1580" y2="836" stroke="#a16207" stroke-width="2.2" marker-end="url(#arwa16207)"/>
+<text x="1556" y="770" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="end" fill="#111827">экземпляр 1 — N обслуживание</text>
+<rect x="40" y="1006" width="1620" height="90" rx="12" fill="#ffffff" stroke="#4b5563" stroke-width="1.6"/>
+<rect x="66" y="1017" width="26" height="26" rx="5" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="104" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">НСИ и номенклатура</text>
+<rect x="411.12" y="1017" width="26" height="26" rx="5" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="449.12" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Клиенты</text>
+<rect x="604.26" y="1017" width="26" height="26" rx="5" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
+<text x="642.26" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Персонал</text>
+<rect x="807.6" y="1017" width="26" height="26" rx="5" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="845.6" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Техника</text>
+<rect x="993.6" y="1017" width="26" height="26" rx="5" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="1031.6" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Аренда и договоры</text>
+<rect x="1316.28" y="1017" width="26" height="26" rx="5" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
+<text x="1354.28" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Сервис</text>
+<text x="66" y="1076" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">Обозначения: РОК — репликация с основной копией; РКД — репликация с консолидацией</text>
 </svg>

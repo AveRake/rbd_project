@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1000" viewBox="0 0 1700 1000"><rect width="100%" height="100%" fill="#ffffff"/>
 <text x="50.0" y="56.0" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#111827">Схема фрагментации РБД «CampusRent»: группы данных × узлы</text>
-<text x="50.0" y="94.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#4b5563">Вариант B: просторная матрица (зазор 30–44 px, кегль 26 px); стрелки вынесены в панель «Потоки данных» внизу</text>
+<text x="50.0" y="94.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#4b5563">Строки — группы данных, столбцы — узлы сети; цвет — метод поддержки распределённости</text>
 <rect x="40.0" y="100.0" width="400.0" height="110.0" rx="12" fill="#f3f4f6" stroke="#4b5563" stroke-width="2.4"/>
 <text x="240.0" y="148.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="middle" fill="#374151">Группы данных</text>
 <text x="240.0" y="184.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#374151">и метод поддержки</text>
@@ -21,91 +21,91 @@
 <rect x="40.0" y="240.0" width="400.0" height="70.0" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.4"/>
 <text x="62.0" y="270.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#1d4ed8">НСИ и справочники</text>
 <text x="62.0" y="298.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">РОК · снимки 1 раз/сут</text>
-<rect x="484.0" y="240.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+<rect x="484.0" y="240.0" width="264.0" height="70.0" rx="10" fill="#f7faff" stroke="#1d4ed8" stroke-width="2"/>
 <text x="616.0" y="270.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">основная копия</text>
 <text x="616.0" y="298.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">мастер-источник</text>
-<rect x="788.0" y="240.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+<rect x="788.0" y="240.0" width="264.0" height="70.0" rx="10" fill="#f7faff" stroke="#1d4ed8" stroke-width="2"/>
 <text x="920.0" y="270.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">реплика</text>
 <text x="920.0" y="298.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">снимок 1 раз/сут</text>
-<rect x="1092.0" y="240.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+<rect x="1092.0" y="240.0" width="264.0" height="70.0" rx="10" fill="#f7faff" stroke="#1d4ed8" stroke-width="2"/>
 <text x="1224.0" y="270.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">реплика</text>
 <text x="1224.0" y="298.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">снимок 1 раз/сут</text>
-<rect x="1396.0" y="240.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+<rect x="1396.0" y="240.0" width="264.0" height="70.0" rx="10" fill="#f7faff" stroke="#1d4ed8" stroke-width="2"/>
 <text x="1528.0" y="270.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">реплика</text>
 <text x="1528.0" y="298.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">снимок 1 раз/сут</text>
 <rect x="40.0" y="340.0" width="400.0" height="70.0" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2.4"/>
 <text x="62.0" y="370.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#15803d">Клиенты и подразделения</text>
 <text x="62.0" y="398.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">РБОК · асинхронное РИ</text>
-<rect x="484.0" y="340.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+<rect x="484.0" y="340.0" width="264.0" height="70.0" rx="10" fill="#f7fefa" stroke="#15803d" stroke-width="2"/>
 <text x="616.0" y="370.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">реплика</text>
 <text x="616.0" y="398.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">РБОК (РИ)</text>
-<rect x="788.0" y="340.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+<rect x="788.0" y="340.0" width="264.0" height="70.0" rx="10" fill="#f7fefa" stroke="#15803d" stroke-width="2"/>
 <text x="920.0" y="370.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">реплика</text>
 <text x="920.0" y="398.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">РБОК (РИ)</text>
-<rect x="1092.0" y="340.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+<rect x="1092.0" y="340.0" width="264.0" height="70.0" rx="10" fill="#f7fefa" stroke="#15803d" stroke-width="2"/>
 <text x="1224.0" y="370.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">реплика</text>
 <text x="1224.0" y="398.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">РБОК (РИ)</text>
-<rect x="1396.0" y="340.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+<rect x="1396.0" y="340.0" width="264.0" height="70.0" rx="10" fill="#f7fefa" stroke="#15803d" stroke-width="2"/>
 <text x="1528.0" y="370.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">реплика</text>
 <text x="1528.0" y="398.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">РБОК (РИ)</text>
 <rect x="40.0" y="440.0" width="400.0" height="70.0" rx="10" fill="#fef9c3" stroke="#a16207" stroke-width="2.4"/>
 <text x="62.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#a16207">Экземпляры техники</text>
 <text x="62.0" y="498.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">фрагментация EQ_BR+РКД</text>
-<rect x="484.0" y="440.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#a16207" stroke-width="2"/>
+<rect x="484.0" y="440.0" width="264.0" height="70.0" rx="10" fill="#fffef2" stroke="#a16207" stroke-width="2"/>
 <text x="616.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">консолидированная</text>
 <text x="616.0" y="498.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">копия</text>
-<rect x="788.0" y="440.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#a16207" stroke-width="2"/>
+<rect x="788.0" y="440.0" width="264.0" height="70.0" rx="10" fill="#fffef2" stroke="#a16207" stroke-width="2"/>
 <text x="920.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">фрагмент</text>
 <text x="920.0" y="498.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">EQ_BR = СПб</text>
-<rect x="1092.0" y="440.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#a16207" stroke-width="2"/>
+<rect x="1092.0" y="440.0" width="264.0" height="70.0" rx="10" fill="#fffef2" stroke="#a16207" stroke-width="2"/>
 <text x="1224.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">фрагмент</text>
 <text x="1224.0" y="498.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">EQ_BR = Казань</text>
-<rect x="1396.0" y="440.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#a16207" stroke-width="2"/>
+<rect x="1396.0" y="440.0" width="264.0" height="70.0" rx="10" fill="#fffef2" stroke="#a16207" stroke-width="2"/>
 <text x="1528.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">консолидированная</text>
 <text x="1528.0" y="498.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">копия</text>
 <rect x="40.0" y="540.0" width="400.0" height="70.0" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="2.4"/>
 <text x="62.0" y="570.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#b91c1c">Заявки и позиции заявок</text>
 <text x="62.0" y="598.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">РКД + рабочий поток</text>
-<rect x="484.0" y="540.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+<rect x="484.0" y="540.0" width="264.0" height="70.0" rx="10" fill="#fff9f9" stroke="#b91c1c" stroke-width="2"/>
 <text x="616.0" y="570.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">согласование</text>
 <text x="616.0" y="598.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">в ЦО</text>
-<rect x="788.0" y="540.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+<rect x="788.0" y="540.0" width="264.0" height="70.0" rx="10" fill="#fff9f9" stroke="#b91c1c" stroke-width="2"/>
 <text x="920.0" y="570.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">рабочая копия</text>
 <text x="920.0" y="598.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">филиал ⇄ ЦО</text>
-<rect x="1092.0" y="540.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+<rect x="1092.0" y="540.0" width="264.0" height="70.0" rx="10" fill="#fff9f9" stroke="#b91c1c" stroke-width="2"/>
 <text x="1224.0" y="570.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">рабочая копия</text>
 <text x="1224.0" y="598.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">филиал ⇄ ЦО</text>
-<rect x="1396.0" y="540.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+<rect x="1396.0" y="540.0" width="264.0" height="70.0" rx="10" fill="#fff9f9" stroke="#b91c1c" stroke-width="2"/>
 <text x="1528.0" y="570.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">консолидированная</text>
 <text x="1528.0" y="598.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">копия</text>
 <rect x="40.0" y="640.0" width="400.0" height="70.0" rx="10" fill="#ffedd5" stroke="#c2410c" stroke-width="2.4"/>
 <text x="62.0" y="670.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#c2410c">Договоры и платежи</text>
 <text x="62.0" y="698.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">локально + РКД, выдачи</text>
-<rect x="484.0" y="640.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+<rect x="484.0" y="640.0" width="264.0" height="70.0" rx="10" fill="#fffbf6" stroke="#c2410c" stroke-width="2"/>
 <text x="616.0" y="670.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">консолидированная</text>
-<text x="616.0" y="698.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">копия (бухгалтерия)</text>
-<rect x="788.0" y="640.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+<text x="616.0" y="698.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">копия (финансы)</text>
+<rect x="788.0" y="640.0" width="264.0" height="70.0" rx="10" fill="#fffbf6" stroke="#c2410c" stroke-width="2"/>
 <text x="920.0" y="670.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">рабочая копия</text>
 <text x="920.0" y="698.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">филиал</text>
-<rect x="1092.0" y="640.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+<rect x="1092.0" y="640.0" width="264.0" height="70.0" rx="10" fill="#fffbf6" stroke="#c2410c" stroke-width="2"/>
 <text x="1224.0" y="670.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">рабочая копия</text>
 <text x="1224.0" y="698.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">филиал</text>
-<rect x="1396.0" y="640.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+<rect x="1396.0" y="640.0" width="264.0" height="70.0" rx="10" fill="#fffbf6" stroke="#c2410c" stroke-width="2"/>
 <text x="1528.0" y="670.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">консолидированная</text>
 <text x="1528.0" y="698.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">копия</text>
 <rect x="40.0" y="740.0" width="400.0" height="70.0" rx="10" fill="#ede9fe" stroke="#6d28d9" stroke-width="2.4"/>
 <text x="62.0" y="770.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#6d28d9">Обслуживание и ремонт</text>
 <text x="62.0" y="798.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">локально + РКД, затраты</text>
-<rect x="484.0" y="740.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#6d28d9" stroke-width="2"/>
+<rect x="484.0" y="740.0" width="264.0" height="70.0" rx="10" fill="#fbfaff" stroke="#6d28d9" stroke-width="2"/>
 <text x="616.0" y="770.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">сводный учёт</text>
 <text x="616.0" y="798.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">затрат</text>
-<rect x="788.0" y="740.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#6d28d9" stroke-width="2"/>
+<rect x="788.0" y="740.0" width="264.0" height="70.0" rx="10" fill="#fbfaff" stroke="#6d28d9" stroke-width="2"/>
 <text x="920.0" y="770.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">рабочая копия</text>
 <text x="920.0" y="798.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">филиал</text>
-<rect x="1092.0" y="740.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#6d28d9" stroke-width="2"/>
+<rect x="1092.0" y="740.0" width="264.0" height="70.0" rx="10" fill="#fbfaff" stroke="#6d28d9" stroke-width="2"/>
 <text x="1224.0" y="770.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">рабочая копия</text>
 <text x="1224.0" y="798.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">филиал</text>
-<rect x="1396.0" y="740.0" width="264.0" height="70.0" rx="10" fill="#ffffff" stroke="#6d28d9" stroke-width="2"/>
+<rect x="1396.0" y="740.0" width="264.0" height="70.0" rx="10" fill="#fbfaff" stroke="#6d28d9" stroke-width="2"/>
 <text x="1528.0" y="770.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#111827">консолидированная</text>
 <text x="1528.0" y="798.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#4b5563">копия</text>
 <rect x="40.0" y="840.0" width="1620.0" height="155.0" rx="12" fill="#ffffff" stroke="#4b5563" stroke-width="1.6"/>
