@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1150" viewBox="0 0 1700 1150"><rect width="100%" height="100%" fill="#ffffff"/>
+<text x="30.0" y="44.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="start" fill="#111827">Схема БД «CampusRent» с атрибутами — Клиенты, персонал и техника</text>
+<text x="30.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="normal" text-anchor="start" fill="#4b5563">PK — первичный ключ · FK — внешний ключ · NOT NULL — обязательное · UNIQUE — уникальное · CHECK — ограничение · «→ таблица.поле» — внешняя ссылка · N/V/C/D/BIGINT — типы</text>
+<polyline points="784.0,180.0 916.0,180.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="916.0,280.0 850.0,280.0 850.0,615.0 784.0,615.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="420.0,404.0 420.0,496.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1280.0,636.0 1280.0,728.0" fill="none" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="30.0" y="98.0" width="780.0" height="332.0" rx="9" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+<rect x="30.0" y="98.0" width="780.0" height="46.0" rx="9" fill="#dcfce7" stroke="none" stroke-width="0"/>
+<rect x="30.0" y="132.0" width="780.0" height="12.0" rx="0" fill="#dcfce7" stroke="none" stroke-width="0"/>
+<line x1="30.0" y1="144.0" x2="810.0" y2="144.0" stroke="#15803d" stroke-width="2"/>
+<rect x="30.0" y="98.0" width="780.0" height="332.0" rx="9" fill="none" stroke="#15803d" stroke-width="2"/>
+<text x="50.0" y="130.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#15803d">ВУЗЫ</text>
+<text x="790.0" y="130.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">(universities)</text>
+<text x="50.0" y="164.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_ID</text>
+<text x="218.3" y="164.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(6)</text>
+<text x="302.4" y="164.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#b91c1c">PK</text>
+<text x="343.5" y="164.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="172.0" x2="800.0" y2="172.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="192.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_NAME</text>
+<text x="218.3" y="192.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(150)</text>
+<text x="302.4" y="192.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="200.0" x2="800.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="220.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_SHORT</text>
+<text x="218.3" y="220.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(60)</text>
+<text x="302.4" y="220.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="421.2" y="220.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#7c3aed">UNIQUE</text>
+<line x1="40.0" y1="228.0" x2="800.0" y2="228.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="248.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_INN</text>
+<text x="218.3" y="248.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">C(10)</text>
+<text x="302.4" y="248.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="421.2" y="248.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#7c3aed">UNIQUE</text>
+<line x1="40.0" y1="256.0" x2="800.0" y2="256.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="276.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_KPP</text>
+<text x="218.3" y="276.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">C(9)</text>
+<line x1="40.0" y1="284.0" x2="800.0" y2="284.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="304.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_ADDRESS</text>
+<text x="218.3" y="304.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(150)</text>
+<text x="302.4" y="304.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="312.0" x2="800.0" y2="312.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="332.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_CITY</text>
+<text x="218.3" y="332.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(50)</text>
+<text x="302.4" y="332.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="340.0" x2="800.0" y2="340.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="360.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_PHONE</text>
+<text x="218.3" y="360.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(20)</text>
+<line x1="40.0" y1="368.0" x2="800.0" y2="368.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="388.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_EMAIL</text>
+<text x="218.3" y="388.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(50)</text>
+<line x1="40.0" y1="396.0" x2="800.0" y2="396.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="416.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">UN_BR</text>
+<text x="218.3" y="416.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(8)</text>
+<text x="302.4" y="416.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="342.2" y="416.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="790.0" y="416.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ branches.BR_ID</text>
+<rect x="30.0" y="470.0" width="780.0" height="276.0" rx="9" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+<rect x="30.0" y="470.0" width="780.0" height="46.0" rx="9" fill="#dcfce7" stroke="none" stroke-width="0"/>
+<rect x="30.0" y="504.0" width="780.0" height="12.0" rx="0" fill="#dcfce7" stroke="none" stroke-width="0"/>
+<line x1="30.0" y1="516.0" x2="810.0" y2="516.0" stroke="#15803d" stroke-width="2"/>
+<rect x="30.0" y="470.0" width="780.0" height="276.0" rx="9" fill="none" stroke="#15803d" stroke-width="2"/>
+<text x="50.0" y="502.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#15803d">ПРЕДСТАВИТЕЛИ ВУЗОВ</text>
+<text x="790.0" y="502.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">(representatives)</text>
+<text x="50.0" y="536.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">REP_ID</text>
+<text x="245.3" y="536.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(6)</text>
+<text x="329.3" y="536.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#b91c1c">PK</text>
+<text x="370.4" y="536.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="544.0" x2="800.0" y2="544.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">REP_UN</text>
+<text x="245.3" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(6)</text>
+<text x="329.3" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="369.1" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="790.0" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ universities.UN_ID</text>
+<line x1="40.0" y1="572.0" x2="800.0" y2="572.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="592.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">REP_DEP</text>
+<text x="245.3" y="592.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(6)</text>
+<text x="329.3" y="592.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="790.0" y="592.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ departments.DEP_ID</text>
+<line x1="40.0" y1="600.0" x2="800.0" y2="600.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="620.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">REP_FIO</text>
+<text x="245.3" y="620.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(100)</text>
+<text x="329.3" y="620.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="628.0" x2="800.0" y2="628.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="648.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">REP_POSITION</text>
+<text x="245.3" y="648.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(60)</text>
+<text x="329.3" y="648.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="656.0" x2="800.0" y2="656.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="676.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">REP_PHONE</text>
+<text x="245.3" y="676.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(20)</text>
+<text x="329.3" y="676.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="684.0" x2="800.0" y2="684.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="704.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">REP_EMAIL</text>
+<text x="245.3" y="704.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(50)</text>
+<line x1="40.0" y1="712.0" x2="800.0" y2="712.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="732.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">REP_PASSPORT</text>
+<text x="245.3" y="732.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">C(10)</text>
+<text x="329.3" y="732.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#7c3aed">UNIQUE</text>
+<rect x="30.0" y="786.0" width="780.0" height="248.0" rx="9" fill="#ffffff" stroke="#3730a3" stroke-width="2"/>
+<rect x="30.0" y="786.0" width="780.0" height="46.0" rx="9" fill="#e0e7ff" stroke="none" stroke-width="0"/>
+<rect x="30.0" y="820.0" width="780.0" height="12.0" rx="0" fill="#e0e7ff" stroke="none" stroke-width="0"/>
+<line x1="30.0" y1="832.0" x2="810.0" y2="832.0" stroke="#3730a3" stroke-width="2"/>
+<rect x="30.0" y="786.0" width="780.0" height="248.0" rx="9" fill="none" stroke="#3730a3" stroke-width="2"/>
+<text x="50.0" y="818.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#3730a3">СОТРУДНИКИ</text>
+<text x="790.0" y="818.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">(employees)</text>
+<text x="50.0" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EMP_ID</text>
+<text x="233.0" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(6)</text>
+<text x="317.1" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#b91c1c">PK</text>
+<text x="358.2" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="860.0" x2="800.0" y2="860.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="880.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EMP_BR</text>
+<text x="233.0" y="880.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(8)</text>
+<text x="317.1" y="880.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="356.9" y="880.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="790.0" y="880.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ branches.BR_ID</text>
+<line x1="40.0" y1="888.0" x2="800.0" y2="888.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="908.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EMP_FIO</text>
+<text x="233.0" y="908.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(100)</text>
+<text x="317.1" y="908.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="916.0" x2="800.0" y2="916.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="936.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EMP_POSITION</text>
+<text x="233.0" y="936.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(60)</text>
+<text x="317.1" y="936.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="40.0" y1="944.0" x2="800.0" y2="944.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="964.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EMP_PHONE</text>
+<text x="233.0" y="964.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(20)</text>
+<line x1="40.0" y1="972.0" x2="800.0" y2="972.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="992.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EMP_EMAIL</text>
+<text x="233.0" y="992.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(50)</text>
+<line x1="40.0" y1="1000.0" x2="800.0" y2="1000.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="50.0" y="1020.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EMP_LOGIN</text>
+<text x="233.0" y="1020.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(30)</text>
+<text x="317.1" y="1020.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="435.9" y="1020.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#7c3aed">UNIQUE</text>
+<rect x="890.0" y="98.0" width="780.0" height="220.0" rx="9" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+<rect x="890.0" y="98.0" width="780.0" height="46.0" rx="9" fill="#dcfce7" stroke="none" stroke-width="0"/>
+<rect x="890.0" y="132.0" width="780.0" height="12.0" rx="0" fill="#dcfce7" stroke="none" stroke-width="0"/>
+<line x1="890.0" y1="144.0" x2="1670.0" y2="144.0" stroke="#15803d" stroke-width="2"/>
+<rect x="890.0" y="98.0" width="780.0" height="220.0" rx="9" fill="none" stroke="#15803d" stroke-width="2"/>
+<text x="910.0" y="130.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#15803d">ПОДРАЗДЕЛЕНИЯ ВУЗА</text>
+<text x="1650.0" y="130.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">(departments)</text>
+<text x="910.0" y="164.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">DEP_ID</text>
+<text x="1063.7" y="164.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(6)</text>
+<text x="1147.7" y="164.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#b91c1c">PK</text>
+<text x="1188.8" y="164.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="900.0" y1="172.0" x2="1660.0" y2="172.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="192.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">DEP_UN</text>
+<text x="1063.7" y="192.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(6)</text>
+<text x="1147.7" y="192.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="1187.5" y="192.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="1650.0" y="192.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ universities.UN_ID</text>
+<line x1="900.0" y1="200.0" x2="1660.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="220.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">DEP_NAME</text>
+<text x="1063.7" y="220.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(100)</text>
+<text x="1147.7" y="220.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="900.0" y1="228.0" x2="1660.0" y2="228.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="248.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">DEP_HEAD</text>
+<text x="1063.7" y="248.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(100)</text>
+<line x1="900.0" y1="256.0" x2="1660.0" y2="256.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="276.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">DEP_PHONE</text>
+<text x="1063.7" y="276.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(20)</text>
+<line x1="900.0" y1="284.0" x2="1660.0" y2="284.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="304.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">DEP_EMAIL</text>
+<text x="1063.7" y="304.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(50)</text>
+<rect x="890.0" y="358.0" width="780.0" height="304.0" rx="9" fill="#ffffff" stroke="#a16207" stroke-width="2"/>
+<rect x="890.0" y="358.0" width="780.0" height="46.0" rx="9" fill="#fef9c3" stroke="none" stroke-width="0"/>
+<rect x="890.0" y="392.0" width="780.0" height="12.0" rx="0" fill="#fef9c3" stroke="none" stroke-width="0"/>
+<line x1="890.0" y1="404.0" x2="1670.0" y2="404.0" stroke="#a16207" stroke-width="2"/>
+<rect x="890.0" y="358.0" width="780.0" height="304.0" rx="9" fill="none" stroke="#a16207" stroke-width="2"/>
+<text x="910.0" y="390.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#a16207">ЭКЗЕМПЛЯРЫ ТЕХНИКИ</text>
+<text x="1650.0" y="390.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">(equipment_units)</text>
+<text x="910.0" y="424.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EQ_ID</text>
+<text x="1084.5" y="424.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(10)</text>
+<text x="1168.5" y="424.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#b91c1c">PK</text>
+<text x="1209.6" y="424.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="900.0" y1="432.0" x2="1660.0" y2="432.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EQ_INV</text>
+<text x="1084.5" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">C(12)</text>
+<text x="1168.5" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="1287.3" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#7c3aed">UNIQUE</text>
+<line x1="900.0" y1="460.0" x2="1660.0" y2="460.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="480.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EQ_MOD</text>
+<text x="1084.5" y="480.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(6)</text>
+<text x="1168.5" y="480.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="1208.3" y="480.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="1650.0" y="480.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ models.MOD_ID</text>
+<line x1="900.0" y1="488.0" x2="1660.0" y2="488.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="508.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EQ_BR</text>
+<text x="1084.5" y="508.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(8)</text>
+<text x="1168.5" y="508.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="1208.3" y="508.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="1650.0" y="508.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ branches.BR_ID</text>
+<line x1="900.0" y1="516.0" x2="1660.0" y2="516.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="536.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EQ_STATUS</text>
+<text x="1084.5" y="536.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(12)</text>
+<text x="1168.5" y="536.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="1287.3" y="536.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#047857">CHECK</text>
+<line x1="900.0" y1="544.0" x2="1660.0" y2="544.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EQ_COND</text>
+<text x="1084.5" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(2)</text>
+<text x="1168.5" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="1208.3" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="1650.0" y="564.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ condition_grades.CG_ID</text>
+<line x1="900.0" y1="572.0" x2="1660.0" y2="572.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="592.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EQ_ACQUIRE</text>
+<text x="1084.5" y="592.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">DATE</text>
+<text x="1168.5" y="592.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="900.0" y1="600.0" x2="1660.0" y2="600.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="620.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EQ_LOCATION</text>
+<text x="1084.5" y="620.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(60)</text>
+<line x1="900.0" y1="628.0" x2="1660.0" y2="628.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="648.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">EQ_NOTE</text>
+<text x="1084.5" y="648.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(200)</text>
+<rect x="890.0" y="702.0" width="780.0" height="248.0" rx="9" fill="#ffffff" stroke="#a16207" stroke-width="2"/>
+<rect x="890.0" y="702.0" width="780.0" height="46.0" rx="9" fill="#fef9c3" stroke="none" stroke-width="0"/>
+<rect x="890.0" y="736.0" width="780.0" height="12.0" rx="0" fill="#fef9c3" stroke="none" stroke-width="0"/>
+<line x1="890.0" y1="748.0" x2="1670.0" y2="748.0" stroke="#a16207" stroke-width="2"/>
+<rect x="890.0" y="702.0" width="780.0" height="248.0" rx="9" fill="none" stroke="#a16207" stroke-width="2"/>
+<text x="910.0" y="734.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="start" fill="#a16207">ПЕРЕМЕЩЕНИЯ ТЕХНИКИ</text>
+<text x="1650.0" y="734.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">(transfers)</text>
+<text x="910.0" y="768.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">TR_ID</text>
+<text x="1062.5" y="768.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(10)</text>
+<text x="1146.5" y="768.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#b91c1c">PK</text>
+<text x="1187.6" y="768.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="900.0" y1="776.0" x2="1660.0" y2="776.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="796.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">TR_EQ</text>
+<text x="1062.5" y="796.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">N(10)</text>
+<text x="1146.5" y="796.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="1186.3" y="796.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="1650.0" y="796.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ equipment_units.EQ_ID</text>
+<line x1="900.0" y1="804.0" x2="1660.0" y2="804.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="824.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">TR_FROM</text>
+<text x="1062.5" y="824.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(8)</text>
+<text x="1146.5" y="824.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="1186.3" y="824.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="1650.0" y="824.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ branches.BR_ID</text>
+<line x1="900.0" y1="832.0" x2="1660.0" y2="832.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">TR_TO</text>
+<text x="1062.5" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(8)</text>
+<text x="1146.5" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="start" fill="#1d4ed8">FK</text>
+<text x="1186.3" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<text x="1305.1" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#047857">CHECK</text>
+<text x="1650.0" y="852.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="end" fill="#4b5563" font-style="italic">→ branches.BR_ID</text>
+<line x1="900.0" y1="860.0" x2="1660.0" y2="860.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="880.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">TR_DATE</text>
+<text x="1062.5" y="880.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">DATE</text>
+<text x="1146.5" y="880.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">NOT NULL</text>
+<line x1="900.0" y1="888.0" x2="1660.0" y2="888.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="908.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">TR_REASON</text>
+<text x="1062.5" y="908.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(200)</text>
+<line x1="900.0" y1="916.0" x2="1660.0" y2="916.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="910.0" y="936.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#111827">TR_DOC</text>
+<text x="1062.5" y="936.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="start" fill="#4b5563">V(30)</text>
+<text x="826.0" y="168.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#1f2937" stroke="#ffffff" stroke-width="5" paint-order="stroke" stroke-linejoin="round">1</text>
+<text x="874.0" y="168.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#1f2937" stroke="#ffffff" stroke-width="5" paint-order="stroke" stroke-linejoin="round">N</text>
+<text x="874.0" y="268.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#1f2937" stroke="#ffffff" stroke-width="5" paint-order="stroke" stroke-linejoin="round">1</text>
+<text x="836.0" y="604.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#1f2937" stroke="#ffffff" stroke-width="5" paint-order="stroke" stroke-linejoin="round">N</text>
+<rect x="815.0" y="431.0" width="70.0" height="28.0" rx="6" fill="#ffffff" stroke="#9ca3af" stroke-width="1.3"/>
+<text x="850.0" y="451.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" text-anchor="middle" fill="#1f2937">1 : N</text>
+<text x="398.0" y="456.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#1f2937" stroke="#ffffff" stroke-width="5" paint-order="stroke" stroke-linejoin="round">1</text>
+<text x="444.0" y="462.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#1f2937" stroke="#ffffff" stroke-width="5" paint-order="stroke" stroke-linejoin="round">N</text>
+<text x="1258.0" y="688.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#1f2937" stroke="#ffffff" stroke-width="5" paint-order="stroke" stroke-linejoin="round">1</text>
+<text x="1304.0" y="694.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#1f2937" stroke="#ffffff" stroke-width="5" paint-order="stroke" stroke-linejoin="round">N</text>
+<text x="30.0" y="1110.0" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4b5563">Ссылки за пределы схемы: branches (BR_ID), models (MOD_ID), condition_grades (CG_ID) — см. схемы 04a и 04c</text>
+<text x="30.0" y="1085.0" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#4b5563">Составной ключ UNIQUE: departments(DEP_UN, DEP_NAME) · CHECK: transfers(TR_FROM &lt;&gt; TR_TO), equipment_units(EQ_STATUS — допустимые статусы)</text>
+</svg>
