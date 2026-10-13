@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1000" viewBox="0 0 1700 1000"><rect width="100%" height="100%" fill="#ffffff"/>
+<text x="50.0" y="56.0" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="start" fill="#111827">Схема фрагментации РБД «CampusRent»: узлы и потоки данных</text>
+<text x="50.0" y="94.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#4b5563">Вариант A: состав каждого узла и потоки данных между узлами; цвет стрелки — метод поддержки</text>
+<rect x="50.0" y="110.0" width="590.0" height="290.0" rx="16" fill="#ffffff" stroke="#3730a3" stroke-width="3"/>
+<rect x="50.0" y="110.0" width="590.0" height="84.0" rx="16" fill="#e0e7ff" stroke="#e0e7ff" stroke-width="0"/>
+<rect x="50.0" y="174.0" width="590.0" height="20.0" rx="0" fill="#e0e7ff" stroke="#e0e7ff" stroke-width="0"/>
+<text x="76.0" y="154.0" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#3730a3">Центральный офис</text>
+<text x="76.0" y="184.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">HQ · Москва · мастер РОК, центр РКД</text>
+<line x1="76.0" y1="206.0" x2="614.0" y2="206.0" stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="76.0" y="220.0" width="18.0" height="18.0" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="106.0" y="238.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">НСИ — основная копия (мастер)</text>
+<rect x="76.0" y="251.0" width="18.0" height="18.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="106.0" y="269.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Клиенты — реплика РБОК (РИ)</text>
+<rect x="76.0" y="282.0" width="18.0" height="18.0" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="106.0" y="300.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Техника — консолидированная копия</text>
+<rect x="76.0" y="313.0" width="18.0" height="18.0" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="106.0" y="331.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Заявки — согласование и учёт</text>
+<rect x="76.0" y="344.0" width="18.0" height="18.0" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="106.0" y="362.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Договоры, платежи — основная копия</text>
+<rect x="76.0" y="375.0" width="18.0" height="18.0" rx="4" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
+<text x="106.0" y="393.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Обслуживание — сводный учёт затрат</text>
+<rect x="1060.0" y="110.0" width="590.0" height="290.0" rx="16" fill="#ffffff" stroke="#4b5563" stroke-width="3"/>
+<rect x="1060.0" y="110.0" width="590.0" height="84.0" rx="16" fill="#f3f4f6" stroke="#f3f4f6" stroke-width="0"/>
+<rect x="1060.0" y="174.0" width="590.0" height="20.0" rx="0" fill="#f3f4f6" stroke="#f3f4f6" stroke-width="0"/>
+<text x="1086.0" y="154.0" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#4b5563">Филиал СПб</text>
+<text x="1086.0" y="184.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">Санкт-Петербург · узел SPB</text>
+<line x1="1086.0" y1="206.0" x2="1624.0" y2="206.0" stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="1086.0" y="220.0" width="18.0" height="18.0" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="1116.0" y="238.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">НСИ — реплика (снимок 1 раз/сут)</text>
+<rect x="1086.0" y="251.0" width="18.0" height="18.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="1116.0" y="269.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Клиенты — реплика РБОК (РИ)</text>
+<rect x="1086.0" y="282.0" width="18.0" height="18.0" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="1116.0" y="300.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Техника — фрагмент EQ_BR = СПб</text>
+<rect x="1086.0" y="313.0" width="18.0" height="18.0" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="1116.0" y="331.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Заявки — рабочая копия + позиции</text>
+<rect x="1086.0" y="344.0" width="18.0" height="18.0" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="1116.0" y="362.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Договоры, выдачи, платежи — локально</text>
+<rect x="1086.0" y="375.0" width="18.0" height="18.0" rx="4" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
+<text x="1116.0" y="393.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Обслуживание и ремонт — локально</text>
+<rect x="50.0" y="560.0" width="590.0" height="290.0" rx="16" fill="#ffffff" stroke="#4b5563" stroke-width="3"/>
+<rect x="50.0" y="560.0" width="590.0" height="84.0" rx="16" fill="#f3f4f6" stroke="#f3f4f6" stroke-width="0"/>
+<rect x="50.0" y="624.0" width="590.0" height="20.0" rx="0" fill="#f3f4f6" stroke="#f3f4f6" stroke-width="0"/>
+<text x="76.0" y="604.0" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#4b5563">Филиал Казань</text>
+<text x="76.0" y="634.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">Казань · узел KZN</text>
+<line x1="76.0" y1="656.0" x2="614.0" y2="656.0" stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="76.0" y="670.0" width="18.0" height="18.0" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="106.0" y="688.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">НСИ — реплика (снимок 1 раз/сут)</text>
+<rect x="76.0" y="701.0" width="18.0" height="18.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="106.0" y="719.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Клиенты — реплика РБОК (РИ)</text>
+<rect x="76.0" y="732.0" width="18.0" height="18.0" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="106.0" y="750.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Техника — фрагмент EQ_BR = KZN</text>
+<rect x="76.0" y="763.0" width="18.0" height="18.0" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="106.0" y="781.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Заявки — рабочая копия + позиции</text>
+<rect x="76.0" y="794.0" width="18.0" height="18.0" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="106.0" y="812.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Договоры, выдачи, платежи — локально</text>
+<rect x="76.0" y="825.0" width="18.0" height="18.0" rx="4" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
+<text x="106.0" y="843.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Обслуживание и ремонт — локально</text>
+<rect x="1060.0" y="560.0" width="590.0" height="290.0" rx="16" fill="#ffffff" stroke="#c2410c" stroke-width="3"/>
+<rect x="1060.0" y="560.0" width="590.0" height="84.0" rx="16" fill="#ffedd5" stroke="#ffedd5" stroke-width="0"/>
+<rect x="1060.0" y="624.0" width="590.0" height="20.0" rx="0" fill="#ffedd5" stroke="#ffedd5" stroke-width="0"/>
+<text x="1086.0" y="604.0" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="start" fill="#c2410c">Узел консолидации</text>
+<text x="1086.0" y="634.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">consol · витрина аналитики</text>
+<line x1="1086.0" y1="656.0" x2="1624.0" y2="656.0" stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="1086.0" y="670.0" width="18.0" height="18.0" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="1116.0" y="688.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">НСИ — реплика (снимок 1 раз/сут)</text>
+<rect x="1086.0" y="701.0" width="18.0" height="18.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="1116.0" y="719.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Клиенты — реплика РБОК (РИ)</text>
+<rect x="1086.0" y="732.0" width="18.0" height="18.0" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="1116.0" y="750.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Техника — консолидированная копия</text>
+<rect x="1086.0" y="763.0" width="18.0" height="18.0" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="1116.0" y="781.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Заявки — консолидированная копия</text>
+<rect x="1086.0" y="794.0" width="18.0" height="18.0" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="1116.0" y="812.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Договоры, платежи — сводные копии</text>
+<rect x="1086.0" y="825.0" width="18.0" height="18.0" rx="4" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
+<text x="1116.0" y="843.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Обслуживание — сводный учёт затрат</text>
+<polyline points="640.0,200.0 1060.0,200.0" fill="none" stroke="#1d4ed8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="850.0" y="190.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#1d4ed8">РОК: ЦО → СПб</text>
+<polyline points="640.0,236.0 1060.0,236.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="850.0" y="226.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#15803d">РБОК: ЦО → СПб</text>
+<polyline points="1060.0,272.0 640.0,272.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="850.0" y="262.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#15803d">РБОК: СПб → ЦО</text>
+<polyline points="1060.0,308.0 640.0,308.0" fill="none" stroke="#c2410c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="850.0" y="298.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#c2410c">РКД: СПб → ЦО</text>
+<polyline points="640.0,600.0 1060.0,600.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="850.0" y="590.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#15803d">РБОК: Казань → consol</text>
+<polyline points="1060.0,636.0 640.0,636.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="850.0" y="626.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#15803d">РБОК: consol → Казань</text>
+<polyline points="640.0,672.0 1060.0,672.0" fill="none" stroke="#c2410c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="850.0" y="662.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="middle" fill="#c2410c">РКД: Казань → consol</text>
+<polyline points="70.0,400.0 70.0,560.0" fill="none" stroke="#1d4ed8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="86.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#1d4ed8">РОК ↓</text>
+<polyline points="190.0,400.0 190.0,560.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="206.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#15803d">РБОК ↓</text>
+<polyline points="310.0,560.0 310.0,400.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="326.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#15803d">РБОК ↑</text>
+<polyline points="430.0,560.0 430.0,400.0" fill="none" stroke="#c2410c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="446.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#c2410c">РКД ↑</text>
+<polyline points="1280.0,400.0 1280.0,560.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1296.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#15803d">РБОК ↓</text>
+<polyline points="1420.0,560.0 1420.0,400.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1436.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#15803d">РБОК ↑</text>
+<polyline points="1560.0,400.0 1560.0,560.0" fill="none" stroke="#c2410c" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1576.0" y="470.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#c2410c">РКД ↓</text>
+<polyline points="620.0,400.0 620.0,430.0 1230.0,430.0 1230.0,560.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="650.0" y="420.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#15803d">РБОК: ЦО ⇄ consol</text>
+<polyline points="560.0,400.0 560.0,470.0 1070.0,470.0 1070.0,560.0" fill="none" stroke="#1d4ed8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="650.0" y="460.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#1d4ed8">РОК: ЦО → consol</text>
+<polyline points="1130.0,400.0 1130.0,520.0 630.0,520.0 630.0,560.0" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="650.0" y="550.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#15803d">РБОК: СПб ⇄ Казань</text>
+<rect x="40.0" y="882.0" width="1620.0" height="112.0" rx="12" fill="#ffffff" stroke="#4b5563" stroke-width="1.6"/>
+<polyline points="66.0,926.0 154.0,926.0" fill="none" stroke="#1d4ed8" stroke-width="5.0" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="174.0" y="918.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#1d4ed8">РОК — с основной копией</text>
+<text x="174.0" y="948.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">ЦО (мастер) → филиалы, consol</text>
+<polyline points="586.0,926.0 674.0,926.0" fill="none" stroke="#15803d" stroke-width="5.0" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="694.0" y="918.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#15803d">РБОК — без основной копии</text>
+<text x="694.0" y="948.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">все узлы ⇄ все узлы (РИ)</text>
+<polyline points="1106.0,926.0 1194.0,926.0" fill="none" stroke="#c2410c" stroke-width="5.0" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1214.0" y="918.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#c2410c">РКД — с консолидацией</text>
+<text x="1214.0" y="948.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">филиалы → ЦО, consol (своды)</text>
+<text x="66.0" y="982.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#374151">Группы данных:</text>
+<rect x="287.8" y="966.0" width="18.0" height="18.0" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+<text x="313.8" y="982.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">НСИ</text>
+<rect x="402.0" y="966.0" width="18.0" height="18.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<text x="428.0" y="982.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Клиенты</text>
+<rect x="567.1" y="966.0" width="18.0" height="18.0" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="593.1" y="982.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Экземпляры техники</text>
+<rect x="887.3" y="966.0" width="18.0" height="18.0" rx="4" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+<text x="913.3" y="982.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Заявки</text>
+<rect x="1034.1" y="966.0" width="18.0" height="18.0" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+<text x="1060.1" y="982.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Договоры и платежи</text>
+<rect x="1346.1" y="966.0" width="18.0" height="18.0" rx="4" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
+<text x="1372.1" y="982.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" text-anchor="start" fill="#111827">Обслуживание</text>
+<polygon points="1060.0,200.0 1034.0,211.0 1034.0,189.0" fill="#1d4ed8"/>
+<polygon points="1060.0,236.0 1034.0,247.0 1034.0,225.0" fill="#15803d"/>
+<polygon points="640.0,272.0 666.0,261.0 666.0,283.0" fill="#15803d"/>
+<polygon points="640.0,308.0 666.0,297.0 666.0,319.0" fill="#c2410c"/>
+<polygon points="1060.0,600.0 1034.0,611.0 1034.0,589.0" fill="#15803d"/>
+<polygon points="640.0,636.0 666.0,625.0 666.0,647.0" fill="#15803d"/>
+<polygon points="1060.0,672.0 1034.0,683.0 1034.0,661.0" fill="#c2410c"/>
+<polygon points="70.0,560.0 59.0,534.0 81.0,534.0" fill="#1d4ed8"/>
+<polygon points="190.0,560.0 179.0,534.0 201.0,534.0" fill="#15803d"/>
+<polygon points="310.0,400.0 321.0,426.0 299.0,426.0" fill="#15803d"/>
+<polygon points="430.0,400.0 441.0,426.0 419.0,426.0" fill="#c2410c"/>
+<polygon points="1280.0,560.0 1269.0,534.0 1291.0,534.0" fill="#15803d"/>
+<polygon points="1420.0,400.0 1431.0,426.0 1409.0,426.0" fill="#15803d"/>
+<polygon points="1560.0,560.0 1549.0,534.0 1571.0,534.0" fill="#c2410c"/>
+<polygon points="1230.0,560.0 1219.0,534.0 1241.0,534.0" fill="#15803d"/>
+<polygon points="620.0,400.0 631.0,426.0 609.0,426.0" fill="#15803d"/>
+<polygon points="1070.0,560.0 1059.0,534.0 1081.0,534.0" fill="#1d4ed8"/>
+<polygon points="630.0,560.0 619.0,534.0 641.0,534.0" fill="#15803d"/>
+<polygon points="1130.0,400.0 1141.0,426.0 1119.0,426.0" fill="#15803d"/>
+<polygon points="154.0,926.0 128.0,937.0 128.0,915.0" fill="#1d4ed8"/>
+<polygon points="674.0,926.0 648.0,937.0 648.0,915.0" fill="#15803d"/>
+<polygon points="586.0,926.0 612.0,915.0 612.0,937.0" fill="#15803d"/>
+<polygon points="1194.0,926.0 1168.0,937.0 1168.0,915.0" fill="#c2410c"/>
+</svg>
