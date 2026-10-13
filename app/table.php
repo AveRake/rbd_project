@@ -108,6 +108,7 @@ $pkNames = array_column($pkCols, 'Column_name');
 <header>
   <a href="index.php">← главное меню</a>
   <h1><?= h(table_title($table)) ?> <span style="font-weight:400;font-size:13px">(<?= h($table) ?>)</span></h1>
+  <div style="opacity:.85;font-size:13px">узел <?= h(node_caption()) ?></div>
 </header>
 <main>
   <?php if ($message): ?><div class="msg"><?= h($message) ?></div><?php endif; ?>

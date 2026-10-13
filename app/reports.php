@@ -77,6 +77,7 @@ if (isset($reports[$selected])) {
 <header>
   <a href="index.php">← главное меню</a>
   <h1>Отчётные формы</h1>
+  <div style="opacity:.85;font-size:13px">узел <?= h(node_caption()) ?></div>
 </header>
 <main>
   <nav>

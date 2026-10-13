@@ -13,6 +13,26 @@ function cfg(string $key, string $default): string
 
 const DB_NAME = 'campusrent';
 
+/** Роль узла по номеру порта: чтобы на экране было видно, какая база открыта. */
+function node_role(): string
+{
+    $roles = [
+        '3306' => 'центральный офис (основная копия НСИ)',
+        '3307' => 'филиал Санкт-Петербург',
+        '3308' => 'узел консолидации (сводная копия)',
+        '3309' => 'филиал Казань',
+    ];
+    $port = cfg('DB_PORT', '3306');
+    return $roles[$port] ?? 'внешний узел';
+}
+
+/** Подпись узла для шапки страницы: адрес, порт и роль. */
+function node_caption(): string
+{
+    return cfg('DB_HOST', '127.0.0.1') . ':' . cfg('DB_PORT', '3306')
+        . ' — ' . node_role();
+}
+
 function db(): PDO
 {
     static $pdo = null;
